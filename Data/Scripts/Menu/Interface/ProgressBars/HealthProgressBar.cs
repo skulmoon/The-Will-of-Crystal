@@ -24,4 +24,16 @@ public partial class HealthProgressBar : ProgressBar
     {
         Global.SceneObjects.PlayerChanged -= PlayerChanged;
     }
+
+    public void HideBar()
+    {
+        CreateTween().TweenProperty(this, "position:x", Position.X - 80, 0.5f);
+        CreateTween().TweenProperty(this, "modulate:a", 0, 0.5f);
+    }
+
+    public void ShowBar()
+    {
+        CreateTween().TweenProperty(this, "position:x", Position.X + 80, 0.5f);
+        CreateTween().TweenProperty(this, "modulate:a", 1, 0.5f);
+    }
 }

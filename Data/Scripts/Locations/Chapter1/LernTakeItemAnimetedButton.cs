@@ -20,12 +20,11 @@ public partial class LernTakeItemAnimetedButton : AnimatedSprite2D
 
     public void Activate()
 	{
-        if ((bool?)Global.SceneObjects.Location.LocationData.Find(x => x.ID == 2).Value ?? false)
+        if (Global.SceneObjects.Location.GetData<bool?>(2) ?? false)
         {
             return;
         }
-        Global.SceneObjects.Location.LocationData.Add((2, true));
-        Global.JSON.SetLocationData(Global.SceneObjects.Location.LocationData);
+        Global.SceneObjects.Location.SetData(2, true);
         string str = Global.Settings.SaveData.CurrentLocation;
         Play();
         Tween tween1 = CreateTween();
@@ -47,12 +46,6 @@ public partial class LernTakeItemAnimetedButton : AnimatedSprite2D
                 strKey = eventMouse.ButtonIndex.GetName();
         _text.Text += $"\"{strKey}\".";
         _char.Text = strKey;
-        GetNode<DroppedItem>("%StartShard").Take += () =>
-        {
-            Material = null;
-            _text.Material = null;
-            CreateTween().TweenProperty(this, "modulate:a", 0, 0.5f);
-        };
         Tween tween2 = CreateTween();
         tween2.SetLoops();
         tween2.TweenProperty(_char, "position", _char.Position, 9f / 12f);
@@ -62,6 +55,13 @@ public partial class LernTakeItemAnimetedButton : AnimatedSprite2D
         tween2.TweenProperty(_char, "position", _char.Position + new Vector2(0, 4), 11f / 12f);
         tween2.Chain();
         tween2.TweenProperty(_char, "position", _char.Position, 0);
+        GetNode<DroppedItem>("%StartShard").Take += () =>
+        {
+            Material = null;
+            _text.Material = null;
+            CreateTween().TweenProperty(this, "modulate:a", 0, 0.5f);
+            GetNode<LerningInventoryText>("%InventoryText").Activate();
+        };
     }
 
     public void SetMaskPosition(Vector2 position) =>

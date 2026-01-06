@@ -1,4 +1,5 @@
 shader_type canvas_item;
+
 uniform sampler2D mask_texture;
 uniform vec2 mask_offset = vec2(0.0);
 

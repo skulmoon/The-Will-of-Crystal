@@ -5,9 +5,8 @@ using System.Reflection;
 public partial class HitBox : Area2D
 {
     private Player _player;
-    private int _maxHealth = 1000;
-    private int _health = 1000;
-
+    private int _maxHealth = 100;
+    private int _health = 100;
     public Action<Armor2D> _changedArmor;
 
     public Armor2D Armor2D { get; set; }
@@ -23,28 +22,29 @@ public partial class HitBox : Area2D
     }
 
     public int Health { 
-        get => _health + Armor2D?.AdditionalHealth ?? 0;
+        get => _health + (Armor2D?.AdditionalHealth ?? 0);
         set
         {
             if (value > _maxHealth)
             {
                 _health = _maxHealth;
-                Armor2D.AdditionalHealth = value - _maxHealth;
+                if (Armor2D != null)
+                    Armor2D.AdditionalHealth = value - _maxHealth;
             }
             else
             {
+                _health = value;
                 if (Armor2D != null)
                     Armor2D.AdditionalHealth = 0;
-                _health = value;
             }
-            ChangeHealth.Invoke(Health);
+            ChangeHealth?.Invoke(Health);
             if (value < 0)
             {
                 Global.SceneObjects.ChangeScene("res://Data/Scenes/Menu/MainMenu.tscn");
             }
         }
     }
-    public int MaxHealth { get => _maxHealth + Armor2D?.MaxHealth ?? 0; }
+    public int MaxHealth { get => _maxHealth + (Armor2D?.MaxHealth ?? 0); }
 
     public HitBox()
     {

@@ -5,7 +5,7 @@ public partial class FistAttackMeleSkeleton : EnemyAttack
 {
     private Vector2 _direction;
 
-    public FistAttackMeleSkeleton(int damage, Vector2 enemyPosition, Vector2 targetPosition) : base(damage, 0.25)
+    public FistAttackMeleSkeleton(int damage, Vector2 enemyPosition, Vector2 targetPosition) : base(damage, 0.25, "res://Data/Textures/Entities/Enemys/Charapter1/WhiteCube.tscn")
     {
         Shape = new CircleShape2D()
         {

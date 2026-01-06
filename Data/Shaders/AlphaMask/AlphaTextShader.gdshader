@@ -1,4 +1,5 @@
 shader_type canvas_item;
+
 uniform sampler2D mask_texture;
 uniform vec2 mask_offset = vec2(0.0);
 uniform vec2 node_rect_size = vec2(100.0, 100.0); // Значение по умолчанию, будет перезаписано из скрипта

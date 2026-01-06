@@ -12,10 +12,15 @@ public partial class GameLoader : Control
 
 	public override void _Ready()
 	{
+        Control saves = GetNode<Control>("Saves");
+        float pixelSize = saves.Size.Y / 144;
+        saves.OffsetRight = pixelSize * 104;
+        saves.OffsetLeft = -saves.OffsetRight;
         _container = GetNode<VBoxContainer>("/root/MainMenu/GameLoader/Saves/VBoxContainer");
         for (int i = 0; i < Global.Settings.Saves.Count; i++)
         {
             var button = new NameSaveButton();
+            button.CustomMinimumSize = new Vector2(0, pixelSize * 26);
             button.Text = Global.Settings.Saves[i].Name;
             button.Name = Global.Settings.Saves[i].Name;
             button.CurrentSaveName += ChangeCurrentButton;
@@ -45,7 +50,7 @@ public partial class GameLoader : Control
     public void LoadSave()
     {
         Global.SaveManager.LoadSave(_currentSave);
-        GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.SaveData.CurrentLocation}.tscn");
+        Global.SceneObjects.Storage.GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.SaveData.CurrentLocation}.tscn");
     }
 
     public void OnPressedDelete()

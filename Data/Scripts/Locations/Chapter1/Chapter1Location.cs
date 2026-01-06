@@ -5,7 +5,7 @@ public partial class Chapter1Location : Location
 {
 	public override void _Ready()
 	{
-		AddChild(new EnemyCoreCharapter1());
 		base._Ready();
+		Global.Music.PlayMusic("Sunsefering.ogg");
 	}
 }

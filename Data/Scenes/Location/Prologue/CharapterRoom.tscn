@@ -1,11 +1,30 @@
-[gd_scene load_steps=15 format=4 uid="uid://don7otkxf1g5x"]
+[gd_scene load_steps=39 format=4 uid="uid://don7otkxf1g5x"]
 
 [ext_resource type="Texture2D" uid="uid://bo2v6khkb1xf7" path="res://Data/Textures/Locations/Prologue/RoomTiles.png" id="1_ckcnk"]
 [ext_resource type="Script" uid="uid://dmliy0q5mp1kf" path="res://Data/Scripts/Locations/Prologue/CharapterRoom.cs" id="1_d241j"]
-[ext_resource type="PackedScene" uid="uid://dhgr62sao2gjo" path="res://Data/Scenes/Entities/Player/Player.tscn" id="2_u237c"]
+[ext_resource type="Script" uid="uid://dutcdm6ou018k" path="res://Data/Scripts/Entities/NPC/CameraNPC.cs" id="3_028ic"]
 [ext_resource type="Script" uid="uid://cb22anbbcknaf" path="res://Data/Scripts/Entities/Interection/DialogueStarter.cs" id="4_alt8j"]
 [ext_resource type="Script" uid="uid://b1mm4y8lqfmla" path="res://Data/Scripts/Locations/ConductivePath.cs" id="4_mbsgf"]
-[ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/DialogPanel.tscn" id="6_f3eyf"]
+[ext_resource type="Script" uid="uid://p8xfjd804te8" path="res://Data/Scripts/Entities/NPC/InteractionDefault.cs" id="4_urj6q"]
+[ext_resource type="PackedScene" uid="uid://bb5bfk3m2lect" path="res://Data/Scenes/Entities/NPC/Human.tscn" id="5_028ic"]
+[ext_resource type="Script" uid="uid://bow4lif362fs3" path="res://Data/Scripts/Menu/Interface/Interface.cs" id="8_j416n"]
+[ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/DialogPanel.tscn" id="9_msfvk"]
+[ext_resource type="Texture2D" uid="uid://dlmvagk55uwq0" path="res://Data/Textures/Menu/Interface/HealthAndStaminaBar.png" id="10_80wc5"]
+[ext_resource type="Script" uid="uid://ivrj55cuvd4m" path="res://Data/Scripts/Menu/Interface/ProgressBars/HealthAndStaminaBar.cs" id="11_naf5v"]
+[ext_resource type="Script" uid="uid://ut3cllc1tsuu" path="res://Data/Scripts/Menu/Interface/ProgressBars/HealthProgressBar.cs" id="12_80wmj"]
+[ext_resource type="Script" uid="uid://chhs0qx4rkapc" path="res://Data/Scripts/Menu/Interface/ProgressBars/PowerProgressBar.cs" id="13_7lvrs"]
+[ext_resource type="Script" uid="uid://bqhqf4m7lqv0j" path="res://Data/Scripts/Menu/Interface/ProgressBars/FirstShardAbilityBar.cs" id="14_wb1fs"]
+[ext_resource type="Script" uid="uid://bv47fvd7qj5jy" path="res://Data/Scripts/Menu/Interface/ProgressBars/SecondShardAbilityBar.cs" id="15_xwn5y"]
+[ext_resource type="Script" uid="uid://bjr17i2e1fk62" path="res://Data/Scripts/Menu/Interface/ProgressBars/FirstArmorAbilityBar.cs" id="16_v1bfw"]
+[ext_resource type="Script" uid="uid://rjayllecas6" path="res://Data/Scripts/Menu/Interface/ProgressBars/SecondArmorAbilityBar.cs" id="17_2eu3m"]
+[ext_resource type="Script" uid="uid://baekalbgvb077" path="res://Data/Scripts/Menu/Interface/ShardCells.cs" id="18_tsg4x"]
+[ext_resource type="Texture2D" uid="uid://hygyxvk3ddel" path="res://Data/Textures/Menu/Interface/ItemBar.png" id="19_0ek3b"]
+[ext_resource type="Script" uid="uid://dlrslxh5hekv6" path="res://Data/Scripts/Menu/Interface/ShardCell.cs" id="20_c4qx3"]
+[ext_resource type="Shader" uid="uid://bbrj0hata7gby" path="res://Data/Shaders/MenuDark.gdshader" id="21_80wc5"]
+[ext_resource type="PackedScene" uid="uid://5p113gt2878n" path="res://Data/Scenes/Menu/Trade/TradeMenu.tscn" id="21_svwtu"]
+[ext_resource type="PackedScene" uid="uid://qejl5dn1sgf8" path="res://Data/Scenes/Menu/Interface/Inventory/InventoryMenu.tscn" id="22_fshrs"]
+[ext_resource type="Script" uid="uid://dwj6pd3ruyisr" path="res://Data/Scripts/Menu/Interface/UIDark.cs" id="22_naf5v"]
+[ext_resource type="PackedScene" uid="uid://cfpu5icvlw782" path="res://Data/Scenes/Menu/Interface/PauseMenu/PauseMenu.tscn" id="23_h3ots"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vflmr"]
 texture = ExtResource("1_ckcnk")
@@ -52,6 +71,10 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 4
 sources/0 = SubResource("TileSetAtlasSource_vflmr")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkoiv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ehlst"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_slnb3"]
 texture = ExtResource("1_ckcnk")
@@ -132,39 +155,73 @@ size = Vector2(28, 39)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwyf3"]
 size = Vector2(36, 52)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_gvp45"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8b8mw"]
+bg_color = Color(0.6, 0.10800001, 0.10800001, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgfk6"]
+bg_color = Color(0.22428018, 0.70422673, 0.40566593, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_80wmj"]
+shader = ExtResource("21_80wc5")
+shader_parameter/dark_power = 0.6
+shader_parameter/dark_scale = 1.5
+shader_parameter/noise_scale = 0.6
+shader_parameter/cursor_position = Vector2(0, 0)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_btvnv"]
 
 [node name="CharapterRoom" type="Node2D"]
 script = ExtResource("1_d241j")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
 position = Vector2(16, 224)
 tile_map_data = PackedByteArray("AAABAAEAAAAAAAMAAAABAAIAAAAAAAIAAAABAAMAAAAAAAIAAAABAAQAAAAAAAIAAAACAAEAAAAAAAIAAAACAAIAAAAAAAIAAAACAAMAAAAAAAIAAAACAAQAAAAAAAIAAAADAAEAAAAAAAIAAAADAAIAAAAAAAMAAAADAAMAAAABAAIAAAADAAQAAAAAAAIAAAAEAAEAAAAAAAIAAAAEAAIAAAAAAAIAAAAEAAMAAAAAAAIAAAAEAAQAAAAAAAIAAAAFAAEAAAAAAAIAAAAFAAIAAAAAAAIAAAAFAAMAAAAAAAIAAAAFAAQAAAAAAAIAAAABAP7/AAABAAEAAAACAP7/AAABAAEAAAADAP7/AAABAAEAAAAEAP7/AAABAAEAAAAFAP7/AAABAAEAAAABAP//AAABAAEAAAABAAAAAAABAAEAAAACAP//AAABAAEAAAACAAAAAAABAAEAAAADAP//AAABAAEAAAADAAAAAAABAAEAAAAEAP//AAABAAEAAAAEAAAAAAABAAEAAAAFAP//AAABAAEAAAAFAAAAAAABAAEAAAABAAUAAAAAAAIAAAACAAUAAAAAAAIAAAADAAUAAAAAAAIAAAAEAAUAAAAAAAIAAAAFAAUAAAABAAMAAAAAAAYAAAACAAIAAAABAAYAAAACAAIAAAACAAYAAAACAAIAAAADAAYAAAACAAIAAAAEAAYAAAACAAIAAAAFAAYAAAACAAIAAAAGAAYAAAACAAIAAAAGAAUAAAACAAIAAAAGAAQAAAACAAIAAAAGAAMAAAACAAIAAAAGAAIAAAACAAIAAAAGAAEAAAACAAIAAAAGAAAAAAACAAIAAAAGAP//AAACAAIAAAAGAP7/AAACAAIAAAAGAP3/AAACAAIAAAAFAP3/AAACAAIAAAAEAP3/AAACAAIAAAADAP3/AAACAAIAAAACAP3/AAACAAIAAAABAP3/AAACAAIAAAAAAP3/AAACAAIAAAAAAP7/AAACAAIAAAAAAP//AAACAAIAAAAAAAAAAAACAAIAAAAAAAEAAAACAAIAAAAAAAIAAAACAAIAAAAAAAMAAAACAAIAAAAAAAQAAAACAAIAAAAAAAUAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_cykjq")
 
+[node name="Camera" type="CharacterBody2D" parent="TileMapLayer"]
+position = Vector2(112, 104)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_028ic")
+Offset = Vector2(-30, -10)
+DefaultZoom = Vector2(2, 2)
+ID = 3
+Speed = 80.0
+
+[node name="NPCInteractionArea" type="Area2D" parent="TileMapLayer/Camera"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("4_urj6q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Camera/NPCInteractionArea"]
+shape = SubResource("RectangleShape2D_bkoiv")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="TileMapLayer/Camera"]
+position = Vector2(0, -1)
+scale = Vector2(1, 1.00781)
+sprite_frames = SubResource("SpriteFrames_ehlst")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TileMapLayer/Camera"]
+
 [node name="DecorativeObjects" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
 position = Vector2(16, 224)
 tile_map_data = PackedByteArray("AAACAP7/AAAGAAAAAAACAP//AAAGAAEAAAADAP7/AAAHAAAAAAADAP//AAAHAAEAAAABAAEAAAAJAAAAAAABAAIAAAAJAAEAAAACAAEAAAAKAAAAAAACAAIAAAAKAAEAAAACAAMAAAAKAAIAAAABAAUAAAAJAAQAAAACAAQAAAAKAAMAAAACAAUAAAAKAAQAAAAFAAAAAAALAAAAAAAFAAEAAAALAAEAAAAFAAIAAAALAAIAAAABAAQAAAAJAAMAAAABAAMAAAAJAAIAAAABAAAAAAACAAIAAAACAAAAAAACAAIAAAADAAAAAAACAAIAAAAEAAAAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_u120y")
 
-[node name="Interface" type="CanvasLayer" parent="."]
-
-[node name="DialogPanel" parent="Interface" instance=ExtResource("6_f3eyf")]
-process_mode = 1
-process_priority = -6
-visible = false
-offset_top = -262.0
-region_rect = Rect2(2.1489, 0, 317.851, 320)
-
-[node name="Player" parent="." instance=ExtResource("2_u237c")]
-position = Vector2(161, 400)
+[node name="Human" parent="." instance=ExtResource("5_028ic")]
+unique_name_in_owner = true
+position = Vector2(112, 408)
+Speed = 40.0
 
 [node name="Bed" type="Area2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(59, 266)
 collision_layer = 13
 collision_mask = 13
 script = ExtResource("4_mbsgf")
-Path = "Charapter1/StartingTrail"
+Path = "Chapter1/StartingTrail"
 EndPosition = Vector2(240, 350)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
@@ -193,16 +250,206 @@ Number = 2
 position = Vector2(4, -10)
 shape = SubResource("RectangleShape2D_dwyf3")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Interface" type="CanvasLayer" parent="." node_paths=PackedStringArray("Dark", "MenuDark")]
+unique_name_in_owner = true
+script = ExtResource("8_j416n")
+Dark = NodePath("Dark")
+MenuDark = NodePath("Dark")
 
-[node name="Dark" type="TextureRect" parent="CanvasLayer"]
+[node name="DialogPanel" parent="Interface" instance=ExtResource("9_msfvk")]
+
+[node name="HealthAndStaminaBar" type="TextureRect" parent="Interface"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.60300004
+anchor_right = 1.0
+anchor_bottom = 0.32200003
+offset_left = -6.1035156e-05
+offset_bottom = 0.17832947
+grow_horizontal = 0
+texture = ExtResource("10_80wc5")
+expand_mode = 5
+script = ExtResource("11_naf5v")
+
+[node name="HealthProgressBar" type="ProgressBar" parent="Interface/HealthAndStaminaBar"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.034
+anchor_top = 0.12900001
+anchor_right = 0.633
+anchor_bottom = 0.30600002
+offset_left = -0.20570278
+offset_top = 0.060367584
+offset_right = -0.15475464
+offset_bottom = 0.0966835
+theme_override_styles/fill = SubResource("StyleBoxFlat_8b8mw")
+fill_mode = 1
+show_percentage = false
+script = ExtResource("12_80wmj")
+
+[node name="PowerProgressBar" type="ProgressBar" parent="Interface/HealthAndStaminaBar"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21900001
+anchor_top = 0.30600002
+anchor_right = 0.58000004
+anchor_bottom = 0.43100002
+offset_left = 0.18565369
+offset_top = 0.0966835
+offset_right = 0.084472656
+offset_bottom = -0.0076065063
+theme_override_styles/fill = SubResource("StyleBoxFlat_vgfk6")
+fill_mode = 1
+show_percentage = false
+script = ExtResource("13_7lvrs")
+
+[node name="FirstShardAbilityBar" type="ProgressBar" parent="Interface"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -49.0
+offset_right = 127.0
+offset_bottom = -30.0
+grow_vertical = 0
+script = ExtResource("14_wb1fs")
+
+[node name="Label" type="Label" parent="Interface/FirstShardAbilityBar"]
+layout_mode = 0
+offset_top = -17.0
+offset_right = 125.0
+offset_bottom = -2.0
+
+[node name="SecondShardAbilityBar" type="ProgressBar" parent="Interface"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -19.0
+offset_right = 129.0
+grow_vertical = 0
+script = ExtResource("15_xwn5y")
+
+[node name="Label" type="Label" parent="Interface/SecondShardAbilityBar"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -16.0
+offset_right = 126.0
+offset_bottom = -1.0
+
+[node name="FirstArmorAbilityBar" type="ProgressBar" parent="Interface"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -127.0
+offset_top = -49.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("16_v1bfw")
+HidePosition = Vector2(80, 0)
+
+[node name="Label" type="Label" parent="Interface/FirstArmorAbilityBar"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -15.0
+offset_right = 124.0
+
+[node name="SecondArmorAbilityBar" type="ProgressBar" parent="Interface"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("17_2eu3m")
+HidePosition = Vector2(80, 0)
+
+[node name="Label" type="Label" parent="Interface/SecondArmorAbilityBar"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 127.0
+
+[node name="Shards" type="Control" parent="Interface"]
+visible = false
+layout_mode = 3
+anchor_top = 0.68
+anchor_bottom = 1.0
+offset_top = -0.2800293
+offset_right = 442.0
+grow_vertical = 2
+script = ExtResource("18_tsg4x")
+
+[node name="ShardCell" type="TextureRect" parent="Interface/Shards"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 1.0
+texture = ExtResource("19_0ek3b")
+stretch_mode = 5
+script = ExtResource("20_c4qx3")
+
+[node name="ShardCell2" type="TextureRect" parent="Interface/Shards"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 0.5
+anchor_bottom = 1.0
+texture = ExtResource("19_0ek3b")
+stretch_mode = 5
+script = ExtResource("20_c4qx3")
+
+[node name="ShardCell3" type="TextureRect" parent="Interface/Shards"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.75
+anchor_bottom = 1.0
+texture = ExtResource("19_0ek3b")
+stretch_mode = 5
+script = ExtResource("20_c4qx3")
+
+[node name="ShardCell4" type="TextureRect" parent="Interface/Shards"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("19_0ek3b")
+stretch_mode = 5
+script = ExtResource("20_c4qx3")
+
+[node name="Dark" type="TextureRect" parent="Interface"]
 unique_name_in_owner = true
 visible = false
 modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_80wmj")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("CanvasTexture_gvp45")
+texture = SubResource("CanvasTexture_btvnv")
+script = ExtResource("22_naf5v")
+
+[node name="TradeMenu" parent="Interface" instance=ExtResource("21_svwtu")]
+visible = false
+
+[node name="InventoryMenu" parent="Interface" instance=ExtResource("22_fshrs")]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+
+[node name="PauseMenu" parent="Interface" instance=ExtResource("23_h3ots")]
+visible = false

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://csrru1i1mbbnl" path="res://Data/Textures/Menu/Buttons/BaseButton/HoverButton3.png" id="7_kkhs4"]
 [ext_resource type="Texture2D" uid="uid://bf87dgtcg0goy" path="res://Data/Textures/Menu/Buttons/BaseButton/HoverButton4.png" id="8_foqiv"]
 [ext_resource type="Texture2D" uid="uid://cy156e7jn617i" path="res://Data/Textures/Menu/Buttons/BaseButton/HoverButton.png" id="9_nvheb"]
-[ext_resource type="Script" uid="uid://d2kg6yaa5pha1" path="res://Data/Scripts/Menu/Buttons/ButtonAnimationPlayer.cs" id="10_wl3ox"]
+[ext_resource type="Script" uid="uid://d2kg6yaa5pha1" path="res://Data/Scripts/Tools/DefaultAnimationPlayer.cs" id="10_wl3ox"]
 
 [sub_resource type="Animation" id="Animation_m71js"]
 resource_name = "NormalButton"

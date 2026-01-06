@@ -1,7 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://qejl5dn1sgf8"]
+[gd_scene load_steps=10 format=3 uid="uid://qejl5dn1sgf8"]
 
-[ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/Inventory/InventoryMenu.cs" id="1_uy33e"]
-[ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/Inventory/InventoryItems.cs" id="2_ki7kg"]
+[ext_resource type="Script" uid="uid://bliorlx32lwd3" path="res://Data/Scripts/Menu/Interface/Inventory/InventoryMenu.cs" id="1_uy33e"]
+[ext_resource type="Shader" uid="uid://qf5iis4sn158" path="res://Data/Shaders/InterfaseNoise.gdshader" id="2_2gdsw"]
+[ext_resource type="Script" uid="uid://tsps8wc8tc1o" path="res://Data/Scripts/Menu/Interface/Inventory/InventoryItems.cs" id="2_ki7kg"]
+[ext_resource type="Texture2D" uid="uid://diyagomelcmde" path="res://Data/Textures/Menu/Interface/InventoryPanel.png" id="2_r41r3"]
+[ext_resource type="Script" uid="uid://bwhx001vyejok" path="res://Data/Scripts/Menu/PixelFormater.cs" id="4_kaaoj"]
+[ext_resource type="Script" uid="uid://bpptnefxuxx10" path="res://Data/Scripts/Tools/NoiseChanger.cs" id="5_3f3m0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yejyy"]
+noise_type = 3
+frequency = 0.0266
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kaaoj"]
+width = 326
+height = 200
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_yejyy")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3f3m0"]
+shader = ExtResource("2_2gdsw")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_kaaoj")
+shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
+shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
+shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
+shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
 
 [node name="InventoryMenu" type="Control"]
 layout_mode = 3
@@ -11,6 +36,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uy33e")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_3f3m0")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.109
+anchor_right = 0.5
+anchor_bottom = 0.891
+offset_left = -420.0
+offset_right = 420.0
+texture = ExtResource("2_r41r3")
+stretch_mode = 5
+script = ExtResource("4_kaaoj")
+
+[node name="Node" type="Node" parent="TextureRect"]
+script = ExtResource("5_3f3m0")
+Noise = SubResource("NoiseTexture2D_kaaoj")
 
 [node name="Items" type="Control" parent="."]
 layout_mode = 1

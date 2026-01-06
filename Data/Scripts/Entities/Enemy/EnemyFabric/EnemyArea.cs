@@ -4,6 +4,7 @@ using System;
 public partial class EnemyArea : Area2D
 {
     [Export] public int Difficulty { get; set; }
+    [Export] public EnemyType Type { get; set; }
 
     public void PlaceEnemy(Enemy enemy)
     {

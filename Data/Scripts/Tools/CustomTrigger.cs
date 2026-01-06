@@ -4,7 +4,7 @@ using System;
 public partial class CustomTrigger : Area2D
 {
     public CollisionShape2D CollisionShape { get; set; }
-    public Shape2D Shape { get => CollisionShape.Shape; }
+    public Shape2D Shape { get => CollisionShape?.Shape ?? null; }
 
     public CustomTrigger(uint collisionMask, Shape2D shape, BodyEnteredEventHandler bodyEntered = null, BodyExitedEventHandler bodyExited = null)
     {

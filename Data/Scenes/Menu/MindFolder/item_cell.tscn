@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbcwye4k4gsc2"]
+
+[ext_resource type="Script" uid="uid://bvro2tnkm5c0k" path="res://Data/Scripts/Menu/MindFolder/ItemCell.cs" id="1_sp8x2"]
+
+[node name="ItemCell" type="CharacterBody2D"]
+process_mode = 4
+visible = false
+script = ExtResource("1_sp8x2")

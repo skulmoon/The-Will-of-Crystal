@@ -17,7 +17,7 @@ public partial class DistantSkeleton : Enemy
         }
     }
 
-    public DistantSkeleton() : base(speed: 200, damage: 20, health: 100, "Charapter1/DistantSkeleton.tscn")
+    public DistantSkeleton() : base(speed: 200, damage: 20, health: 40, "Charapter1/DistantSkeleton.tscn")
     {
         State = new СalmDistantSkeletonState(this);
         Trigger = new CustomTrigger(4,
@@ -34,9 +34,6 @@ public partial class DistantSkeleton : Enemy
         AddChild(Trigger);
     }
 
-    public override void TakeDamage(float damage)
-    {
-        GD.Print($"Enemy take {damage} damage.");
-        base.TakeDamage(damage);
-    }
+    public override EnemyType GetEnemyType() =>
+        EnemyType.Distant;
 }

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddo4h0ssboxsg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qvda0"]
+
+[node name="ShovelAttack" type="Sprite2D"]
+position = Vector2(0, 4.7683716e-07)
+scale = Vector2(4, 30)
+texture = SubResource("CanvasTexture_qvda0")

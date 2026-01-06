@@ -3,10 +3,9 @@ using System;
 
 public partial class StartShard : Shard2D
 {
-    private Sprite2D _sprite;
-
     public StartShard(Action<Shard2D> zeroHealth, int health, float damage, int speed, float timeReload, float critChance, int maxRange) : base(zeroHealth, health, damage, speed, timeReload, critChance, maxRange)
     {
+        Sprite.Texture = GD.Load<Texture2D>("res://Data/Textures/Entities/Shards/StartShard.png");
         Light.Color = new Color(0.2f, 1, 1);
     }
 

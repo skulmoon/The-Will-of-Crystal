@@ -25,13 +25,10 @@ public partial class NPC : CharacterBody2D
         AnimatedSprite2D.Play();
         try
         {
-            _interactionArea = GetNode<Area2D>("NPCInteractionArea");
+            _interactionArea = GetNodeOrNull<Area2D>("NPCInteractionArea");
             _interactionArea.SetScript(GD.Load(NPCInteractionPath));
         }
-        catch
-        {
-            GD.Print("Path is incorrect.");
-        }
+        catch { }
     }
 
     public override void _ExitTree() =>
@@ -85,7 +82,6 @@ public partial class NPC : CharacterBody2D
             _endPAData?.Invoke();
             Position = _nextPAData.Value.Position;
             IsMove = false;
-            ProcessMode = ProcessModeEnum.Disabled;
         }
     }
 
@@ -99,6 +95,5 @@ public partial class NPC : CharacterBody2D
         }
         _endPAData?.Invoke();
         IsMove = false;
-        ProcessMode = ProcessModeEnum.Disabled;
     }
 }

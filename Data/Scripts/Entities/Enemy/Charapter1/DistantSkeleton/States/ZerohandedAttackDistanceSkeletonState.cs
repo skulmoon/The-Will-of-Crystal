@@ -12,8 +12,8 @@ public partial class ZerohandedAttackDistanceSkeletonState : Node, IDistantSkele
         _enemy = enemy;
         AddChild(_attackTimer);
         AddChild(_endTimer);
-        _attackTimer.Timeout += () => _enemy.Attack(new TestEnemyAttack1(_enemy.Damage, 2, _enemy.GlobalPosition, Global.SceneObjects.Player?.GlobalPosition ?? Vector2.Zero));
-        _endTimer.Timeout += () => _enemy.QueueFree();
+        _attackTimer.Timeout += () => _enemy.Attack(new DistanSkeletonThrowHandAttack(_enemy.Damage, 2, _enemy.GlobalPosition, Global.SceneObjects.Player?.GlobalPosition ?? Vector2.Zero));
+        _endTimer.Timeout += () => _enemy.TakeDamage(_enemy.Health);
     }
 
     public string GetAnimation() =>

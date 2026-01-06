@@ -21,12 +21,11 @@ public partial class ConductivePath : Area2D, IInteractionArea
 
     public void Interaction()
     {
+        Global.SaveManager.SaveGame();
         var tree = GetTree();
         Global.Settings.SaveData.CurrentLocation = Path;
-        tree.CurrentScene.GetNode<TextureRect>("%Dark").Visible = true;
-        tree.CurrentScene.GetNode<TextureRect>("%Dark").Modulate = new Color(0, 0, 0, 0);
         Tween firstTween = CreateTween();
-        firstTween.TweenProperty(GetTree().CurrentScene.GetNode<TextureRect>("%Dark"), "modulate:a", 1, 0.5f);
+        firstTween.TweenProperty(GetTree().CurrentScene.GetNode<Interface>("%Interface").MenuDark, "CurrentDarkPower", 0.9f, 0.5f);
         IsActive = true;
         firstTween.TweenCallback(Callable.From(() => 
         {
@@ -38,8 +37,11 @@ public partial class ConductivePath : Area2D, IInteractionArea
     {
         if (_currentLocation != null && IsActive)
         {
-            GD.Print(EndPosition);
-            Global.SceneObjects.Player.GlobalPosition = EndPosition;
+            if (Global.SceneObjects.Player != null)
+            {
+                Global.SceneObjects.Player.GlobalPosition = EndPosition;
+                Global.SceneObjects.Player.Sprite.Play(Animation);
+            }
             _currentLocation = null;
             Global.SceneObjects.LocationChanged -= OnLocationChanged;
         }

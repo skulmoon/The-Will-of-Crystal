@@ -19,6 +19,14 @@ public partial class PlayerInteractionArea : Area2D
         }
     }
 
+    public override void _Ready()
+    {
+        GetParent<Player>().ChangedDirection += OnChangedDirection;
+    }
+
+    public void OnChangedDirection(Vector2 direction) =>
+        PayerDirection = direction;
+
     public override void _Process(double delta)
     {
         if (Input.IsActionJustPressed("interact") && (_interactionArea != null) && Global.CutSceneManager.IsChargeComplete)

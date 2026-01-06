@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class PauseMenu : CanvasLayer
+public partial class PauseMenu : Control
 {
 	[Export] public Label Label { get; set; }
 
@@ -12,6 +12,10 @@ public partial class PauseMenu : CanvasLayer
 			Visible = !Visible;
 			Global.Settings.CutScene = Visible;
 			GetTree().Paused = Visible;
+			if (GetNode<InventoryMenu>("%InventoryMenu").Visible)
+                GetTree().Paused = true;
+            else
+                GetTree().Paused = Visible;
             Label.Text = string.Empty;
 		}
 	}

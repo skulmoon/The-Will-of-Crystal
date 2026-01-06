@@ -8,6 +8,7 @@ public class Sound
     private AudioStreamPlayer _music = new AudioStreamPlayer();
 	private string _soundPath = "res://Data/Sounds/Effects/";
 	private string _musicPath = "res://Data/Sounds/Musics/";
+    private string _currentMusic = string.Empty;
 	private RandomNumberGenerator _random = new RandomNumberGenerator();
 
     public Sound()
@@ -43,8 +44,12 @@ public class Sound
     {
         if (music != null)
         {
-            _music.Stream = ResourceLoader.Load<AudioStream>(_musicPath + music);
-            _music.Play();
+            if (_currentMusic != music)
+            {
+                _music.Stream = ResourceLoader.Load<AudioStream>(_musicPath + music);
+                _music.Play();
+                _currentMusic = music;
+            }
         }
         else
             _music.Stop();

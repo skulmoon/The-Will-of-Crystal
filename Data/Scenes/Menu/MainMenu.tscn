@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ds7edorou0j7f"]
+[gd_scene load_steps=43 format=3 uid="uid://ds7edorou0j7f"]
 
 [ext_resource type="Script" uid="uid://um20cmjanlia" path="res://Data/Scripts/Menu/MainMenu/MainMenu.cs" id="1_ayleb"]
 [ext_resource type="Texture2D" uid="uid://dkq8alaft5s5n" path="res://Data/Textures/Menu/BackgroundMenu.png" id="1_pj8jl"]
@@ -33,6 +33,7 @@
 [ext_resource type="Script" uid="uid://brurwh0soyyoq" path="res://Data/Scripts/Menu/Options/ActiveDialogWindow/ActiveDialogWindow.cs" id="32_d7tal"]
 [ext_resource type="PackedScene" uid="uid://1j5ayut5yaal" path="res://Data/Scenes/Menu/Interface/dark.tscn" id="33_4gbv0"]
 [ext_resource type="Texture2D" uid="uid://b3tbyichm1f1m" path="res://Data/Textures/Menu/Спрайт-0001.png" id="33_cesh5"]
+[ext_resource type="Shader" uid="uid://bbrj0hata7gby" path="res://Data/Shaders/MenuDark.gdshader" id="34_7vrml"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_almso"]
 shader = ExtResource("2_votmb")
@@ -47,11 +48,11 @@ shader_parameter/cursor_position = Vector4(0, 0, 0, 0)
 noise_type = 3
 frequency = 0.0113
 fractal_octaves = 4
-metadata/_preview_in_3d_space_ = true
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c462d"]
-width = 288
+width = 256
 height = 162
+generate_mipmaps = false
 noise = SubResource("FastNoiseLite_bdytl")
 in_3d_space = true
 seamless_blend_skirt = 1.0
@@ -67,6 +68,13 @@ font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_qxh30"]
 font_size = 48
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dagyv"]
+shader = ExtResource("34_7vrml")
+shader_parameter/dark_power = 0.5
+shader_parameter/dark_scale = 2.0
+shader_parameter/noise_scale = 0.0
+shader_parameter/cursor_position = Vector2(0, 0)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -149,6 +157,7 @@ NextMenu = NodePath("../../../GameCreator")
 Text = "Новая игра"
 
 [node name="AnimationPlayer" parent="MainMenu/MainButtons/ButtonNew" instance=ExtResource("10_euxes")]
+DefaultAnimation = "NormalButton"
 
 [node name="ButtonLoad" type="TextureButton" parent="MainMenu/MainButtons" node_paths=PackedStringArray("LastMenu", "NextMenu")]
 custom_minimum_size = Vector2(0, 100)
@@ -170,6 +179,7 @@ NextMenu = NodePath("../../../GameLoader")
 Text = "Загрузить игру"
 
 [node name="AnimationPlayer" parent="MainMenu/MainButtons/ButtonLoad" instance=ExtResource("10_euxes")]
+DefaultAnimation = "NormalButton"
 
 [node name="ServiceButtons" type="Control" parent="MainMenu"]
 auto_translate_mode = 2
@@ -200,6 +210,7 @@ NextMenu = NodePath("../../../Options")
 Text = "Настройки"
 
 [node name="AnimationPlayer" parent="MainMenu/ServiceButtons/ButtonOptions" instance=ExtResource("10_euxes")]
+DefaultAnimation = "NormalButton"
 
 [node name="ButtonExit" type="TextureButton" parent="MainMenu/ServiceButtons"]
 custom_minimum_size = Vector2(0, 100)
@@ -217,6 +228,7 @@ script = ExtResource("5_4l1fd")
 Text = "Выйти"
 
 [node name="AnimationPlayer" parent="MainMenu/ServiceButtons/ButtonExit" instance=ExtResource("10_euxes")]
+DefaultAnimation = "NormalButton"
 
 [node name="GameLoader" type="Control" parent="."]
 visible = false
@@ -254,6 +266,7 @@ NextMenu = NodePath("../../../MainMenu")
 Text = "Назад"
 
 [node name="AnimationPlayer" parent="GameLoader/Options/Exit" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Load" type="TextureButton" parent="GameLoader/Options"]
 layout_mode = 1
@@ -271,6 +284,7 @@ script = ExtResource("19_lw77n")
 Text = "Загрузить"
 
 [node name="AnimationPlayer" parent="GameLoader/Options/Load" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Delete" type="TextureButton" parent="GameLoader/Options"]
 layout_mode = 1
@@ -292,15 +306,18 @@ script = ExtResource("19_lw77n")
 Text = "Удалить"
 
 [node name="AnimationPlayer" parent="GameLoader/Options/Delete" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Saves" type="ScrollContainer" parent="GameLoader"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.02
+anchor_left = 0.5
 anchor_top = 0.035
-anchor_right = 0.98
-anchor_bottom = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.785
+offset_left = -552.96
+offset_right = 552.95996
 grow_horizontal = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameLoader/Saves"]
@@ -321,13 +338,12 @@ script = ExtResource("21_871b1")
 [node name="TextEdit" parent="GameCreator" instance=ExtResource("22_vj4v1")]
 layout_mode = 1
 anchor_left = 0.5
-anchor_top = 0.4
+anchor_top = 0.39
 anchor_right = 0.5
 anchor_bottom = 0.47
 offset_left = -300.0
 offset_top = 0.799988
 offset_right = 300.0
-offset_bottom = 0.0
 theme_override_font_sizes/font_size = 32
 Normal = ExtResource("23_5gccl")
 Focused = ExtResource("24_hmjgn")
@@ -347,6 +363,7 @@ script = ExtResource("19_lw77n")
 Text = "В путь"
 
 [node name="AnimationPlayer" parent="GameCreator/ButtonNew" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="ButtonExit" type="TextureButton" parent="GameCreator" node_paths=PackedStringArray("LastMenu", "NextMenu")]
 layout_mode = 1
@@ -365,6 +382,7 @@ NextMenu = NodePath("../../MainMenu")
 Text = "Назад"
 
 [node name="AnimationPlayer" parent="GameCreator/ButtonExit" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Options" type="Control" parent="."]
 visible = false
@@ -409,6 +427,7 @@ IsMain = true
 Text = "Общие"
 
 [node name="AnimationPlayer" parent="Options/Control/BaseButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="GraphicsButton" type="TextureButton" parent="Options/Control" node_paths=PackedStringArray("Controls", "MainControl")]
 layout_mode = 1
@@ -427,6 +446,7 @@ MainControl = NodePath("../GraphicsOptions")
 Text = "Графика"
 
 [node name="AnimationPlayer" parent="Options/Control/GraphicsButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="SoundButton" type="TextureButton" parent="Options/Control" node_paths=PackedStringArray("Controls", "MainControl")]
 layout_mode = 1
@@ -445,6 +465,7 @@ MainControl = NodePath("../SoundOptions")
 Text = "Звук"
 
 [node name="AnimationPlayer" parent="Options/Control/SoundButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="ControlButton" type="TextureButton" parent="Options/Control" node_paths=PackedStringArray("Controls", "MainControl")]
 layout_mode = 0
@@ -462,6 +483,7 @@ MainControl = NodePath("../ControlOptions")
 Text = "Управление"
 
 [node name="AnimationPlayer" parent="Options/Control/ControlButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="ExitButton" type="TextureButton" parent="Options/Control" node_paths=PackedStringArray("LastMenu", "NextMenu")]
 layout_mode = 1
@@ -480,6 +502,7 @@ NextMenu = NodePath("../../../MainMenu")
 Text = "Назад"
 
 [node name="AnimationPlayer" parent="Options/Control/ExitButton" instance=ExtResource("10_euxes")]
+DefaultAnimation = "NormalButton"
 
 [node name="SaveButton" type="TextureButton" parent="Options/Control" node_paths=PackedStringArray("Options")]
 layout_mode = 1
@@ -497,8 +520,10 @@ Options = NodePath("../..")
 Text = "Сохранить"
 
 [node name="AnimationPlayer" parent="Options/Control/SaveButton" instance=ExtResource("10_euxes")]
+DefaultAnimation = "NormalButton"
 
 [node name="ResetButton" type="TextureButton" parent="Options/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.7
@@ -513,6 +538,7 @@ script = ExtResource("19_lw77n")
 Text = "Сбросить"
 
 [node name="AnimationPlayer" parent="Options/Control/ResetButton" instance=ExtResource("10_euxes")]
+DefaultAnimation = "NormalButton"
 
 [node name="BaseOptions" type="Control" parent="Options/Control"]
 visible = false
@@ -669,6 +695,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control/TextureButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="TextureButton2" type="TextureButton" parent="Options/Control/ControlOptions/VBoxContainer/Control"]
 layout_mode = 1
@@ -686,6 +713,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control/TextureButton2" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Control2" type="Control" parent="Options/Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
 custom_minimum_size = Vector2(0, 60)
@@ -722,6 +750,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control2/TextureButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="TextureButton2" type="TextureButton" parent="Options/Control/ControlOptions/VBoxContainer/Control2"]
 layout_mode = 1
@@ -739,6 +768,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control2/TextureButton2" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Control3" type="Control" parent="Options/Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
 custom_minimum_size = Vector2(0, 60)
@@ -775,6 +805,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control3/TextureButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="TextureButton2" type="TextureButton" parent="Options/Control/ControlOptions/VBoxContainer/Control3"]
 layout_mode = 1
@@ -792,6 +823,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control3/TextureButton2" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Control4" type="Control" parent="Options/Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
 custom_minimum_size = Vector2(0, 60)
@@ -828,6 +860,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control4/TextureButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="TextureButton2" type="TextureButton" parent="Options/Control/ControlOptions/VBoxContainer/Control4"]
 layout_mode = 1
@@ -845,6 +878,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control4/TextureButton2" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Control5" type="Control" parent="Options/Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
 custom_minimum_size = Vector2(0, 60)
@@ -881,6 +915,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control5/TextureButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="TextureButton2" type="TextureButton" parent="Options/Control/ControlOptions/VBoxContainer/Control5"]
 layout_mode = 1
@@ -898,6 +933,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control5/TextureButton2" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Control6" type="Control" parent="Options/Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
 custom_minimum_size = Vector2(0, 60)
@@ -934,6 +970,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control6/TextureButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="TextureButton2" type="TextureButton" parent="Options/Control/ControlOptions/VBoxContainer/Control6"]
 layout_mode = 1
@@ -951,6 +988,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control6/TextureButton2" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Control7" type="Control" parent="Options/Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
 custom_minimum_size = Vector2(0, 60)
@@ -987,6 +1025,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control7/TextureButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="TextureButton2" type="TextureButton" parent="Options/Control/ControlOptions/VBoxContainer/Control7"]
 layout_mode = 1
@@ -1004,6 +1043,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control7/TextureButton2" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Control8" type="Control" parent="Options/Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
 custom_minimum_size = Vector2(0, 60)
@@ -1040,6 +1080,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control8/TextureButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="TextureButton2" type="TextureButton" parent="Options/Control/ControlOptions/VBoxContainer/Control8"]
 layout_mode = 1
@@ -1057,6 +1098,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control8/TextureButton2" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Control9" type="Control" parent="Options/Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
 custom_minimum_size = Vector2(0, 60)
@@ -1093,6 +1135,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control9/TextureButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="TextureButton2" type="TextureButton" parent="Options/Control/ControlOptions/VBoxContainer/Control9"]
 layout_mode = 1
@@ -1110,6 +1153,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control9/TextureButton2" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Control10" type="Control" parent="Options/Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
 custom_minimum_size = Vector2(0, 60)
@@ -1146,6 +1190,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control10/TextureButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="TextureButton2" type="TextureButton" parent="Options/Control/ControlOptions/VBoxContainer/Control10"]
 layout_mode = 1
@@ -1163,6 +1208,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control10/TextureButton2" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Control11" type="Control" parent="Options/Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
 custom_minimum_size = Vector2(0, 60)
@@ -1199,6 +1245,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control11/TextureButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="TextureButton2" type="TextureButton" parent="Options/Control/ControlOptions/VBoxContainer/Control11"]
 layout_mode = 1
@@ -1216,6 +1263,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control11/TextureButton2" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Control12" type="Control" parent="Options/Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
 custom_minimum_size = Vector2(0, 60)
@@ -1252,6 +1300,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control12/TextureButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="TextureButton2" type="TextureButton" parent="Options/Control/ControlOptions/VBoxContainer/Control12"]
 layout_mode = 1
@@ -1269,6 +1318,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control12/TextureButton2" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="Control13" type="Control" parent="Options/Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
 custom_minimum_size = Vector2(0, 60)
@@ -1305,6 +1355,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control13/TextureButton" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="TextureButton2" type="TextureButton" parent="Options/Control/ControlOptions/VBoxContainer/Control13"]
 layout_mode = 1
@@ -1322,6 +1373,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 
 [node name="AnimationPlayer" parent="Options/Control/ControlOptions/VBoxContainer/Control13/TextureButton2" instance=ExtResource("20_x6ptu")]
+DefaultAnimation = "NormalButton"
 
 [node name="ActiveDialogWindow" type="Control" parent="Options" node_paths=PackedStringArray("Exit", "Clear")]
 unique_name_in_owner = true
@@ -1390,5 +1442,5 @@ Text = "Очистить"
 
 [node name="Dark" parent="." instance=ExtResource("33_4gbv0")]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_dagyv")
 layout_mode = 1
-DarkVisible = false

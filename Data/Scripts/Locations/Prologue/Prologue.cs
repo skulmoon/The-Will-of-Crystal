@@ -10,48 +10,38 @@ public partial class Prologue : Location
     public override void _Ready()
     {
         base._Ready();
-        CutSceneCustomizes.Add((1, () => Global.SceneObjects.Npcs.Find((x) => x.ID == 2).Velocity = Vector2.Zero));
+        Global.Music.PlayMusic("FirstCutScene.ogg");
+        List<NPC> NPCs = Global.SceneObjects.Npcs;
+        CutSceneCustomizes.Add((1, () => NPCs.Find((x) => x.ID == 2).Velocity = Vector2.Zero));
         CutSceneCustomizes.Add((2, () =>
         {
-            Global.SceneObjects.Npcs.Find((x) => x.ID == 2).Velocity = Vector2.Zero;
-            Global.SceneObjects.Player.Visible = true;
-            CreateTween().TweenProperty(Global.SceneObjects.Npcs.Find((x) => x.ID == 2), "Speed", 300, 5);
-        }));
-        CutSceneCustomizes.Add((3, () => {
-            Input.ParseInputEvent(new InputEventAction() { Action = "interact", Pressed = true });
-            Global.SceneObjects.Player.GetNode<Camera2D>("Camera").Enabled = true;
-            ((CameraNPC)Global.SceneObjects.Npcs.Find((x) => x.ID == 3)).Camera.Enabled = false;
+            NPCs.Find((x) => x.ID == 2).Velocity = Vector2.Zero;
+            CreateTween().TweenProperty(NPCs.Find((x) => x.ID == 2), "Speed", 300, 5);
+            NPCs.Find((x) => x.ID == 0).Visible = true;
         }
         ));
         CutSceneCustomizes.Add((4, () => {
-            Global.SceneObjects.Player.GetNode<Camera2D>("Camera").Enabled = false;
-            CreateTween().TweenProperty(Global.SceneObjects.Npcs.Find((x) => x.ID == 2), "Speed", 20, 4.5);
-            CreateTween().TweenProperty(Global.SceneObjects.Npcs.Find((x) => x.ID == 3), "Speed", 20, 4.5);
-            CreateTween().TweenProperty(GetTree().CurrentScene.GetNode<TextureRect>("%Dark"), "modulate:a", 0, 3);
+            CreateTween().TweenProperty(NPCs.Find((x) => x.ID == 2), "Speed", 20, 4.5);
+            CreateTween().TweenProperty(NPCs.Find((x) => x.ID == 3), "Speed", 20, 4.5);
+            CreateTween().TweenProperty(GetTree().CurrentScene.GetNode<Interface>("%Interface").Dark, "modulate:a", 0, 3);
         }));
-        CutSceneCustomizes.Add((5, () => Global.SceneObjects.Npcs.Find((x) => x.ID == 3).Velocity = Vector2.Zero));
+        CutSceneCustomizes.Add((5, () => NPCs.Find((x) => x.ID == 3).Velocity = Vector2.Zero));
         CutSceneCustomizes.Add((6, () => { 
-            ((CameraNPC)Global.SceneObjects.Npcs.Find((x) => x.ID == 3)).ChangeZoom(1, 3);
             Global.SceneObjects.Npcs.Find((x) => x.ID == 3).Velocity = Vector2.Zero;
-        }));
+            NPCs.Find((x) => x.ID == 3).Speed = 80;
+        }
+        ));
         CutSceneCustomizes.Add((7, () => {
-
             foreach (Tween tween in GetTree().GetProcessedTweens())
                 if (tween.IsValid())
                     tween.Kill();
-            ((CameraNPC)Global.SceneObjects.Npcs.Find((x) => x.ID == 3)).Camera.Enabled = false;
-            Global.SceneObjects.Player.GetNode<Camera2D>("Camera").Enabled = true;
-            Global.SceneObjects.Player.Visible = true;
-            GetTree().CurrentScene.GetNode<TextureRect>("%Dark").Visible = false;
-            Input.ParseInputEvent(new InputEventAction { Action = "interact" });
+            Global.SceneObjects.ChangeScene("res://Data/Scenes/Location/Prologue/CharapterRoom.tscn");
         }
         ));
-        if ((bool?)LocationData.Find(x => x.ID == 1).Value ?? true)
+        CutSceneCustomizes.Add((8, () => NPCs.Find((x) => x.ID == 0).Visible = true));
+        if (GetData<bool?>(1) ?? true)
         {
-            Global.SceneObjects.Player.Visible = false;
-            Global.SceneObjects.Player.GetNode<Camera2D>("Camera").Enabled = false;
-            LocationData.Add((1, false));
-            Global.JSON.SetLocationData(LocationData);
+            SetData(1, false);
             Global.CutSceneManager.OutputCutScene(2, 1);
         }
     }

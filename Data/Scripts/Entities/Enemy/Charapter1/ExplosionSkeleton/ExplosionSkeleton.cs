@@ -37,4 +37,7 @@ public partial class ExplosionSkeleton : EnemyReload
         );
         AddChild(Trigger);
     }
+
+    public override EnemyType GetEnemyType() =>
+        EnemyType.Mele;
 }

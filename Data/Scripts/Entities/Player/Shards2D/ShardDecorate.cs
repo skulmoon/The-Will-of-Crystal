@@ -1,4 +1,4 @@
-using Godot;
+﻿using Godot;
 using System;
 using System.Collections.Generic;
 using static Godot.TextServer;
@@ -17,7 +17,7 @@ public class ShardDecorate
 	public void DecorateMainShard(ShardManager manager, Shard2D shard, Vector2 cursorPosition, float delta)
 	{
         _delta += (float)delta * 10;
-        float distanceTo�ursor = manager.GlobalPosition.DistanceTo(cursorPosition);
+        float distanceToСursor = manager.GlobalPosition.DistanceTo(cursorPosition);
         shard.Light.Energy = MathF.Sin(_delta) * 0.5f + 0.9f;
         Vector2 direction = manager.Position.DirectionTo(cursorPosition);
         if (manager.GlobalPosition.DistanceTo(cursorPosition) > (float)delta * shard.Speed)
@@ -37,7 +37,7 @@ public class ShardDecorate
         float angelDistance = 2 * MathF.PI / shards.Count;
         for (int i = 0; i < shards.Count; i++)
         {
-            Vector2 newPosition = new Vector2(Mathf.Cos(angelDistance * i + _delta), Mathf.Sin(angelDistance * i + _delta)) * 20;
+            Vector2 newPosition = new Vector2(Mathf.Cos(angelDistance * i + (_delta * 0.8f)), Mathf.Sin(angelDistance * i + (_delta * 0.8f))) * 20;
             shards[i].Sprite.Rotation = shards[i].Position.AngleToPoint(newPosition) + (45 * MathF.PI / 180);
             shards[i].Position = newPosition;
         }

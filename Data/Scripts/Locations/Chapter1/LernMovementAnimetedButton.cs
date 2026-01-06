@@ -20,14 +20,13 @@ public partial class LernMovementAnimetedButton : Sprite2D
     public void OnLocationChanged(Location location)
     {
         _location = location;
-        if ((bool?)location.LocationData?.Find(x => x.ID == 1).Value ?? false)
+        if (location.GetData<bool?>(1) ?? false)
         {
             Visible = false;
             return;
         }
-        location.LocationData.Add((1, true));
-        Global.JSON.SetLocationData(location.LocationData);
-        _text.Text = string.Format(_text.Text, GetActionKey("left"), GetActionKey("up"), GetActionKey("down"), GetActionKey("right"), GetActionKey("acceleration"));
+        location.SetData(1, true);
+        _text.Text = string.Format(_text.Text, this.GetActionKey("left"), this.GetActionKey("up"), this.GetActionKey("down"), this.GetActionKey("right"), this.GetActionKey("acceleration"));
         foreach (var label in Labels)
             _startCharPositions.Add((Vector2)(((ShaderMaterial)label.Material)?.GetShaderParameter("mask_offset")));
         SetMaskPosition(new Vector2(0.15f, 0));
@@ -45,17 +44,6 @@ public partial class LernMovementAnimetedButton : Sprite2D
         tween.TweenMethod(new Callable(this, nameof(SetCharMaskPosition)), new Vector2(0, 0), new Vector2(-1.5f, 0), 3);
         tween.Chain();
         tween.TweenCallback(new Callable(this, "StartSimpleAnimation"));
-    }
-
-    private string GetActionKey(string action)
-    {
-        string strKey = string.Empty;
-        foreach (var key in InputMap.ActionGetEvents(action))
-            if (key is InputEventKey eventKey)
-                strKey = eventKey.Keycode.ToString();
-            else if (key is InputEventMouseButton eventMouse)
-                strKey = eventMouse.ButtonIndex.GetName();
-        return strKey;
     }
 
     public void SetMaskPosition(Vector2 position) =>
@@ -82,12 +70,11 @@ public partial class LernMovementAnimetedButton : Sprite2D
 
     public new void Hide()
     {
-        if ((bool?)_location?.LocationData?.Find(x => x.ID == 3).Value ?? false)
+        if (_location?.GetData<bool?>(3) ?? false)
         {
             return;
         }
-        _location.LocationData.Add((3, true));
-        Global.JSON.SetLocationData(_location.LocationData);
+        _location.SetData(3, true);
         Material = null;
         _text.Material = null;
         foreach (var label in Labels)

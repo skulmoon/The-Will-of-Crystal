@@ -11,13 +11,18 @@ public partial class EnemyCoreCharapter1 : EnemyCore
 
     public override void _Ready()
 	{
+        base._Ready();
         Global.SceneObjects.PlayerChanged += OnPlayerChanged;
+        Global.SceneObjects.EnemyFabricChanged += OnEnemyFabricChanged;
     }
 
-    public void OnPlayerChanged(Player player)
+    public void OnEnemyFabricChanged(EnemyFabric fabric)
     {
-        _positionControl = GD.Load<PackedScene>("res://Data/Scenes/Entities/EnemyPositionsControl.tscn").Instantiate<EnemyPositionsControl>();
-        player.AddChild(_positionControl);
+        fabric.EnemiesCreated += OnEnemiesCreated;
+    }
+
+    public void OnEnemiesCreated(List<Enemy> enemies)
+    {
         foreach (Enemy enemy in Global.SceneObjects.Enemies)
         {
             enemy.NoticedPlayer += OnNoticePlayer;
@@ -31,6 +36,12 @@ public partial class EnemyCoreCharapter1 : EnemyCore
         }
     }
 
+    public void OnPlayerChanged(Player player)
+    {
+        _positionControl = GD.Load<PackedScene>("res://Data/Scenes/Entities/EnemyPositionsControl.tscn").Instantiate<EnemyPositionsControl>();
+        player.AddChild(_positionControl);
+    }
+
     public void OnNoticePlayer(Enemy trash)
     {
         _meleSkeletons.ForEach(x => x.State.NoticePlayer());
@@ -38,10 +49,5 @@ public partial class EnemyCoreCharapter1 : EnemyCore
         _explosionSkeletons.ForEach(x => x.State.NoticePlayer());
         foreach (Enemy enemy in Global.SceneObjects.Enemies)
             enemy.NoticedPlayer -= OnNoticePlayer;
-    }
-
-    public override void _ExitTree()
-    {
-        Global.SceneObjects.PlayerChanged -= OnPlayerChanged;
     }
 }

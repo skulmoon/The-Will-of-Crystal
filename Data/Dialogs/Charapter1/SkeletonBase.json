@@ -1,0 +1,9 @@
+[
+	{"NPCID" : 0, "DialogueNumber" : 1, "Speech" : [
+		null,
+		{"Name" : "", "Text" : "СТОЯТЬ!!!", "Image" : ""},
+		null,
+		{"Name" : "", "Text" : "Не смей двигаться. Иначе...", "Image" : ""},
+		{"Name" : "", "Text" : "Я РАЗДРОБЛЮ ТЕБЯ В ПЫЛЬ.", "Image" : ""},
+	]},
+]

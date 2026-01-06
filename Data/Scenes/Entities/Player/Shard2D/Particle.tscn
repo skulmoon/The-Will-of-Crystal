@@ -1,6 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddvfief75fuig"]
-
-[ext_resource type="Script" uid="uid://cqrl5c1rs1ya1" path="res://Data/Scripts/Entities/Particles/ShardParticles/ShardParticles.cs" id="1_ua86x"]
+[gd_scene load_steps=5 format=3 uid="uid://ddvfief75fuig"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_f8bnj"]
 
@@ -25,10 +23,8 @@ scale_min = 2.0
 scale_max = 2.0
 alpha_curve = SubResource("CurveTexture_eoc82")
 
-[node name="ShardParticles" type="Node2D" node_paths=PackedStringArray("Particles")]
+[node name="ShardParticles" type="Node2D"]
 z_index = -1
-script = ExtResource("1_ua86x")
-Particles = NodePath("GPUParticles2D")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 16

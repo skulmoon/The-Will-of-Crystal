@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Net.WebSockets;
 
-public partial class DialogPanel : NinePatchRect
+public partial class DialogPanel : TextureRect
 {
     private DialogText _dialogText;
     private NPCDialogue _dialogue;
@@ -21,6 +21,7 @@ public partial class DialogPanel : NinePatchRect
 
     public override void _Ready()
     {
+        Position = new Vector2(Position.X, GetParentAreaSize().Y + 100);
         _dialogText = GetNode<DialogText>("DialogText");
         _player = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
         AddChild(_delayTimer);
@@ -29,7 +30,6 @@ public partial class DialogPanel : NinePatchRect
     public void OutputSpeech(NPCDialogue dialogue)
     {
         _dialogue = dialogue;
-        PanelShow();
     }
 
     public override void _Process(double delta)
@@ -51,9 +51,20 @@ public partial class DialogPanel : NinePatchRect
 
     public void NextDialogue(int currentCutScene)
     {
-        _dialogText.PrintText(_dialogue.Speech[currentCutScene].Text, _dialogue.Speech[currentCutScene].Name);
+        if (_dialogue.Speech.Count > currentCutScene)
+        {
+            if (_dialogue.Speech[currentCutScene] != null)
+            {
+                PanelShow();
+                _dialogText.PrintText(_dialogue.Speech[currentCutScene].Text, _dialogue.Speech[currentCutScene].Name);
+            }
+            else
+                EndDialogue();
+        }
+        else
+            EndDialogue();
     }
-
+    
     public void EndDialogue()
     {
         _dialogText.ClearText();
@@ -75,12 +86,28 @@ public partial class DialogPanel : NinePatchRect
         }
     }
 
-    public void PanelShow() =>
-        Visible = true;
+    public void PanelShow()
+    {
+        if (!Visible)
+        {
+            Visible = true;
+            CreateTween().TweenProperty(this, "position:y", 1180 - 405, 0.4f).SetTrans(Tween.TransitionType.Sine);
+        }
+    }
 
-    public void PanelHide() =>
-        Visible = false;
+    public void PanelHide()
+    {
+        if (Visible)
+        {
+            Tween tween = CreateTween();
+            tween.TweenProperty(this, "position:y", 1180, 0.4f).SetTrans(Tween.TransitionType.Sine);
+            tween.TweenCallback(new Callable(this, "SetVisible"));
+        }
+    }
 
     public void EndSpeech() =>
         _dialogText.StopPrinting();
+
+    public void SetVisible() =>
+        Visible = false;
 }

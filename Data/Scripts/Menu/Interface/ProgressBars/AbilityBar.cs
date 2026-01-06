@@ -1,5 +1,4 @@
 using Godot;
-using Newtonsoft.Json.Linq;
 using System;
 
 public abstract partial class AbilityBar : ProgressBar
@@ -8,45 +7,49 @@ public abstract partial class AbilityBar : ProgressBar
     private string _text;
     private Tween _currentTween;
 
-    public AbilityBar()
-    {
-        Global.SceneObjects.PlayerChanged += OnPlayerChanged;
-    }
+    [Export] public Vector2 HidePosition { get; set; } = new Vector2(-80, 0);
 
     public override void _Ready()
     {
-        _label = GetNode<Label>("Label");
-        if (_text != null)
-            _label.Text = _text;
+        Global.SceneObjects.PlayerChanged += OnPlayerChanged;
     }
 
     public abstract void OnPlayerChanged(Player player);
 
     public void OnAbilityReloadStarted(float time)
     {
-        Value = 0;
+        Value = time;
         MaxValue = time;
         _currentTween = CreateTween();
-        _currentTween.TweenProperty(this, "value", time, time);
+        _currentTween.TweenProperty(this, "value", 0, time);
     }
 
     public void SetAbilityName(string name)
     {
         if (_label == null)
             _text = name;
-        else
-            _label.Text = name;
     }
 
     public void Close()
     {
         SetAbilityName(string.Empty);
         _currentTween?.Stop();
-        Value = 0;
     }
 
     public override void _ExitTree()
     {
         Global.SceneObjects.PlayerChanged -= OnPlayerChanged;
+    }
+
+    public void HideBar()
+    {
+        CreateTween().TweenProperty(this, "position", Position + HidePosition, 0.5f);
+        CreateTween().TweenProperty(this, "modulate:a", 0, 0.5f);
+    }
+
+    public void ShowBar()
+    {
+        CreateTween().TweenProperty(this, "position", Position - HidePosition, 0.5f);
+        CreateTween().TweenProperty(this, "modulate:a", 1, 0.5f);
     }
 }

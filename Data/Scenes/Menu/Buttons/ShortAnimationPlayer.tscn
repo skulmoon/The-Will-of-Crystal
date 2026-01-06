@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bil5kel288xhm" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton4.png" id="8_5x3ch"]
 [ext_resource type="Texture2D" uid="uid://cfcvl1783y1hq" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton.png" id="9_t3iwx"]
 [ext_resource type="Texture2D" uid="uid://bsfvajdgp0e3l" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton.png" id="10_fra8w"]
-[ext_resource type="Script" uid="uid://d2kg6yaa5pha1" path="res://Data/Scripts/Menu/Buttons/ButtonAnimationPlayer.cs" id="11_br1f1"]
+[ext_resource type="Script" uid="uid://d2kg6yaa5pha1" path="res://Data/Scripts/Tools/DefaultAnimationPlayer.cs" id="11_br1f1"]
 
 [sub_resource type="Animation" id="Animation_giro1"]
 resource_name = "NormalButton"

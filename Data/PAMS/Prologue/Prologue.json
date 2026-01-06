@@ -3,14 +3,21 @@
 		{"Music" : null, "FinalCustomize" : 7,  "FinalValues" : [
 			{"ID" : 2, "Position" : {"X" : -450, "Y" : 470}, "Animation" : null},
 			{"ID" : 3, "Position" : {"X" : 190, "Y" : 410}, "Animation" : null},
-			], "PAData" : [
+		], "PAData" : [
+			{"NPCID" : 0, "Data" : [
+				{"Position" : {"X" : 190, "Y" : 430}, "Animation" : "movement_up", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 190, "Y" : 430}, "Animation" : "movement_up", "Time" : 7.6, "Customize" : null},
+				{"Position" : {"X" : 180, "Y" : 16}, "Animation" : null, "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 180, "Y" : 16}, "Animation" : "opening_door", "Time" : 3.9, "Customize" : null},
+				{"Position" : {"X" : 180, "Y" : 16}, "Animation" : null, "Time" : null, "Customize" : 7},
+			]},
 			{"NPCID" : 2, "Data" : [
 				{"Position" : {"X" : 560, "Y" : 470}, "Animation" : null, "Time" : null, "Customize" : null},
 				{"Position" : {"X" : 390, "Y" : 470}, "Animation" : null, "Time" : null, "Customize" : 1},
 				{"Position" : {"X" : 300, "Y" : 410}, "Animation" : null, "Time" : null, "Customize" : null},
 				{"Position" : {"X" : 190, "Y" : 410}, "Animation" : null, "Time" : 4, "Customize" : 2},
 				{"Position" : {"X" : 100, "Y" : 470}, "Animation" : null, "Time" : null, "Customize" : null},
-				{"Position" : {"X" : -450, "Y" : 470}, "Animation" : null, "Time" : 3, "Customize" : 3},
+				{"Position" : {"X" : -450, "Y" : 470}, "Animation" : null, "Time" : 3, "Customize" : null},
 				{"Position" : {"X" : -450, "Y" : 470}, "Animation" : null, "Time" : null, "Customize" : null},
 			]},
 			{"NPCID" : 3, "Data" : [
@@ -18,9 +25,9 @@
 				{"Position" : {"X" : 390, "Y" : 470}, "Animation" : null, "Time" : null, "Customize" : 5},
 				{"Position" : {"X" : 300, "Y" : 410}, "Animation" : null, "Time" : null, "Customize" : null},
 				{"Position" : {"X" : 190, "Y" : 410}, "Animation" : null, "Time" : 5, "Customize" : 6},
-				{"Position" : {"X" : 190, "Y" : 410}, "Animation" : null, "Time" : 5, "Customize" : null},
+				{"Position" : {"X" : 180, "Y" : -4}, "Animation" : null, "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 180, "Y" : -4}, "Animation" : null, "Time" : 3.9, "Customize" : null},
 			]}
 		]},
 	]},
 ]
- 

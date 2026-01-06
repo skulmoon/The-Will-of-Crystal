@@ -8,7 +8,6 @@ public abstract partial class Enemy : CharacterBody2D
     private float _speed = 200;
     private float _speedMultiplier = 1;
 
-    public int MyProperty { get; set; }
     public EnemyPositionsControlNode PositionControl { get; set; }
     public AnimatedSprite2D Animation { get; private set; }
     public NavigationAgent2D NavigationAgent { get; private set; } = new NavigationAgent2D() { MaxNeighbors = 0 };
@@ -38,13 +37,17 @@ public abstract partial class Enemy : CharacterBody2D
         private set
         {
             if (value <= 0)
+            {
+                EnemyDeaded?.Invoke(this);
                 QueueFree();
+            }
             else
                 _health = value;
         }
     }
 
     public event Action<Enemy> NoticedPlayer;
+    public event Action<Enemy> EnemyDeaded;
     public event Action<Vector2> ChangedDirection;
     public event Action<IEnemyState> ChangedState;
 
@@ -83,7 +86,6 @@ public abstract partial class Enemy : CharacterBody2D
         AddChild(NavigationAgent);
         FloorBlockOnWall = false;
         FloorStopOnSlope = false;
-        Global.SceneObjects.Enemies.Add(this);
     }
 
     public virtual void Attack(EnemyAttack attack) =>
@@ -122,4 +124,6 @@ public abstract partial class Enemy : CharacterBody2D
 
     public void NoticePlayer() =>
         NoticedPlayer?.Invoke(this);
+
+    public abstract EnemyType GetEnemyType();
 }

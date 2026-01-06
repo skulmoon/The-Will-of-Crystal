@@ -1,19 +1,22 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdmunmbh0hylx"]
 
 [ext_resource type="Script" uid="uid://cp04y7et3sfo5" path="res://Data/Scripts/Menu/MindFolder/MindFolder.cs" id="1_08kg7"]
-[ext_resource type="PackedScene" uid="uid://u8gorx7t2mlw" path="res://Data/Scenes/Menu/MindFolder/folder_cell.tscn" id="2_bf21i"]
 
-[node name="MindFolder" type="CanvasLayer"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_08kg7"]
+
+[node name="MindFolder" type="CanvasLayer" node_paths=PackedStringArray("Dark")]
 scale = Vector2(3, 3)
 transform = Transform2D(3, 0, 0, 3, 0, 0)
 script = ExtResource("1_08kg7")
+Dark = NodePath("TextureRect")
 
-[node name="FolderCell2" parent="." instance=ExtResource("2_bf21i")]
-position = Vector2(406, 117.333336)
-
-[node name="FolderCell3" parent="." instance=ExtResource("2_bf21i")]
-position = Vector2(312.66666, 247.66667)
-
-[node name="FolderCell" parent="." node_paths=PackedStringArray("MindCells") instance=ExtResource("2_bf21i")]
-position = Vector2(168.99998, 63.66666)
-MindCells = [NodePath("../FolderCell2"), NodePath("../FolderCell3")]
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 0)
+z_index = -2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_08kg7")

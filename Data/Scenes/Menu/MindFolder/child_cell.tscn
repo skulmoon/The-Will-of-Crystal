@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d20ontffsswkn"]
+
+[ext_resource type="Script" uid="uid://c7gdk46bbgqlo" path="res://Data/Scripts/Menu/MindFolder/ChildCell.cs" id="1_cgfy7"]
+
+[node name="ChildCell" type="CharacterBody2D"]
+process_mode = 4
+visible = false
+script = ExtResource("1_cgfy7")

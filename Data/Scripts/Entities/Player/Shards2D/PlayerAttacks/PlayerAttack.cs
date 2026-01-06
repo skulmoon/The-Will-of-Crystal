@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 public abstract partial class PlayerAttack : Area2D
 {
     private int _health = 30;
+    private Location _location;
 
     public List<GpuParticles2D> Particles = new List<GpuParticles2D>();
     public List<DirectedParticle> EndParticles = new List<DirectedParticle>();
@@ -28,12 +29,16 @@ public abstract partial class PlayerAttack : Area2D
     {
         CollisionLayer = 16;
         CollisionMask = 8 + 16;
-        if(defaultCollision)
+        if (defaultCollision)
             AddChild(GD.Load<PackedScene>("res://Data/Scenes/Entities/Player/Shard2D/CollisionShape2D.tscn").Instantiate());
         Health = health;
         Damage = damage;
         CritChance = critChance;
+        Global.SceneObjects.LocationChanged += OnLocationChaged;
     }
+
+    public void OnLocationChaged(Location location) =>
+        _location = location;
 
     public abstract float Attack();
 
@@ -43,10 +48,8 @@ public abstract partial class PlayerAttack : Area2D
         return Attack();
     }
 
-    public virtual void TakeDamage(int damage)
-    {
+    public virtual void TakeDamage(int damage) =>
         Health -= damage;
-    }
 
     public virtual void TakeDamage(int damage, EnemyAttack attack)
     {
@@ -96,10 +99,14 @@ public abstract partial class PlayerAttack : Area2D
     {
         foreach (DirectedParticle particle in EndParticles)
         {
-            GetTree().CurrentScene.AddChild(particle);
+            if (_location.GetParent() == null)
+                _location.AddChild(particle);
             particle.GlobalPosition = GlobalPosition;
             particle.Direction = Direction;
             particle.Emitting = true;
         }
     }
+
+    public override void _ExitTree() =>
+        Global.SceneObjects.LocationChanged -= OnLocationChaged;
 }

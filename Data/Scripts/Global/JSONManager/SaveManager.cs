@@ -21,22 +21,30 @@ public partial class SaveManager : Node
         Global.SceneObjects.PlayerChanged += SetPlayerSettings;
     }
 
-    public void SetPlayerSettings(Node player)
+    public void SetPlayerSettings(Player player)
     {
-        ((Player)player).GlobalPosition = Global.Settings.SaveData.CurrentPosition;
         Global.Inventory.Items = Global.Settings.SaveData.Items;
         Global.Inventory.Shards = Global.Settings.SaveData.Shards;
         Global.Inventory.Armors = Global.Settings.SaveData.Armors;
-        ((Player)player).Shard.UpdateShard(null);
+        player.GlobalPosition = Global.Settings.SaveData.CurrentPosition;
+        player.Stamina = Global.Settings.SaveData.Stamina;
+        player.HitBox.Health = Global.Settings.SaveData.Health;
+        player.Shard.UpdateShard(null);
         Global.SceneObjects.PlayerChanged -= SetPlayerSettings;
     }
 
     public void SaveGame()
 	{
-        Global.Settings.SaveData.CurrentPosition = Global.SceneObjects.Player?.GlobalPosition ?? new Vector2(160, 400);
+        if (Global.SceneObjects.Player != null)
+        {
+            Global.Settings.SaveData.CurrentPosition = Global.SceneObjects.Player?.GlobalPosition ?? new Vector2(160, 400);
+            Global.Settings.SaveData.Stamina = Global.SceneObjects.Player.Stamina;
+            Global.Settings.SaveData.Health = Global.SceneObjects.Player.HitBox.Health;
+        }
         Global.Settings.SaveData.Items = Global.Inventory?.Items ?? Global.Settings.SaveData.Items;
         Global.Settings.SaveData.Armors = Global.Inventory?.Armors ?? Global.Settings.SaveData.Armors;
         Global.Settings.SaveData.Shards = Global.Inventory?.Shards ?? Global.Settings.SaveData.Shards;
+        Global.JSON.SetLocationData(Global.SceneObjects?.Location?.LocationData ?? null);
         Global.JSON.SetSaveData(Global.Settings.SaveData);
     }
 

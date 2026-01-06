@@ -10,15 +10,38 @@ public partial class InventoryMenu : Control
     {
         if (Input.IsActionJustPressed("open_inventory") && (!Global.Settings.CutScene || Visible))
         {
-            Visible = !Visible;
-            Global.Settings.CutScene = Visible;
-            Cell.ActiveShardCells.ForEach(cell => cell.Visible = true);
+            if (!Visible)
+                ShowInventory();
+            else
+                HideInventory();
+            Cell.ActiveShardCells?.ForEach(cell => cell.Visible = true);
         }
     }
 
     public void ShowInventory()
     {
+        UIDark dark = GetNode<UIDark>("%MenuDark");
         Visible = true;
-        Cell.ActiveShardCells.ForEach(cell => cell.Visible = false);
+        this.ChangeAlphaModulate();
+        Tween tween = CreateTween();
+        tween.TweenProperty(dark, "CurrentDarkPower", 0.5f, 0.2);
+        tween.TweenProperty(this, "modulate:a", 1, 0.2);
+        Global.Settings.CutScene = true;
+        GetTree().Paused = true;
     }
+
+    public void HideInventory()
+    {
+        UIDark dark = GetNode<UIDark>("%MenuDark");
+        this.ChangeAlphaModulate();
+        Tween tween = CreateTween();
+        tween.TweenProperty(dark, "CurrentDarkPower", 0f, 0.2);
+        tween.TweenProperty(this, "modulate:a", 0, 0.2);
+        tween.TweenCallback(new Callable(this, "VisibleFalse"));
+        Global.Settings.CutScene = false;
+        GetTree().Paused = false;
+    }
+
+    public void VisibleFalse() =>
+        Visible = false;
 }

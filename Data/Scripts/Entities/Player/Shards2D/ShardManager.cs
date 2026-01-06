@@ -14,15 +14,15 @@ public partial class ShardManager : Node2D
 
     public List<Shard2D> ActiveShards { get; set; } = new();
 
-    public Action<Shard2D> _changedShard;
+    public Action<List<Shard2D>> _changedShards;
 
-    public event Action<Shard2D> MainShard2DChanged
+    public event Action<List<Shard2D>> MainShard2DChanged
     {
-        remove => _changedShard -= value;
+        remove => _changedShards -= value;
         add
         {
-            _changedShard += value;
-            value.Invoke(_mainShard);
+            _changedShards += value;
+            value.Invoke(ActiveShards);
         }
     }
 
@@ -81,6 +81,7 @@ public partial class ShardManager : Node2D
         if (ActiveShards.Count != 0)
         {
             MainShard = ActiveShards[0];
+            MainShard.IsMain = false;
             _shards.Clear();
             for (int i = 1; i < ActiveShards.Count; i++)
                 if (ActiveShards[i] != null)
@@ -92,11 +93,12 @@ public partial class ShardManager : Node2D
 
     private void CompleteReload()
     {
-        foreach (Shard2D shard in ActiveShards)
+        foreach (Shard2D shard1 in ActiveShards)
         {
-            shard.Enable();
-            shard.RecoveryHealth();
+            shard1.Enable();
+            shard1.RecoveryHealth();
         }
+        MainShard.IsMain = true;
         decorate.CompleteReload(this, MainShard, _shards);
         _destroyShards = 0;
     }
@@ -143,13 +145,13 @@ public partial class ShardManager : Node2D
         }
         if (ActiveShards.Count != 0)
         {
-            _changedShard?.Invoke(ActiveShards[0]);
+            _changedShards?.Invoke(ActiveShards);
             _reloadTimer.WaitTime = ActiveShards[0].TimeReload;
             foreach (Shard2D shard in ActiveShards)
                 AddChild(shard);
         }
         else
-            _changedShard?.Invoke(null);
+            _changedShards?.Invoke(null);
         StartReload();
     }
 

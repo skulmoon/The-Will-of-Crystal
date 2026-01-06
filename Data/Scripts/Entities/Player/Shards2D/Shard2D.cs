@@ -5,12 +5,14 @@ public abstract partial class Shard2D : PlayerAttack
 {
     private int _maxHealth = 30;
 
-    public event Action<Shard2D> ZeroHealth = (x) => { };
+    public bool IsMain { get; set; } = false;
     public Sprite2D Sprite { get; set; }
     public PointLight2D Light { get; private set; }
     public int Speed { get; set; } = 300;
     public float TimeReload { get; set; } = 1;
     public int MaxRange { get; private set; } = 100;
+
+    public event Action<Shard2D> ZeroHealth = (x) => { };
     
     public Shard2D(Action<Shard2D> zeroHealth, int health, float damage, int speed, float timeReload, float critChance, int maxRange) : base(health, damage, critChance)
     {
@@ -35,11 +37,8 @@ public abstract partial class Shard2D : PlayerAttack
         base.Disable();
     }
 
-    public void RecoveryHealth()
-    {
-        GD.Print("RecoveryHealth " + _maxHealth);
+    public void RecoveryHealth() =>
         Health = _maxHealth;
-    }
 
     public override void AddParticle(GpuParticles2D particle)
     {

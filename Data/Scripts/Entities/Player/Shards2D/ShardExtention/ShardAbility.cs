@@ -28,8 +28,6 @@ public abstract partial class ShardAbility : Shard2D
         remove => _secondAbilityReloadStarted -= value;
     }
 
-    public bool IsMain { get; set; } = false;
-
     public ShardAbility(Action<Shard2D> zeroHealth, int health, float damage, int speed, float timeReload, float critChance, int maxRange) : base(zeroHealth, health, damage, speed, timeReload, critChance, maxRange)
     {
         _timer1 = new Timer()

@@ -1,107 +1,583 @@
-[gd_scene load_steps=10 format=3 uid="uid://wuwodxqjfr1s"]
+[gd_scene load_steps=47 format=3 uid="uid://wuwodxqjfr1s"]
 
+[ext_resource type="Script" uid="uid://bow4lif362fs3" path="res://Data/Scripts/Menu/Interface/Interface.cs" id="1_3fjpj"]
+[ext_resource type="PackedScene" uid="uid://cfpu5icvlw782" path="res://Data/Scenes/Menu/Interface/PauseMenu/PauseMenu.tscn" id="1_btvnv"]
 [ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/DialogPanel.tscn" id="1_ujoai"]
 [ext_resource type="PackedScene" uid="uid://qejl5dn1sgf8" path="res://Data/Scenes/Menu/Interface/Inventory/InventoryMenu.tscn" id="2_1v5r0"]
 [ext_resource type="PackedScene" uid="uid://5p113gt2878n" path="res://Data/Scenes/Menu/Trade/TradeMenu.tscn" id="3_ayiv2"]
+[ext_resource type="Shader" uid="uid://qf5iis4sn158" path="res://Data/Shaders/InterfaseNoise.gdshader" id="3_jobou"]
 [ext_resource type="Script" uid="uid://ut3cllc1tsuu" path="res://Data/Scripts/Menu/Interface/ProgressBars/HealthProgressBar.cs" id="4_ayiv2"]
 [ext_resource type="Script" uid="uid://chhs0qx4rkapc" path="res://Data/Scripts/Menu/Interface/ProgressBars/PowerProgressBar.cs" id="5_vw5ff"]
 [ext_resource type="Script" uid="uid://bqhqf4m7lqv0j" path="res://Data/Scripts/Menu/Interface/ProgressBars/FirstShardAbilityBar.cs" id="6_vw5ff"]
 [ext_resource type="Script" uid="uid://bv47fvd7qj5jy" path="res://Data/Scripts/Menu/Interface/ProgressBars/SecondShardAbilityBar.cs" id="7_6u13w"]
-[ext_resource type="Script" uid="uid://bjr17i2e1fk62" path="res://Data/Scripts/Menu/Interface/ProgressBars/FirstArmorAbilityBar.cs" id="8_twuwf"]
-[ext_resource type="Script" uid="uid://rjayllecas6" path="res://Data/Scripts/Menu/Interface/ProgressBars/SecondArmorAbilityBar.cs" id="9_1f48q"]
+[ext_resource type="Texture2D" uid="uid://d0wc6d430jm2i" path="res://Data/Textures/Menu/Interface/HealthAndStaminaBarBackGround.png" id="8_8i0xj"]
+[ext_resource type="Script" uid="uid://ck4uu6isqesiv" path="res://Data/Scripts/Menu/MainMenu/BackgroundMainMenuNoise.cs" id="9_8i0xj"]
+[ext_resource type="Script" uid="uid://bpptnefxuxx10" path="res://Data/Scripts/Tools/NoiseChanger.cs" id="10_8i0xj"]
+[ext_resource type="Texture2D" uid="uid://dlmvagk55uwq0" path="res://Data/Textures/Menu/Interface/HealthAndStaminaBar.png" id="10_rxstx"]
+[ext_resource type="Script" uid="uid://ivrj55cuvd4m" path="res://Data/Scripts/Menu/Interface/ProgressBars/HealthAndStaminaBar.cs" id="11_8b8mw"]
+[ext_resource type="Script" uid="uid://baekalbgvb077" path="res://Data/Scripts/Menu/Interface/ShardCells.cs" id="14_g8owh"]
+[ext_resource type="Texture2D" uid="uid://hygyxvk3ddel" path="res://Data/Textures/Menu/Interface/ItemBar.png" id="15_jobou"]
+[ext_resource type="Shader" uid="uid://bbrj0hata7gby" path="res://Data/Shaders/MenuDark.gdshader" id="16_8i0xj"]
+[ext_resource type="Script" uid="uid://dwj6pd3ruyisr" path="res://Data/Scripts/Menu/Interface/UIDark.cs" id="16_g6n5s"]
 
-[node name="Interface" type="CanvasLayer"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g6n5s"]
+noise_type = 3
+frequency = 0.0223
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8i0xj"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_g6n5s")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ufri"]
+shader = ExtResource("16_8i0xj")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_8i0xj")
+shader_parameter/dark_power = 0.6
+shader_parameter/dark_scale = 2.0
+shader_parameter/noise_scale = 0.0
+shader_parameter/cursor_position = Vector2(0, 0)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_btvnv"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_trkh7"]
+noise_type = 3
+frequency = 0.0266
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x61gi"]
+width = 160
+height = 70
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_trkh7")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6n5s"]
+shader = ExtResource("3_jobou")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_x61gi")
+shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
+shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
+shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
+shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8b8mw"]
+bg_color = Color(0.6, 0.10800001, 0.10800001, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgfk6"]
+bg_color = Color(0.22428018, 0.70422673, 0.40566593, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8i0xj"]
+shader = ExtResource("3_jobou")
+shader_parameter/color1 = Color(0, 0, 0, 1)
+shader_parameter/color2 = Color(0, 0, 0, 1)
+shader_parameter/color3 = Color(0, 0, 0, 1)
+shader_parameter/color4 = Color(0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8i0xj"]
+noise_type = 3
+seed = 1
+frequency = 0.0266
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3rfk5"]
+width = 32
+height = 64
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_8i0xj")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gel4w"]
+shader = ExtResource("3_jobou")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_3rfk5")
+shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
+shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
+shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
+shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x61gi"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ufri"]
+bg_color = Color(0, 0, 0, 0.6901961)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fodx7"]
+noise_type = 3
+seed = 2
+frequency = 0.0266
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ehu2i"]
+width = 32
+height = 64
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_fodx7")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52p4q"]
+shader = ExtResource("3_jobou")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ehu2i")
+shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
+shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
+shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
+shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_a2c6y"]
+noise_type = 3
+seed = 3
+frequency = 0.0266
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eciwt"]
+width = 32
+height = 64
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_a2c6y")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6a6d1"]
+shader = ExtResource("3_jobou")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_eciwt")
+shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
+shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
+shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
+shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jxcrk"]
+noise_type = 3
+seed = 4
+frequency = 0.0266
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dt7rc"]
+width = 32
+height = 64
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_jxcrk")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kfyv8"]
+shader = ExtResource("3_jobou")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_dt7rc")
+shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
+shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
+shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
+shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1ufri"]
+noise_type = 3
+frequency = 0.0223
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gel4w"]
+noise = SubResource("FastNoiseLite_1ufri")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x61gi"]
+shader = ExtResource("16_8i0xj")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_gel4w")
+shader_parameter/dark_power = -0.2
+shader_parameter/dark_scale = 2.0
+shader_parameter/noise_scale = 0.0
+shader_parameter/cursor_position = Vector2(0, 0)
+
+[node name="Interface" type="CanvasLayer" node_paths=PackedStringArray("Dark", "MenuDark")]
+script = ExtResource("1_3fjpj")
+Dark = NodePath("Dark")
+MenuDark = NodePath("MenuDark")
+
+[node name="Dark" type="TextureRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_1ufri")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CanvasTexture_btvnv")
+script = ExtResource("16_g6n5s")
 
 [node name="DialogPanel" parent="." instance=ExtResource("1_ujoai")]
-process_mode = 1
-process_priority = -6
 visible = false
-offset_top = -262.0
-region_rect = Rect2(2.1489, 0, 317.851, 320)
 
-[node name="InventoryMenu" parent="." instance=ExtResource("2_1v5r0")]
-visible = false
+[node name="HealthAndStaminaBar" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_g6n5s")
+clip_contents = true
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.008
+anchor_right = 1.0
+anchor_bottom = 0.281
+offset_left = -481.0
+offset_bottom = 0.17832947
+grow_horizontal = 0
+texture = ExtResource("10_rxstx")
+stretch_mode = 5
+script = ExtResource("11_8b8mw")
+
+[node name="BackgroundNoise" type="TextureRect" parent="HealthAndStaminaBar"]
+z_index = -1
+material = SubResource("ShaderMaterial_g6n5s")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.000579834
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_8i0xj")
+stretch_mode = 5
+script = ExtResource("9_8i0xj")
+
+[node name="HealthProgressBar" type="ProgressBar" parent="HealthAndStaminaBar"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.12900001
+anchor_right = 0.633
+anchor_bottom = 0.307
+offset_left = -0.17701912
+offset_top = 0.060367584
+offset_right = -0.15475464
+offset_bottom = -0.5482712
+theme_override_styles/fill = SubResource("StyleBoxFlat_8b8mw")
+fill_mode = 1
+show_percentage = false
+script = ExtResource("4_ayiv2")
+
+[node name="PowerProgressBar" type="ProgressBar" parent="HealthAndStaminaBar"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.20400001
+anchor_top = 0.30600002
+anchor_right = 0.58000004
+anchor_bottom = 0.43100002
+offset_left = -0.12400818
+offset_top = 0.0966835
+offset_right = 0.084472656
+offset_bottom = -0.0076065063
+theme_override_styles/fill = SubResource("StyleBoxFlat_vgfk6")
+fill_mode = 1
+show_percentage = false
+script = ExtResource("5_vw5ff")
+
+[node name="Node" type="Node" parent="HealthAndStaminaBar"]
+script = ExtResource("10_8i0xj")
+Noise = SubResource("NoiseTexture2D_x61gi")
+
+[node name="Shards" type="Control" parent="."]
+material = SubResource("ShaderMaterial_8i0xj")
+layout_mode = 3
+anchor_top = 0.742
+anchor_bottom = 0.992
+offset_top = -0.27999878
+offset_right = 334.0
+grow_vertical = 2
+script = ExtResource("14_g8owh")
+
+[node name="ShardCell" type="TextureRect" parent="Shards"]
+material = SubResource("ShaderMaterial_gel4w")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.244
+anchor_bottom = 1.0
+texture = ExtResource("15_jobou")
+stretch_mode = 5
+
+[node name="Node" type="Node" parent="Shards/ShardCell"]
+script = ExtResource("10_8i0xj")
+Noise = SubResource("NoiseTexture2D_3rfk5")
+
+[node name="Ability" type="TextureRect" parent="Shards/ShardCell"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Shard" type="TextureRect" parent="Shards/ShardCell"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell" node_paths=PackedStringArray("AbilityTexture", "Texture")]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.078
+anchor_right = 0.688
+anchor_bottom = 0.266
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("6_vw5ff")
+AbilityTexture = NodePath("../Ability")
+Texture = NodePath("../Shard")
+
+[node name="SecondShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.297
+anchor_right = 0.688
+anchor_bottom = 0.484
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("7_6u13w")
+
+[node name="ShardCell2" type="TextureRect" parent="Shards"]
+material = SubResource("ShaderMaterial_52p4q")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.252
+anchor_right = 0.496
+anchor_bottom = 1.0
+texture = ExtResource("15_jobou")
+stretch_mode = 5
+
+[node name="Node" type="Node" parent="Shards/ShardCell2"]
+script = ExtResource("10_8i0xj")
+Noise = SubResource("NoiseTexture2D_ehu2i")
+
+[node name="Ability" type="TextureRect" parent="Shards/ShardCell2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Shard" type="TextureRect" parent="Shards/ShardCell2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.5258789e-05
+offset_bottom = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell2" node_paths=PackedStringArray("AbilityTexture", "Texture")]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.078
+anchor_right = 0.688
+anchor_bottom = 0.266
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("6_vw5ff")
+ShardNumber = 1
+AbilityTexture = NodePath("../Ability")
+Texture = NodePath("../Shard")
+
+[node name="SecondShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell2"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.297
+anchor_right = 0.688
+anchor_bottom = 0.484
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("7_6u13w")
+ShardNumber = 1
+
+[node name="ShardCell3" type="TextureRect" parent="Shards"]
+material = SubResource("ShaderMaterial_6a6d1")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.504
+anchor_right = 0.748
+anchor_bottom = 1.0
+texture = ExtResource("15_jobou")
+stretch_mode = 5
+
+[node name="Node" type="Node" parent="Shards/ShardCell3"]
+script = ExtResource("10_8i0xj")
+Noise = SubResource("NoiseTexture2D_eciwt")
+
+[node name="Ability" type="TextureRect" parent="Shards/ShardCell3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Shard" type="TextureRect" parent="Shards/ShardCell3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.5258789e-05
+offset_bottom = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell3" node_paths=PackedStringArray("AbilityTexture", "Texture")]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.078
+anchor_right = 0.688
+anchor_bottom = 0.266
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("6_vw5ff")
+ShardNumber = 2
+AbilityTexture = NodePath("../Ability")
+Texture = NodePath("../Shard")
+
+[node name="SecondShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell3"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.297
+anchor_right = 0.688
+anchor_bottom = 0.484
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("7_6u13w")
+ShardNumber = 2
+
+[node name="ShardCell4" type="TextureRect" parent="Shards"]
+material = SubResource("ShaderMaterial_kfyv8")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.756
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("15_jobou")
+stretch_mode = 5
+
+[node name="Node" type="Node" parent="Shards/ShardCell4"]
+script = ExtResource("10_8i0xj")
+Noise = SubResource("NoiseTexture2D_dt7rc")
+
+[node name="Ability" type="TextureRect" parent="Shards/ShardCell4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Shard" type="TextureRect" parent="Shards/ShardCell4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.5258789e-05
+offset_bottom = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell4" node_paths=PackedStringArray("AbilityTexture", "Texture")]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.078
+anchor_right = 0.688
+anchor_bottom = 0.266
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("6_vw5ff")
+ShardNumber = 3
+AbilityTexture = NodePath("../Ability")
+Texture = NodePath("../Shard")
+
+[node name="SecondShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell4"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.297
+anchor_right = 0.688
+anchor_bottom = 0.484
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("7_6u13w")
+ShardNumber = 3
+
+[node name="MenuDark" type="TextureRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_x61gi")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CanvasTexture_btvnv")
+script = ExtResource("16_g6n5s")
 
 [node name="TradeMenu" parent="." instance=ExtResource("3_ayiv2")]
 visible = false
 
-[node name="HealthProgressBar" type="ProgressBar" parent="."]
-offset_right = 234.0
-offset_bottom = 40.0
-script = ExtResource("4_ayiv2")
+[node name="InventoryMenu" parent="." instance=ExtResource("2_1v5r0")]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
 
-[node name="PowerProgressBar" type="ProgressBar" parent="."]
-offset_left = 1.0
-offset_top = 42.0
-offset_right = 235.0
-offset_bottom = 82.0
-script = ExtResource("5_vw5ff")
-
-[node name="FirstShardAbilityBar" type="ProgressBar" parent="."]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -49.0
-offset_right = 127.0
-offset_bottom = -30.0
-grow_vertical = 0
-script = ExtResource("6_vw5ff")
-
-[node name="Label" type="Label" parent="FirstShardAbilityBar"]
-layout_mode = 0
-offset_top = -17.0
-offset_right = 125.0
-offset_bottom = -2.0
-
-[node name="SecondShardAbilityBar" type="ProgressBar" parent="."]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -19.0
-offset_right = 129.0
-grow_vertical = 0
-script = ExtResource("7_6u13w")
-
-[node name="Label" type="Label" parent="SecondShardAbilityBar"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -16.0
-offset_right = 126.0
-offset_bottom = -1.0
-
-[node name="FirstArmorAbilityBar" type="ProgressBar" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -127.0
-offset_top = -49.0
-offset_bottom = -30.0
-grow_horizontal = 0
-grow_vertical = 0
-script = ExtResource("8_twuwf")
-
-[node name="Label" type="Label" parent="FirstArmorAbilityBar"]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -15.0
-offset_right = 124.0
-
-[node name="SecondArmorAbilityBar" type="ProgressBar" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -129.0
-offset_top = -19.0
-grow_horizontal = 0
-grow_vertical = 0
-script = ExtResource("9_1f48q")
-
-[node name="Label" type="Label" parent="SecondArmorAbilityBar"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = -15.0
-offset_right = 127.0
+[node name="PauseMenu" parent="." instance=ExtResource("1_btvnv")]
+visible = false

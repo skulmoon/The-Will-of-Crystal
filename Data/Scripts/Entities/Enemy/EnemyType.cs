@@ -1,6 +1,6 @@
 ﻿using Godot;
 
-internal enum EnemyType
+public enum EnemyType
 {
     Mele,
     Distant,

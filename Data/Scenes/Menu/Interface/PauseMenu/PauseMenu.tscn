@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://cmxsoepocf5y2" path="res://Data/Scripts/Menu/PauseMenu/CloseButton.cs" id="8_xmok3"]
 [ext_resource type="Texture2D" uid="uid://dusnfp2u3wntt" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton3.png" id="9_7su6k"]
 [ext_resource type="Texture2D" uid="uid://dwuif0y1sgj4w" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton4.png" id="10_oaw21"]
-[ext_resource type="Script" uid="uid://d2kg6yaa5pha1" path="res://Data/Scripts/Menu/Buttons/ButtonAnimationPlayer.cs" id="11_qy5fn"]
+[ext_resource type="Script" uid="uid://d2kg6yaa5pha1" path="res://Data/Scripts/Tools/DefaultAnimationPlayer.cs" id="11_qy5fn"]
 [ext_resource type="Texture2D" uid="uid://be1f4kc7dtb50" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton1.png" id="11_xmjg4"]
 [ext_resource type="Texture2D" uid="uid://c0jo8i8w6njhe" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton2.png" id="12_miyfj"]
 [ext_resource type="Texture2D" uid="uid://df5yc42ylef5x" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton3.png" id="13_drnov"]
@@ -83,14 +83,20 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_r41kh"]
 font_size = 32
 
-[node name="PauseMenu" type="CanvasLayer" node_paths=PackedStringArray("Label")]
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("Label")]
 process_mode = 3
-visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_2m6pe")
 Label = NodePath("Label")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.54902)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -101,6 +107,7 @@ texture = ExtResource("2_c4gkb")
 
 [node name="ButtonContinue" type="TextureButton" parent="." node_paths=PackedStringArray("Menu")]
 process_mode = 3
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
 anchor_top = 0.2
@@ -120,9 +127,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_6uyie")
 }
 script = ExtResource("11_qy5fn")
+DefaultAnimation = "NormalButton"
 
 [node name="ButtonSave" type="TextureButton" parent="." node_paths=PackedStringArray("Label")]
 process_mode = 3
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
 anchor_top = 0.35
@@ -142,9 +151,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_6uyie")
 }
 script = ExtResource("11_qy5fn")
+DefaultAnimation = "NormalButton"
 
 [node name="ButtonClose" type="TextureButton" parent="." node_paths=PackedStringArray("Label", "Menu")]
 process_mode = 3
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
 anchor_top = 0.5
@@ -165,9 +176,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_6uyie")
 }
 script = ExtResource("11_qy5fn")
+DefaultAnimation = "NormalButton"
 
 [node name="Label" type="Label" parent="."]
 self_modulate = Color(1, 0, 0, 1)
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
 anchor_top = 0.65

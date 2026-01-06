@@ -1,0 +1,18 @@
+[
+	{"NPCID" : 0, "DialogueNumber" : 3, "PAMSs" : [
+		{"Music" : null, "FinalCustomize" : 1,  "FinalValues" : [
+			{"ID" : 0, "Position" : {"X" : -450, "Y" : 470}, "Animation" : null},
+			{"ID" : 3, "Position" : {"X" : 190, "Y" : 410}, "Animation" : null},
+		], "PAData" : [
+			{"NPCID" : 0, "Data" : [
+				{"Position" : {"X" : 102, "Y" : 408}, "Animation" : "staing", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 102, "Y" : 408}, "Animation" : "staing", "Time" : 4, "Customize" : null},
+				{"Position" : {"X" : 102, "Y" : 408}, "Animation" : "staing", "Time" : 1, "Customize" : 4},
+				{"Position" : {"X" : 102, "Y" : 300}, "Animation" : "movement_up_home", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 102, "Y" : 300}, "Animation" : "siting", "Time" : 4, "Customize" : 2},
+				{"Position" : {"X" : 102, "Y" : 300}, "Animation" : "destroing", "Time" : 2.8, "Customize" : 3},
+				{"Position" : {"X" : 102, "Y" : 300}, "Animation" : null, "Time" : null, "Customize" : 1},
+			]},
+		]},
+	]},
+]

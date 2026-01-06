@@ -8,7 +8,6 @@ public partial class NameSaveButton : CustomButton
     public NameSaveButton()
     {
         StretchMode = StretchModeEnum.KeepAspectCentered;
-        CustomMinimumSize = new Vector2(0, 120);
         TextureNormal = GD.Load<Texture2D>("res://Data/Textures/Menu/Buttons/LongButton/NormalLongButton.png");
         TextureHover = GD.Load<Texture2D>("res://Data/Textures/Menu/Buttons/LongButton/HoverLongButton.png");
         TexturePressed = GD.Load<Texture2D>("res://Data/Textures/Menu/Buttons/LongButton/PressedLongButton.png");

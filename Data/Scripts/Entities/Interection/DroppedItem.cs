@@ -16,10 +16,11 @@ public partial class DroppedItem : Area2D, IInteractionArea
 
     public void OnLocationChanged(Location location)
     {
-        if ((bool?)location.LocationData?.Find(x => x.ID == ID).Value ?? false)
+        if (location.GetData<bool?>(ID) ?? false)
         {
             return;
         }
+        ZIndex = -90;
         CollisionLayer = 8;
         CollisionMask = 8;
         CollisionShape2D collision = new CollisionShape2D()
@@ -36,8 +37,7 @@ public partial class DroppedItem : Area2D, IInteractionArea
 
     public void Interaction()
     {
-        Global.SceneObjects.Location.LocationData.Add((ID, true));
-        Global.JSON.SetLocationData(Global.SceneObjects.Location.LocationData);
+        Global.SceneObjects.Location.SetData(ID, true);
         Take?.Invoke();
         Item item = (Item)Item.Duplicate();
         item.Count = Count;

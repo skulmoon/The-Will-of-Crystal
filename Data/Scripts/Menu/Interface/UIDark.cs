@@ -3,12 +3,24 @@ using System;
 
 public partial class UIDark : TextureRect
 {
+    private const int TIME = int.MaxValue;
     private bool _darkVisible;
+    private float _currentDarkPower = 0.1f;
 
     private Action DarkShowed;
     private Action DarkHided;
 
+    private FastNoiseLite noise;
     [Export] public float MinlDarkPower { get; set; } = 0.1f;
+    [Export] public float CurrentDarkPower
+    {
+        get => _currentDarkPower;
+        set
+        {
+            _currentDarkPower = value;
+            ((ShaderMaterial)Material).SetShaderParameter("dark_power", value);
+        }
+    }
     [Export] public float DurationTranslate { get; set; } = 0.1f;
     [Export] public bool DarkVisible 
     { 
@@ -28,6 +40,15 @@ public partial class UIDark : TextureRect
 
     public override void _Ready()
     {
+        if (Texture is NoiseTexture2D noiseTexture)
+        {
+            noiseTexture.Width = noiseTexture.Height * GetWindow().Size.X / GetWindow().Size.Y;
+            Tween tween = CreateTween();
+            tween.TweenProperty(noiseTexture.Noise, "offset:y", TIME, TIME);
+            tween.Parallel();
+            tween.TweenProperty(noiseTexture.Noise, "offset:z", (long)TIME * 8, TIME);
+        }
+        CurrentDarkPower = CurrentDarkPower;
         if (DarkVisible)
             ChangeDarkPower(1);
         else
@@ -76,7 +97,7 @@ public partial class UIDark : TextureRect
 
     public void ChangeDarkPower(float power)
     {
-        ((ShaderMaterial)Material).SetShaderParameter("dark_power", power);
+        CurrentDarkPower = power;
     }
 
     public void DarkShowNotify()

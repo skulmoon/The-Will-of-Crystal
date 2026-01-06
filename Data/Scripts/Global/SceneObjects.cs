@@ -9,11 +9,13 @@ public class SceneObjects
     private Player _player;
     private DialogPanel _panel;
     private Location _location;
+    private EnemyFabric _enemyFabric;
 
     private Action<Storage> _storageReady;
     private Action<Player> _playerChanged;
     private Action<DialogPanel> _dialoguePanelChanged;
     private Action<Location> _locationChanged;
+    private Action<EnemyFabric> _enemyFabricChanged;
 
     public Player Player { get => _player; set => _player = SetObject(value, ref _playerChanged); }
     public DialogPanel DialoguePanel { get => _panel; set => _panel = SetObject(value, ref _dialoguePanelChanged); }
@@ -23,12 +25,13 @@ public class SceneObjects
     public List<Enemy> Enemies { get; set; } = new List<Enemy>();
     public InventoryMenu InventoryMenu { get; set; } 
     public Location Location { get => _location; set => _location = SetObject(value, ref _locationChanged); }
-
+    public EnemyFabric EnemyFabric { get => _enemyFabric; set => _enemyFabric = SetObject(value, ref _enemyFabricChanged); }
 
     public event Action<Player> PlayerChanged { add => Subscribe(ref _playerChanged, value, _player); remove => _playerChanged -= value; }
     public event Action<DialogPanel> DialoguePanelChanged { add => Subscribe(ref _dialoguePanelChanged, value, _panel); remove => _dialoguePanelChanged -= value; }
     public event Action<Storage> StorageReady { add => Subscribe(ref _storageReady, value, _storage); remove => _storageReady -= value; }
     public event Action<Location> LocationChanged { add => Subscribe(ref _locationChanged, value, Location); remove => _locationChanged -= value; }
+    public event Action<EnemyFabric> EnemyFabricChanged { add => Subscribe(ref _enemyFabricChanged, value, EnemyFabric); remove => _enemyFabricChanged -= value; }
 
     private T SetObject<T>(T value, ref Action<T> handler)
     {

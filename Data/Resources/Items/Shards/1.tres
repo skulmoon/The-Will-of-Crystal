@@ -6,12 +6,12 @@
 script = ExtResource("1_1mpl3")
 ShardType = "StartShard"
 Health = 40
-Damage = 0.0
+Damage = 10.0
 Speed = 200
 TimeReload = 1.0
 CritChance = 0.1
 MaxRange = 100
 ID = 1
 MaxCount = 1
-Name = "Start shard"
+Name = "Start Shard"
 Description = "This is your first weapon (maybe)."

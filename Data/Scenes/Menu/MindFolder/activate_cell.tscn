@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c01yoivx3kxvq"]
+
+[ext_resource type="Script" uid="uid://dxud87b5uihks" path="res://Data/Scripts/Menu/MindFolder/ActivateCell.cs" id="1_s0gk7"]
+
+[node name="ActivateCell" type="CharacterBody2D"]
+process_mode = 4
+visible = false
+script = ExtResource("1_s0gk7")

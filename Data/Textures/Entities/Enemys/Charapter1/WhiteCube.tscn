@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0w48vrm03hdn"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_uded7"]
+
+[node name="WhiteCube" type="Sprite2D"]
+scale = Vector2(16, 16)
+texture = SubResource("CanvasTexture_uded7")

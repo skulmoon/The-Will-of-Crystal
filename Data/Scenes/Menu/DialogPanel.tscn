@@ -1,27 +1,97 @@
-[gd_scene load_steps=5 format=3 uid="uid://n27vr12tgglv"]
+[gd_scene load_steps=14 format=3 uid="uid://n27vr12tgglv"]
 
-[ext_resource type="Texture2D" uid="uid://bbaqsxt1042nt" path="res://Data/Textures/DialogPanel.png" id="1_2v5d3"]
-[ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/Dialogue/DialogPanel.cs" id="2_58nxw"]
+[ext_resource type="Texture2D" uid="uid://demb00yrf8rqq" path="res://Data/Textures/Menu/Interface/Кристальная линия.png" id="2_4et2w"]
+[ext_resource type="Script" uid="uid://bvxn1iauwhapi" path="res://Data/Scripts/Menu/Interface/Dialogue/DialogPanel.cs" id="2_58nxw"]
+[ext_resource type="Script" uid="uid://d2kg6yaa5pha1" path="res://Data/Scripts/Tools/DefaultAnimationPlayer.cs" id="3_tydta"]
 [ext_resource type="AudioStream" uid="uid://c7n5r7ls0scbm" path="res://Data/Sounds/Effects/bass.wav" id="4_068pr"]
-[ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/Dialogue/DialogText.cs" id="4_k7bds"]
+[ext_resource type="Script" uid="uid://dr705okapr3ae" path="res://Data/Scripts/Menu/Interface/Dialogue/DialogText.cs" id="4_k7bds"]
 
-[node name="DialogPanel" type="NinePatchRect"]
-anchors_preset = 12
-anchor_top = 1.0
+[sub_resource type="CanvasTexture" id="CanvasTexture_4qqf8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4et2w"]
+atlas = ExtResource("2_4et2w")
+region = Rect2(0, 0, 256, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvucm"]
+atlas = ExtResource("2_4et2w")
+region = Rect2(256, 0, 256, 32)
+
+[sub_resource type="Animation" id="Animation_qmkli"]
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [SubResource("AtlasTexture_4et2w"), SubResource("AtlasTexture_mvucm")]
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tydta"]
+atlas = ExtResource("2_4et2w")
+region = Rect2(0, 0, 256, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucrs3"]
+atlas = ExtResource("2_4et2w")
+region = Rect2(256, 0, 256, 32)
+
+[sub_resource type="Animation" id="Animation_mvucm"]
+resource_name = "animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [SubResource("AtlasTexture_tydta"), SubResource("AtlasTexture_ucrs3")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_slbq1"]
+_data = {
+&"RESET": SubResource("Animation_qmkli"),
+&"animation": SubResource("Animation_mvucm")
+}
+
+[node name="DialogPanel" type="TextureRect"]
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = -1
+anchor_top = 0.77900004
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = -242.0
-offset_right = -20.0
-offset_bottom = -20.0
+offset_top = 300.20798
+offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("1_2v5d3")
-patch_margin_left = 126
-patch_margin_top = 116
-patch_margin_right = 128
-patch_margin_bottom = 126
+texture = SubResource("CanvasTexture_4qqf8")
 script = ExtResource("2_58nxw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_4et2w")
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_slbq1")
+}
+script = ExtResource("3_tydta")
+DefaultAnimation = "animation"
 
 [node name="DialogText" type="RichTextLabel" parent="."]
 clip_contents = false
@@ -30,7 +100,7 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 30.0
-offset_top = 30.0
+offset_top = 60.0
 offset_right = -30.0
 offset_bottom = -30.0
 grow_horizontal = 2

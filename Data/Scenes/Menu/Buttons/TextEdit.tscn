@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://dim1l2canldfn" path="res://Data/Textures/ComicoroRu_0.ttf" id="1_agmb2"]
 [ext_resource type="Texture2D" uid="uid://vb6du6ecseul" path="res://Data/Textures/Menu/Buttons/TextEdit/LongTextEdit/LongTextEdit.png" id="2_qnukq"]
-[ext_resource type="Script" path="res://Data/Scripts/Menu/Buttons/BaseTextEdit.cs" id="4_n70j2"]
+[ext_resource type="Script" uid="uid://betwt3b8wamsy" path="res://Data/Scripts/Menu/Buttons/BaseTextEdit.cs" id="4_n70j2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_giin0"]
 bg_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
@@ -13,15 +13,11 @@ expand_margin_bottom = 4.0
 
 [node name="TextEdit" type="LineEdit"]
 anchors_preset = -1
-anchor_right = 0.306
-anchor_bottom = 0.028
-offset_left = 188.0
-offset_top = 117.0
-offset_right = 235.488
-offset_bottom = 130.856
+anchor_right = 0.24700001
+anchor_bottom = 0.032
 theme_override_fonts/font = ExtResource("1_agmb2")
-theme_override_styles/focus = SubResource("StyleBoxFlat_giin0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_giin0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_giin0")
 script = ExtResource("4_n70j2")
 
 [node name="TextureRect" type="TextureRect" parent="."]

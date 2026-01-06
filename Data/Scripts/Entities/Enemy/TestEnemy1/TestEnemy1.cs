@@ -40,4 +40,7 @@ public partial class TestEnemy1 : EnemyReload
             MoveAndSlide();
         }
     }
+
+    public override EnemyType GetEnemyType() =>
+        EnemyType.Mele;
 }
