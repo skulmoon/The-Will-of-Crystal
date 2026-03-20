@@ -1,0 +1,18 @@
+[
+	{"NPCID" : 4, "DialogueNumber" : 1, "Speech" : [
+		null,
+		{"Name" : "", "Text" : "AAAAAAAAAAAAAAAAA!!!", "Image" : ""},
+		{"Name" : "", "Text" : "WHO ARE YOU!?", "Image" : ""},
+		{"Name" : "", "Text" : "PLEASE, DON'T KILL ME!!!", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 2, "OptionText" : "Spare"},
+		{"NextDialogue" : 3, "OptionText" : "Kill"}
+	]},
+	{"NPCID" : 4, "DialogueNumber" : 2, "Speech" : [
+		{"Name" : "", "Text" : "Wha... Huh?", "Image" : ""},
+		{"Name" : "", "Text" : "W-Wait!!!", "Image" : ""},
+	]},
+	{"NPCID" : 4, "DialogueNumber" : 3, "Speech" : [
+		null
+	]},
+]

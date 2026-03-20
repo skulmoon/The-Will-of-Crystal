@@ -9,6 +9,7 @@ public partial class MindFolder : CanvasLayer
 
     [Export] public TextureRect Dark { get; set; }
     [Export] public int ID { get; set; }
+    [Export] public int ChildCellID { get; set; }
 
 
     public event Action Used;
@@ -16,12 +17,12 @@ public partial class MindFolder : CanvasLayer
     public override void _Ready()
     {
         _cell = (FolderCell)GetChildren()[1];
+        RemoveChild(_cell);
         Global.SceneObjects.LocationChanged += OnLocationChanged;
     }
 
     public void OnLocationChanged(Location location)
     {
-        RemoveChild(_cell);
         if (location.GetData<bool?>(ID) ?? false)
         {
             _isUsed = true;
@@ -31,13 +32,19 @@ public partial class MindFolder : CanvasLayer
         Color modulate = _cell.Modulate;
         modulate.A = 0;
         _cell.Modulate = modulate;
+        if (location.GetData<bool?>(ChildCellID) ?? false)
+        {
+            Open();
+            return;
+        }
     }
 
     public void Open()
     {
         if (!_isUsed)
         {
-            AddChild(_cell);
+            if (_cell.GetParentOrNull<MindFolder>() == null)
+                AddChild(_cell);
             _cell.Activate();
             Visible = true;
             Dark.Visible = true;
@@ -48,12 +55,12 @@ public partial class MindFolder : CanvasLayer
 
     public void Close()
     {
+        Global.SceneObjects.Location.SetData(ID, true);
         Tween tween = CreateTween();
         tween.TweenProperty(_cell, "modulate:a", 0, 0.5f);
         tween.TweenCallback(new Callable(this, nameof(CloseEnded)));
         CreateTween().TweenProperty(Dark, "modulate:a", 0, 0.5f);
         RemoveChild(_cell);
-        Global.SceneObjects.Location.SetData(ID, true);
     }
 
     public void CloseEnded()

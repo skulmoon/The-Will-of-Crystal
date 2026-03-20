@@ -1,0 +1,105 @@
+[
+	{"NPCID" : 5, "DialogueNumber" : [1], "PAMSs" : [
+		{"Music" : null, "FinalCustomize" : null,  "FinalValues" : [ 
+			{"ID" : 0, "Position" : {"X" : 640, "Y" : 522}, "Animation" : "standing_up"},
+			{"ID" : 5, "Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_down"},
+			{"ID" : 6, "Position" : {"X" : 580, "Y" : 490}, "Animation" : "standing_up"},
+		], "PAData" : [
+			{"NPCID" : 0, "Data" : [
+				{"Position" : {"X" : 640, "Y" : 600}, "Animation" : "movement_up", "Time" : 2, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 600}, "Animation" : "movement_up", "Time" : 2, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 522}, "Animation" : "movement_up", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 522}, "Animation" : "standing_up", "Time" : null, "Customize" : null},
+			]},
+			{"NPCID" : 5, "Data" : [
+				{"Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_down", "Time" : 1, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_down", "Time" : null, "Customize" : null},
+			]},
+			{"NPCID" : 6, "Data" : [
+				{"Position" : {"X" : 640, "Y" : 600}, "Animation" : "shovel_movement_up", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 490}, "Animation" : "shovel_movement_up", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 580, "Y" : 490}, "Animation" : "shovel_movement_left", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 580, "Y" : 490}, "Animation" : "standing_up", "Time" : null, "Customize" : null},
+			]},
+		]},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : [6], "PAMSs" : [
+		null,
+		null,
+		null,
+		{"Music" : null, "FinalCustomize" : null,  "FinalValues" : [
+			{"ID" : 0, "Position" : {"X" : 640, "Y" : 600}, "Animation" : "movement_down"},
+			{"ID" : 5, "Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_left"},
+			{"ID" : 6, "Position" : {"X" : 580, "Y" : 405}, "Animation" : "shovel_attack_right"},
+		], "PAData" : [
+			{"NPCID" : 0, "Data" : [
+				{"Position" : {"X" : 640, "Y" : 522}, "Animation" : "movement_down", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 600}, "Animation" : "movement_down", "Time" : null, "Customize" : null},
+			]},
+			{"NPCID" : 5, "Data" : [
+				{"Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_left", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_left", "Time" : null, "Customize" : null},
+			]},
+			{"NPCID" : 6, "Data" : [
+				{"Position" : {"X" : 580, "Y" : 490}, "Animation" : "shovel_movement_up", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 580, "Y" : 405}, "Animation" : "shovel_movement_up", "Time" : null, "Customize" : 1},
+				{"Position" : {"X" : 580, "Y" : 405}, "Animation" : "shovel_attack_right", "Time" : null, "Customize" : null},
+			]},
+		]},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : [4, 21, 22, 14, 7], "PAMSs" : [
+		{"Music" : null, "FinalCustomize" : null,  "FinalValues" : [
+			{"ID" : 0, "Position" : {"X" : 640, "Y" : 522}, "Animation" : "standing_up"},
+			{"ID" : 5, "Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_down"},
+			{"ID" : 6, "Position" : {"X" : 580, "Y" : 405}, "Animation" : "shovel_attack_down"},
+		], "PAData" : [
+			{"NPCID" : 0, "Data" : [
+				{"Position" : {"X" : 640, "Y" : 600}, "Animation" : "movement_up", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 600}, "Animation" : "movement_up", "Time" : 2, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 522}, "Animation" : "movement_up", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 522}, "Animation" : "standing_up", "Time" : null, "Customize" : null},
+			]},
+			{"NPCID" : 5, "Data" : [
+				{"Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_left", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_left", "Time" : 3, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_down", "Time" : null, "Customize" : null},
+			]},
+			{"NPCID" : 6, "Data" : [
+				{"Position" : {"X" : 580, "Y" : 405}, "Animation" : "shovel_attack_right", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 580, "Y" : 405}, "Animation" : "shovel_attack_right", "Time" : 3, "Customize" : null},
+				{"Position" : {"X" : 580, "Y" : 405}, "Animation" : "shovel_attack_down", "Time" : null, "Customize" : null},
+			]},
+		]},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : [23, 11, 10], "PAMSs" : [
+		null,
+		null,
+		null,
+		null,
+		null,
+		{"Music" : null, "FinalCustomize" : 1,  "FinalValues" : [
+			{"ID" : 0, "Position" : {"X" : 640, "Y" : 522}, "Animation" : "standing_up"},
+			{"ID" : 5, "Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_left"},
+			{"ID" : 6, "Position" : {"X" : 580, "Y" : 405}, "Animation" : "shovel_attack_right"},
+		], "PAData" : [
+			{"NPCID" : 0, "Data" : [
+				{"Position" : {"X" : 640, "Y" : 522}, "Animation" : "movement_down", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 522}, "Animation" : "movement_down", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 600}, "Animation" : "movement_down", "Time" : null, "Customize" : 1},
+			]},
+			{"NPCID" : 5, "Data" : [
+				{"Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_down", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_down", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_left", "Time" : null, "Customize" : null},
+			]},
+			{"NPCID" : 6, "Data" : [
+				{"Position" : {"X" : 580, "Y" : 405}, "Animation" : "shovel_attack_down", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 580, "Y" : 405}, "Animation" : "shovel_attack_down", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 580, "Y" : 405}, "Animation" : "shovel_attack_right", "Time" : null, "Customize" : null},
+			]},
+		]},
+	]},
+]

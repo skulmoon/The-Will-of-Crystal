@@ -1,4 +1,4 @@
-using Godot;
+﻿using Godot;
 using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
@@ -11,6 +11,7 @@ public partial class PAMSController : Node
     private int? _finalCustomize;
     private List<FinalValues> _finalValues;
     private int _endCount = 0;
+    private int _npcCount = 0;
 
     public bool IsDone { get; private set; } = true;
 
@@ -27,16 +28,13 @@ public partial class PAMSController : Node
             _pamses = null;
     }
 
-    int count = 0;
-
     public void NextPAMS()
     {
-        count++;
-        if (count == 5)
-            GD.Print(_pamses);
+        _npcCount = 0;
         if (_pamses?.Value != null)
         {
             IsDone = false;
+            _npcCount = _pamses?.Value?.PAData?.Count ?? 0;
             if (_pamses.Value?.Music != null)
                 Global.Music.PlayMusic(_pamses.Value?.Music);
             if (_pamses.Value?.PAData != null)
@@ -55,11 +53,11 @@ public partial class PAMSController : Node
     private void PADataEnd()
     {
         _endCount++;
-        if (_endCount >= (_pamses?.Value?.PAData?.Count ?? 0))
+        if (_endCount >= _npcCount)
         {
             IsDone = true;
             _endCount = 0;
-            if (_pamses?.Value == null && !_cutSceneManager.IsPanelActive)
+            if (!_cutSceneManager.IsPanelActive)
             {
                 _cutSceneManager.NextCutScenePart();
             }

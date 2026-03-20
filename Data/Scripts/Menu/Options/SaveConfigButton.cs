@@ -2,15 +2,13 @@ using Godot;
 using System;
 using System.IO;
 
-public partial class SaveConfigButton : CustomButton
+public partial class SaveConfigButton : ButtonMenuTransition
 {
     [Export] public OptionsMenu Options { get; set; }
 
-    public SaveConfigButton() =>
-        Pressed += OnPressed;
-
-    public void OnPressed()
+    public override void OnPressed()
     {
+        base.OnPressed();
         Options.SetConfigInfo();
     }
 }

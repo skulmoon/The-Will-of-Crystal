@@ -7,6 +7,7 @@ public partial class DefaultAnimationPlayer : AnimationPlayer
 
     public override void _Ready()
     {
-        Play(DefaultAnimation);
+        if (DefaultAnimation != string.Empty)
+            Play(DefaultAnimation);
     }
 }

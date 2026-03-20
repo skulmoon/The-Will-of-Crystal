@@ -70,12 +70,18 @@ public partial class CutSceneManager : Node
 
     public void NextCutScenePart()
     {
-        if (_currentCutScene < _CutSceneCount - 1)
+        if (_currentCutScene < _CutSceneCount)
         {
-            _currentCutScene++;
-            if (_dialogue != null)
+            bool isNotEmpty = false;
+            while (!isNotEmpty)
+            {
+                isNotEmpty = true;
+                _PAMSController.NextPAMS();
                 _panel.NextDialogue(_currentCutScene);
-            _PAMSController.NextPAMS();
+                if (_PAMSController.IsDone && !_panel.IsPrinting)
+                    isNotEmpty = false;
+                _currentCutScene++;
+            }
         }
         else
         {
@@ -101,17 +107,18 @@ public partial class CutSceneManager : Node
         _dialogue = npcDialogue;
         _CutSceneCount = (_npcPams?.PAMSs?.Count ?? 0) > (_dialogue?.Speech?.Count ?? 0) ? (_npcPams?.PAMSs?.Count ?? 0) : (_dialogue?.Speech?.Count ?? 0);
         if (npcDialogue != null)
-        {
             _panel.OutputSpeech(npcDialogue);
-            _panel.NextDialogue(_currentCutScene);
-        }
         if (pamses != null)
-        {
             _PAMSController.SetPAMS(pamses);
-            _PAMSController.NextPAMS();
-        }
+        NextCutScenePart();
     }
 
     private void ActiveCharge() =>
         _chargeTimer.Start(0.1f);
+
+    public void Disable()
+    {
+        _CutSceneCount = 0;
+        _currentCutScene = 0;
+    }
 }

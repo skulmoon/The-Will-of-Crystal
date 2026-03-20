@@ -36,7 +36,7 @@ public class JSON
         GetJsonData<List<NPCPAMS>>($"{PATH_PAMS}{Global.Settings.SaveData.CurrentLocation}.json");
 
     public List<NPCDialogue> GetDialogues() =>
-        GetJsonData<List<NPCDialogue>>($"{PATH_DIALOGUES}{Global.Settings.SaveData.CurrentLocation}.json");
+        GetJsonData<List<NPCDialogue>>($"{PATH_DIALOGUES}{TranslationServer.GetLocale()}/{Global.Settings.SaveData.CurrentLocation}.json");
 
     public List<PlayerChoice> GetPlayerChoices() =>
         GetJsonData<List<PlayerChoice>>($"{PATH_SAVES}{Global.Settings.CurrentSave}/Choices/{Global.Settings.SaveData.CurrentLocation}.json");

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cnkm8jqokjmek"]
 
-[ext_resource type="FontFile" uid="uid://dim1l2canldfn" path="res://Data/Textures/ComicoroRu_0.ttf" id="1_agmb2"]
+[ext_resource type="FontFile" uid="uid://bfx0vyyt2q53a" path="res://Data/Textures/EpilepsySans.ttf" id="1_agmb2"]
 [ext_resource type="Texture2D" uid="uid://vb6du6ecseul" path="res://Data/Textures/Menu/Buttons/TextEdit/LongTextEdit/LongTextEdit.png" id="2_qnukq"]
 [ext_resource type="Script" uid="uid://betwt3b8wamsy" path="res://Data/Scripts/Menu/Buttons/BaseTextEdit.cs" id="4_n70j2"]
 

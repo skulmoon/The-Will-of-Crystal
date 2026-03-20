@@ -17,6 +17,7 @@ public partial class ConfigLoader : Node
         ConfigInfo = GetConfig();
         if (!_isNew)
         {
+            TranslationServer.SetLocale(ConfigInfo.Base.Language); //Base
             AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), ConfigInfo.Sound.Base); //Sound
             AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Sound"), ConfigInfo.Sound.Environment);
             AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), ConfigInfo.Sound.Music);

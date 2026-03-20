@@ -36,6 +36,9 @@ public partial class FolderCell : MindCell
         {
             foreach (var cell in MindCells)
             {
+                if (cell is ChildCell childCell)
+                    if (Global.SceneObjects?.Location?.GetData<bool?>(997) ?? false)
+                        continue;
                 cell.GlobalPosition = GlobalPosition + new Vector2((float)GD.RandRange(-1f, 1f), (float)GD.RandRange(-1f, 1f));
                 cell.Activate();
             }

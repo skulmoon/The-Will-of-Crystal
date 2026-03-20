@@ -41,14 +41,19 @@ public partial class DialogText : RichTextLabel
             _delta += delta;
             while (_delta > PrintingSpeed)
             {
-                Text += _text[_counter];
+                if (_text[_counter] == '+')
+                    _delta -= (PrintingSpeed * 10);
+                else
+                {
+                    Text += _text[_counter];
+                    _delta -= PrintingSpeed;
+                }
                 _counter++;
                 if (_counter == _text.Length)
                 {
                     IsPrinting = false;
                     _counter = 0;
                 }
-                _delta -= PrintingSpeed;
             }
         }
     }
@@ -82,6 +87,7 @@ public partial class DialogText : RichTextLabel
             _panels[i].Visible = false;
             OptionsText[i].Text = "";
         }
+        IsPrinting = false;
         _panels[0].Visible = true;
         CurrentPosition = 0;
     }
@@ -96,7 +102,7 @@ public partial class DialogText : RichTextLabel
 
     public void StopPrinting()
     {
-        Text = $"\t{_name}\n{_text}";
+        Text = $"\t{_name}\n{_text.Replace("+", "")}";
         _counter = 0;
         IsPrinting = false;
     }

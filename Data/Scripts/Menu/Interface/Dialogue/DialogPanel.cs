@@ -51,6 +51,8 @@ public partial class DialogPanel : TextureRect
 
     public void NextDialogue(int currentCutScene)
     {
+        if (_dialogue == null)
+            return;
         if (_dialogue.Speech.Count > currentCutScene)
         {
             if (_dialogue.Speech[currentCutScene] != null)
@@ -77,6 +79,8 @@ public partial class DialogPanel : TextureRect
         {
             _dialogText.Text = "";
             _dialogText.Control.Visible = true;
+            foreach (var option in _dialogText.OptionsText)
+                option.Text = string.Empty;
             _dialogText.CountOfOptions = _dialogue.Options.Count;
             for (int i = 0; i < _dialogText.CountOfOptions; i++)
             {
@@ -91,7 +95,7 @@ public partial class DialogPanel : TextureRect
         if (!Visible)
         {
             Visible = true;
-            CreateTween().TweenProperty(this, "position:y", 1180 - 405, 0.4f).SetTrans(Tween.TransitionType.Sine);
+            CreateTween().TweenProperty(this, "position:y", 1180 - 455, 0.4f).SetTrans(Tween.TransitionType.Sine);
         }
     }
 

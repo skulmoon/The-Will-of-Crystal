@@ -3,12 +3,44 @@
   "WorkspaceRootPath": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\locations\\prologue\\charapterroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\locations\\prologue\\charapterroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\buttons\\custombutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\buttons\\custombutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\locations\\conductivepath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\locations\\conductivepath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\options\\general\\languageoptionbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\options\\general\\languageoptionbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\options\\switchbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\options\\switchbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\global\\jsonmanager\\json.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\jsonmanager\\json.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\global\\jsonmanager\\savemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\jsonmanager\\savemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\buttons\\buttonmenutransition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\buttons\\buttonmenutransition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\options\\saveconfigbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\options\\saveconfigbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\global\\jsonmanager\\configloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\jsonmanager\\configloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\options\\optionsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\options\\optionsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\global\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 124,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,29 +58,127 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CharapterRoom.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Locations\\Prologue\\CharapterRoom.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Locations\\Prologue\\CharapterRoom.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Locations\\Prologue\\CharapterRoom.cs",
-              "RelativeToolTip": "Data\\Scripts\\Locations\\Prologue\\CharapterRoom.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA6AAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "SwitchButton.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Options\\SwitchButton.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Options\\SwitchButton.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Options\\SwitchButton.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Options\\SwitchButton.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T16:03:10.873Z",
+              "WhenOpened": "2026-03-08T13:03:03.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "JSON.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\JSONManager\\JSON.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\JSONManager\\JSON.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\JSONManager\\JSON.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\JSONManager\\JSON.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwCUAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T19:24:12.275Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ConductivePath.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Locations\\ConductivePath.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Locations\\ConductivePath.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Locations\\ConductivePath.cs",
-              "RelativeToolTip": "Data\\Scripts\\Locations\\ConductivePath.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA5wBkAAAAsAAAAAAAAAA==",
+              "Title": "LanguageOptionButton.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Options\\General\\LanguageOptionButton.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Options\\General\\LanguageOptionButton.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Options\\General\\LanguageOptionButton.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Options\\General\\LanguageOptionButton.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwA4AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T16:02:46.315Z",
+              "WhenOpened": "2026-02-27T19:17:44.05Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SaveManager.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\JSONManager\\SaveManager.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\JSONManager\\SaveManager.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\JSONManager\\SaveManager.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\JSONManager\\SaveManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-07T14:08:46.184Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CustomButton.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Buttons\\CustomButton.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Buttons\\CustomButton.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Buttons\\CustomButton.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Buttons\\CustomButton.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAwDUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T10:12:53.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ButtonMenuTransition.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Buttons\\ButtonMenuTransition.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Buttons\\ButtonMenuTransition.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Buttons\\ButtonMenuTransition.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Buttons\\ButtonMenuTransition.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA1wA0AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T10:06:35.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SaveConfigButton.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Options\\SaveConfigButton.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Options\\SaveConfigButton.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Options\\SaveConfigButton.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Options\\SaveConfigButton.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T10:06:28.426Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ConfigLoader.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\JSONManager\\ConfigLoader.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\JSONManager\\ConfigLoader.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\JSONManager\\ConfigLoader.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\JSONManager\\ConfigLoader.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T19:25:22.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Global.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\Global.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\Global.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\Global.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\Global.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T19:23:30.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "OptionsMenu.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Options\\OptionsMenu.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Options\\OptionsMenu.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Options\\OptionsMenu.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Options\\OptionsMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T19:17:36.385Z"
             }
           ]
         },

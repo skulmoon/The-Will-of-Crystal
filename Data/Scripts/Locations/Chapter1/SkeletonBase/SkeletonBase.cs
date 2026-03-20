@@ -10,22 +10,47 @@ public partial class SkeletonBase : Location
         Global.Music.PlayMusic("Ending.ogg");
         CutSceneCustomizes.Add((1, () =>
         {
-            GetNode<UIDark>("%MenuDark").CurrentDarkPower = 1.6f;
-            GetNode<Control>("%Titles").Visible = true;
             Tween tween = CreateTween();
-            tween.TweenProperty(GetNode("%Titles"), "position:y", GetNode<Control>("%Titles").Position.Y, 5);
-            tween.Chain();
-            tween.TweenProperty(GetNode("%Titles"), "position:y", GetWindow().Size.Y * -3.4, 50);
-            tween.Chain();
-            tween.TweenProperty(GetNode("%Titles"), "position:y", GetWindow().Size.Y * -3.4, 3);
-            tween.TweenProperty(GetNode("%MenuDark2"), "CurrentDarkPower", 1.6, 3);
-            tween.TweenCallback(new Callable(this, "OpenMainMenu"));
+            tween.TweenProperty(GetNode("%MenuDark"), "CurrentDarkPower", 1.6, 3);
+            tween.TweenCallback(new Callable(this, nameof(OpenChangeLocation)));
         }
         ));
-        Global.CutSceneManager.OutputCutScene(0, 1);
+        CutSceneCustomizes.Add((2, () =>
+        {
+            Tween tween = CreateTween();
+            tween.TweenProperty(GetNode("%MenuDark"), "CurrentDarkPower", 1.6, 3);
+            ((RichTextLabel)GetNode("%Titles")).Visible = true;
+            tween.TweenInterval(2);
+            tween.TweenProperty(GetNode("%Titles"), "position:y", -(((Control)GetNode("%Titles")).Size.Y - GetWindow().Size.Y), 20);
+            tween.TweenProperty(GetNode("%Titles"), "position:y", -(((Control)GetNode("%Titles")).Size.Y - GetWindow().Size.Y), 3);
+            tween.TweenCallback(new Callable(this, nameof(OpenMenu)));
+        }
+        ));
+        CutSceneCustomizes.Add((3, () =>
+        {
+            OpenMenu();
+        }
+        ));
+        GD.Print(Global.CutSceneData.GetChoice(6, 1));
+        if (Global.CutSceneData.GetChoice(6, 1) != 2)
+        {
+            Global.CutSceneManager.OutputCutScene(6, 1);
+        }
     }
 
-    public void OpenMainMenu()
+    public void OpenChangeLocation()
+    {
+        Global.CutSceneManager.Disable();
+        ConductivePath conductive = new ConductivePath()
+        {
+            Path = "Chapter1/SkeletonBaseHeadquarters",
+            EndPosition = new Vector2(0, 0),
+        };
+        AddChild(conductive);
+        conductive.Interaction();
+    }
+
+    public void OpenMenu()
     {
         Global.SaveManager.SaveGame();
         Global.Inventory.Clear();

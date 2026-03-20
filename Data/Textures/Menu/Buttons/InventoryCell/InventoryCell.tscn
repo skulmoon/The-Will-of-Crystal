@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceaqqawcig42l"]
+
+[sub_resource type="Animation" id="Animation_wgvln"]
+resource_name = "cell_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aucu1"]
+_data = {
+&"cell_animation": SubResource("Animation_wgvln")
+}
+
+[node name="InventoryCell" type="AnimationPlayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_aucu1")
+}

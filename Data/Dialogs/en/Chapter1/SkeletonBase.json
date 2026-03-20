@@ -1,0 +1,30 @@
+[
+	{"NPCID" : 0, "DialogueNumber" : 1, "Speech" : [
+		{"Name" : "The God of this world.", "Text" : "And even here, that lazy simpleton Skulmoon hasn't done anything yet((((.++.++.++ But I promise:+ this part will be interesting)))).", "Image" : ""},
+	]},
+	
+	{"NPCID" : 6, "DialogueNumber" : 1, "Speech" : [
+		null,
+		{"Name" : "???", "Text" : "HALT!!!", "Image" : ""},
+		null,
+		{"Name" : "???", "Text" : "Don't you dare to move!.++ Otherwise.++.++.", "Image" : ""},
+		{"Name" : "???", "Text" : "+I+'+L+L+ +C+R+U+S+H+ +Y+O+U+ +T+O+ +T+H+E+ +D+U+S+T+.", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 2, "OptionText" : "Pacify"},
+		{"NextDialogue" : 805, "OptionText" : "Attack"}
+	]},
+	
+	{"NPCID" : 6, "DialogueNumber" : 2, "Speech" : [
+		{"Name" : "???", "Text" : "++.++.++.", "Image" : ""},
+		{"Name" : "???", "Text" : "Ah, a peaceful one.++ You don't even strike back.++ You seem to be made of ore.++ But.++.++.++ Those veins ran dry in these parts long ago.", "Image" : ""},
+		{"Name" : "???", "Text" : ".++.++.", "Image" : ""},
+		{"Name" : "???", "Text" : "Follow me.++ Don't you dare try any tricks.++ The Commander will decide what to do with you.", "Image" : ""},
+		null,
+	]},
+	
+	{"NPCID" : 6, "DialogueNumber" : 805, "Speech" : [
+		{"Name" : "The God of this world.", "Text" : "Well)))))),+ I haven't coded a script for this yet.++ So,+ look forward to the next updates!", "Image" : ""}
+	], "Options" : [
+		{"NextDialogue" : 2, "OptionText" : "Pacify"},
+	]},
+]

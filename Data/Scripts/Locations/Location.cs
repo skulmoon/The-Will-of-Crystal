@@ -9,12 +9,14 @@ public partial class Location : Node2D
 
     public override void _Ready()
     {
+        YSortEnabled = true;
         LocationData = Global.JSON.GetLocationData();
         if (LocationData == null)
         {
             LocationData = new List<(int ID, object Value)>();
             Global.SaveManager.CreateLocationData();
         }
+        Global.Settings.CutScene = false;
         Global.SceneObjects.Location = this;
         StarAnimation();
     }

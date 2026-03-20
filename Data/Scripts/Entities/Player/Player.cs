@@ -2,7 +2,7 @@
 using Godot;
 using System;
 
-public partial class Player : CharacterBody2D
+public partial class Player : NPC
 {
     private PlayerInteractionArea _interactionArea;
     private float _stamina = 0;
@@ -11,6 +11,7 @@ public partial class Player : CharacterBody2D
 
     public AnimatedSprite2D Sprite { get; private set; }
     public ShardManager Shard { get; private set; }
+    public Camera2D Camera { get; private set; }
     public HitBox HitBox { get; private set; }
     public float Stamina 
     { 
@@ -22,7 +23,7 @@ public partial class Player : CharacterBody2D
         }
     }
     [Export] public float MaxStamina { get; set; } = 100;
-    [Export] public int Speed { get; set; } = 7000;
+    [Export] public int PlayerSpeed { get; set; } = 7000;
     [Export] public float Acceleration { get; set; } = 2;
 
     public event Action<float> ChangedPower;
@@ -34,6 +35,7 @@ public partial class Player : CharacterBody2D
         Sprite = GetNode<AnimatedSprite2D>("Sprite2D");
         _interactionArea = GetNode<PlayerInteractionArea>("PlayerInteractionArea");
         HitBox = GetNode<HitBox>("HitBox");
+        Camera = GetNode<Camera2D>("Camera");
         Shard = new ShardManager(this);
         AddChild(Shard);
         Stamina = Global.Settings.SaveData.Stamina;
@@ -43,7 +45,8 @@ public partial class Player : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
-        Move(delta);
+        if (!Global.Settings.CutScene)
+            Move(delta);
     }
 
     private void Move(double delta)
@@ -56,8 +59,8 @@ public partial class Player : CharacterBody2D
             Stamina -= (float)delta * 40;
         }
         else if (!Input.IsActionPressed("acceleration") && Stamina < MaxStamina)
-            Stamina += (float)delta * 20;
-        Velocity = direction * Speed * speedMultiper * (float)delta;
+            Stamina += (float)delta * 60;
+        Velocity = direction * PlayerSpeed * speedMultiper * (float)delta;
         MoveAndSlide();
         if (_currentDirection != direction)
         {

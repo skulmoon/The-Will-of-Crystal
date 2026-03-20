@@ -1,5 +1,5 @@
 [
-	{"NPCID" : 2, "DialogueNumber" : 1, "PAMSs" : [
+	{"NPCID" : 2, "DialogueNumber" : [1], "PAMSs" : [
 		{"Music" : null, "FinalCustomize" : 7,  "FinalValues" : [
 			{"ID" : 2, "Position" : {"X" : -450, "Y" : 470}, "Animation" : null},
 			{"ID" : 3, "Position" : {"X" : 190, "Y" : 410}, "Animation" : null},

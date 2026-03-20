@@ -1,0 +1,18 @@
+[
+	{"NPCID" : 4, "DialogueNumber" : 1, "Speech" : [
+		null,
+		{"Name" : "", "Text" : "АААААААААААААААААА!!!", "Image" : ""},
+		{"Name" : "", "Text" : "Т-ТЫ КфТО!?", "Image" : ""},
+		{"Name" : "", "Text" : "ПРОШУ, НЕ УБИВАЙ МЕНЯ!!!", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 2, "OptionText" : "Пощадить"},
+		{"NextDialogue" : 3, "OptionText" : "Убить"}
+	]},
+	{"NPCID" : 4, "DialogueNumber" : 2, "Speech" : [
+		{"Name" : "", "Text" : "Ааа... А?", "Image" : ""},
+		{"Name" : "", "Text" : "С-Стой!!!", "Image" : ""},
+	]},
+	{"NPCID" : 4, "DialogueNumber" : 3, "Speech" : [
+		null
+	]},
+]

@@ -3,22 +3,15 @@ using System;
 
 public partial class LearningMindFolder : RichTextLabel
 {
-    private EnemyFabric _enemyFabric;
-
     public override void _Ready()
     {
-        Global.SceneObjects.EnemyFabricChanged += OnEnemyFabricChanged;
-    }
-
-    public void OnEnemyFabricChanged(EnemyFabric fabric)
-    {
-        _enemyFabric = fabric;
-        fabric.EnemiesDestroyed += Diactivate;
+        GetNode<MindFolder>("%MindFolder").Used += Diactivate;
     }
 
     public void Diactivate()
     {
         CreateTween().TweenProperty(this, "self_modulate:a", 0, 0.5f);
+        Global.SceneObjects.Location.SetData(1, true);
     }
 
     public void OnBodyEntered(Node2D node)
@@ -30,11 +23,5 @@ public partial class LearningMindFolder : RichTextLabel
         tween.TweenProperty(this, "self_modulate:a", 0, 1f);
         tween.Chain();
         tween.TweenProperty(this, "self_modulate:a", 1, 0.5f);
-    }
-
-    public override void _ExitTree()
-    {
-        _enemyFabric.EnemiesDestroyed -= Diactivate;
-        Global.SceneObjects.EnemyFabricChanged -= OnEnemyFabricChanged;
     }
 }

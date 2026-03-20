@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using static System.Net.Mime.MediaTypeNames;
 
 [GlobalClass]
 public partial class Armor : Item
@@ -15,5 +16,21 @@ public partial class Armor : Item
         Protection = protection;
         AdditionalHealth = additionalHealth;
         ArmorType = armorType;
+    }
+
+    public override void UpdateInfo()
+    {
+        Armor newArmor = GD.Load<Armor>($"res://Data/Resources/Items/Armors/{ID}.tres");
+        UpdateInfo(newArmor);
+        Protection = newArmor.Protection;
+        AdditionalHealth = newArmor.AdditionalHealth;
+        ArmorType = newArmor.ArmorType;
+    }
+
+    public override object Clone()
+    {
+        Item item = new Armor(ID, MaxCount, Name, Description, Protection, AdditionalHealth, ArmorType);
+        item.Count = Count;
+        return item;
     }
 }

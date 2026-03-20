@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using static System.Net.Mime.MediaTypeNames;
 
 [GlobalClass]
 public partial class Shard : Item
@@ -23,6 +24,19 @@ public partial class Shard : Item
         TimeReload = timeReload;
         CritChance = critChance;
         MaxRange = maxRange;
+    }
+
+    public override void UpdateInfo()
+    {
+        Shard newShard = GD.Load<Shard>($"res://Data/Resources/Items/Shards/{ID}.tres");
+        UpdateInfo(newShard);
+        ShardType = newShard.ShardType;
+        Health = newShard.Health;
+        Damage = newShard.Damage;
+        Speed = newShard.Speed;
+        TimeReload = newShard.TimeReload;
+        CritChance = newShard.CritChance;
+        MaxRange = newShard.MaxRange;
     }
 
     public override object Clone()

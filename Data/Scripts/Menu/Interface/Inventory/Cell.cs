@@ -2,12 +2,13 @@ using Godot;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
-public partial class Cell : Button
+public partial class Cell : CustomButton
 {
     private ICellState _state;
     private Item _item;
-    private Sprite2D _sprite;
+    private TextureRect _sprite;
     private Label _label;
 
     static public Cell TakeCell { get; set; }
@@ -51,30 +52,22 @@ public partial class Cell : Button
         }
     }
 
-    public Cell(Vector2 startPosition, Vector2 size, InventoryItems itemInventoryPresenter, int itemNumber)
+    public Cell(Vector2 startPosition, Vector2 size, InventoryItems itemInventoryPresenter, int itemNumber) : this()
     {
-        StartPosition = startPosition;
-        Position = startPosition;
-        Size = size;
-        ItemInventory = itemInventoryPresenter;
-        ItemType = itemInventoryPresenter.Type;
-        _sprite = new Sprite2D();
-        Control control = new Control
-        {
-            AnchorTop = 0.5f,
-            AnchorLeft = 0.5f
-        };
-        control.AddChild(_sprite);
+        Initialized(startPosition, size, itemInventoryPresenter, itemNumber);
+    }
+
+    public Cell()
+    {
+        _sprite = new TextureRect();
+        _sprite.SetAnchorsPreset(LayoutPreset.FullRect);
+        _sprite.MouseFilter = MouseFilterEnum.Ignore;
+        AddChild(_sprite);
         _label = new Label();
         _label.SetAnchorsPreset(LayoutPreset.BottomRight);
         _label.GrowHorizontal = GrowDirection.Begin;
         _label.GrowVertical = GrowDirection.Begin;
         AddChild(_label);
-        AddChild(control);
-        ItemNumber = itemNumber;
-        UpdateItem();
-        if (ItemType == ItemType.Shard && itemNumber < 20 && itemNumber > 15)
-            ActiveShardCells[itemNumber - 16] = this;
     }
 
     public override void _Ready()
@@ -87,14 +80,14 @@ public partial class Cell : Button
 
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsActionJustPressed("take_or_release_item"))
+        if (Input.IsActionPressed("take_or_release_item"))
         {
             if (TakeCell == this)
                 State.Release(this);
             else if (_state is StaticCellState && EnteredMouseCell == this && TakeCell == null)
                 State.Take(this);
         }
-        else if (Input.IsActionJustPressed("manipulation_with_item"))
+        else if (Input.IsActionPressed("manipulation_with_item"))
         {
             if (TakeCell == this)
                 State.ReleaseOne(this);
@@ -116,4 +109,24 @@ public partial class Cell : Button
 
     public void UpdateItem() =>
         Item = ItemType.GetList()[ItemNumber];
+
+    public void Initialized(Vector2 startPosition, Vector2 size, InventoryItems itemInventoryPresenter, int itemNumber)
+    {
+        StartPosition = startPosition;
+        Position = startPosition;
+        Size = size;
+        ItemInventory = itemInventoryPresenter;
+        ItemType = itemInventoryPresenter.Type;
+        ItemNumber = itemNumber;
+        UpdateItem();
+        if (ItemType == ItemType.Shard && itemNumber < 20 && itemNumber > 15)
+            ActiveShardCells[itemNumber - 16] = this;
+    }
+
+    public static Cell CreateCell(Vector2 startPosition, Vector2 size, InventoryItems itemInventoryPresenter, int itemNumber)
+    {
+        Cell cell = GD.Load<PackedScene>("res://Data/Scenes/Menu/Interface/Inventory/Cell.tscn").Instantiate<Cell>();
+        cell.Initialized(startPosition, size, itemInventoryPresenter, itemNumber);
+        return cell;
+    }
 }

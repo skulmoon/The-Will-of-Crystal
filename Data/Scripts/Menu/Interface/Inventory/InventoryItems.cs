@@ -7,12 +7,14 @@ using System.Runtime.CompilerServices;
 public partial class InventoryItems : Control
 {
     const int FIRST_ACTIVE_ITEM = 16;
-
 	private PlayerInventory _playerInventory;
 	private int lineCount = 0;
+    private float CellYSize;
+
     public List<Cell> Cells { get; private set; } = new List<Cell>();
     [Export] public int SellInLine { get; set; } = 6;
     [Export] public ItemType Type { get; set; } = ItemType.Item;
+    [Export] public float PixelYSize { get; set; }
 
     public override void _Ready()
     {
@@ -32,10 +34,11 @@ public partial class InventoryItems : Control
     {
         AddCells();
         float cellSize = AddCells();
+        float bufferSize = cellSize / 16;
         if (Type == ItemType.Shard)
         {
             float angelDistance = 2 * MathF.PI / 3;
-            Cell mainCell = new Cell(new Vector2((Size.X - cellSize) / 2, (-Size.Y - cellSize) / 2), new Vector2(cellSize, cellSize), this, FIRST_ACTIVE_ITEM);
+            Cell mainCell = Cell.CreateCell(new Vector2(((cellSize + bufferSize) * SellInLine - cellSize) / 2, -Size.Y * 0.8f), new Vector2(cellSize, cellSize), this, FIRST_ACTIVE_ITEM);
             Label label = new Label
             {
                 Text = 0.ToString()
@@ -44,7 +47,7 @@ public partial class InventoryItems : Control
             AddChild(mainCell);
             for (int i = 0; i < 3; i++)
             {
-                Cell cell = new Cell(mainCell.Position + new Vector2(MathF.Cos(i * angelDistance - MathF.PI / 2), MathF.Sin(i * angelDistance - MathF.PI / 2)) * Size.X / 2.5f, new Vector2(cellSize, cellSize), this, FIRST_ACTIVE_ITEM + i + 1);
+                Cell cell = Cell.CreateCell(mainCell.Position + new Vector2(MathF.Cos(i * angelDistance - MathF.PI / 2), MathF.Sin(i * angelDistance - MathF.PI / 2)) * cellSize * 1.2f, new Vector2(cellSize, cellSize), this, FIRST_ACTIVE_ITEM + i + 1);
                 label = new Label
                 {
                     Text = i.ToString()
@@ -56,7 +59,7 @@ public partial class InventoryItems : Control
         }
         else if (Type == ItemType.Armor)
         {
-            Cell mainCell = new Cell(new Vector2((Size.X - cellSize) / 2, (-Size.Y - cellSize) / 2), new Vector2(cellSize, cellSize), this, FIRST_ACTIVE_ITEM);
+            Cell mainCell = Cell.CreateCell(new Vector2(((cellSize + bufferSize) * SellInLine - cellSize) / 2, -Size.Y * 0.8f), new Vector2(cellSize, cellSize), this, FIRST_ACTIVE_ITEM);
             Label label = new Label
             {
                 Text = 0.ToString()
@@ -68,10 +71,11 @@ public partial class InventoryItems : Control
 
     public float AddCells()
     {
-        float cellSize = Size.X / SellInLine;
+        float cellSize = Size.Y * 32f/PixelYSize;
         for (int i = 0; i < SellInLine; i++)
         {
-            Cell cell = new Cell(new Vector2(i * cellSize, lineCount * cellSize), new Vector2(cellSize, cellSize), this, i + (lineCount * SellInLine));
+            float sizeBuffer = 2f/PixelYSize;
+            Cell cell = Cell.CreateCell(new Vector2(i * (cellSize + Size.Y * sizeBuffer), lineCount * (cellSize + Size.Y * sizeBuffer)), new Vector2(cellSize, cellSize), this, i + (lineCount * SellInLine));
             Label label = new Label
             {
                 Text = (i + lineCount * SellInLine).ToString()

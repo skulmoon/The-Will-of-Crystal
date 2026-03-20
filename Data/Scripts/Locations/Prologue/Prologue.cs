@@ -39,10 +39,6 @@ public partial class Prologue : Location
         }
         ));
         CutSceneCustomizes.Add((8, () => NPCs.Find((x) => x.ID == 0).Visible = true));
-        if (GetData<bool?>(1) ?? true)
-        {
-            SetData(1, false);
-            Global.CutSceneManager.OutputCutScene(2, 1);
-        }
+        Global.CutSceneManager.OutputCutScene(2, 1);
     }
 }

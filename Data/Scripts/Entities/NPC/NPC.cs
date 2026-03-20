@@ -13,16 +13,21 @@ public partial class NPC : CharacterBody2D
     [Export] public string NPCInteractionPath { get; set; } = "res://Data/Scripts/Entities/NPC/InteractionDefault.cs";
     [Export] public int ID { get; set; }
     [Export] public float Speed { get; set; } = 60;
+    [Export] public AnimatedSprite2D AnimatedSprite2D { get; set; }
     public bool IsMove { get; set; }
-    public AnimatedSprite2D AnimatedSprite2D { get; set; }
+
+    public NPC()
+    {
+        Global.SceneObjects.Npcs.Add(this);
+    }
 
     public override void _Ready()
 	{
         AddChild(_timer);
         _timer.Timeout += ActivePA;
-        Global.SceneObjects.Npcs.Add(this);
-        AnimatedSprite2D = GetNode<AnimatedSprite2D>("Sprite2D");
-        AnimatedSprite2D.Play();
+        if (AnimatedSprite2D == null)
+            AnimatedSprite2D = GetNodeOrNull<AnimatedSprite2D>("Sprite2D");
+        AnimatedSprite2D?.Play();
         try
         {
             _interactionArea = GetNodeOrNull<Area2D>("NPCInteractionArea");
@@ -79,9 +84,9 @@ public partial class NPC : CharacterBody2D
         }
         else
         {
-            _endPAData?.Invoke();
             Position = _nextPAData.Value.Position;
             IsMove = false;
+            _endPAData?.Invoke();
         }
     }
 
@@ -93,7 +98,7 @@ public partial class NPC : CharacterBody2D
             AnimatedSprite2D.Animation = finalValues.Animation;
             AnimatedSprite2D.Play();
         }
-        _endPAData?.Invoke();
         IsMove = false;
+        _endPAData?.Invoke();
     }
 }

@@ -1,0 +1,406 @@
+[gd_scene load_steps=31 format=3 uid="uid://bverrpf03j36w"]
+
+[ext_resource type="Script" uid="uid://r8gma1kfcxkp" path="res://Data/Scripts/Locations/Prologue/TheBeginning.cs" id="1_yulke"]
+[ext_resource type="Script" uid="uid://cil72e51qklhw" path="res://Data/Scripts/Entities/NPC/NPC.cs" id="2_p7gil"]
+[ext_resource type="Texture2D" uid="uid://jhicjbsbsewh" path="res://Data/Textures/Locations/Prologue/cylinders.png" id="2_qcol8"]
+[ext_resource type="Script" uid="uid://bow4lif362fs3" path="res://Data/Scripts/Menu/Interface/Interface.cs" id="3_7l4hd"]
+[ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/DialogPanel.tscn" id="4_qcol8"]
+[ext_resource type="Texture2D" uid="uid://dlmvagk55uwq0" path="res://Data/Textures/Menu/Interface/HealthAndStaminaBar.png" id="5_3jptd"]
+[ext_resource type="Script" uid="uid://ivrj55cuvd4m" path="res://Data/Scripts/Menu/Interface/ProgressBars/HealthAndStaminaBar.cs" id="6_8uqoj"]
+[ext_resource type="Script" uid="uid://ut3cllc1tsuu" path="res://Data/Scripts/Menu/Interface/ProgressBars/HealthProgressBar.cs" id="7_ssd0p"]
+[ext_resource type="Script" uid="uid://chhs0qx4rkapc" path="res://Data/Scripts/Menu/Interface/ProgressBars/PowerProgressBar.cs" id="8_ohaol"]
+[ext_resource type="Script" uid="uid://bqhqf4m7lqv0j" path="res://Data/Scripts/Menu/Interface/ProgressBars/FirstShardAbilityBar.cs" id="9_va203"]
+[ext_resource type="Script" uid="uid://bv47fvd7qj5jy" path="res://Data/Scripts/Menu/Interface/ProgressBars/SecondShardAbilityBar.cs" id="10_ckv4t"]
+[ext_resource type="Script" uid="uid://bjr17i2e1fk62" path="res://Data/Scripts/Menu/Interface/ProgressBars/FirstArmorAbilityBar.cs" id="11_0tmin"]
+[ext_resource type="Script" uid="uid://rjayllecas6" path="res://Data/Scripts/Menu/Interface/ProgressBars/SecondArmorAbilityBar.cs" id="12_2asgk"]
+[ext_resource type="Script" uid="uid://baekalbgvb077" path="res://Data/Scripts/Menu/Interface/ShardCells.cs" id="13_lglmo"]
+[ext_resource type="Texture2D" uid="uid://hygyxvk3ddel" path="res://Data/Textures/Menu/Interface/ItemBar.png" id="14_721uw"]
+[ext_resource type="Script" uid="uid://dlrslxh5hekv6" path="res://Data/Scripts/Menu/Interface/ShardCell.cs" id="15_8gqw7"]
+[ext_resource type="Shader" uid="uid://bbrj0hata7gby" path="res://Data/Shaders/MenuDark.gdshader" id="16_bcvrs"]
+[ext_resource type="Script" uid="uid://dwj6pd3ruyisr" path="res://Data/Scripts/Menu/Interface/UIDark.cs" id="17_7cymd"]
+[ext_resource type="PackedScene" uid="uid://5p113gt2878n" path="res://Data/Scenes/Menu/Trade/TradeMenu.tscn" id="18_yc10s"]
+[ext_resource type="PackedScene" uid="uid://qejl5dn1sgf8" path="res://Data/Scenes/Menu/Interface/Inventory/InventoryMenu.tscn" id="19_d1pgq"]
+[ext_resource type="PackedScene" uid="uid://cfpu5icvlw782" path="res://Data/Scenes/Menu/Interface/PauseMenu/PauseMenu.tscn" id="20_v1bx2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l4hd"]
+atlas = ExtResource("2_qcol8")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="Animation" id="Animation_3jptd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 256, 256)]
+}
+
+[sub_resource type="Animation" id="Animation_qcol8"]
+resource_name = "animation"
+length = 15.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 256, 256), Rect2(256, 0, 256, 256), Rect2(512, 0, 256, 256), Rect2(768, 0, 256, 256), Rect2(1024, 0, 256, 256), Rect2(1280, 0, 256, 256), Rect2(1536, 0, 256, 256), Rect2(1792, 0, 256, 256), Rect2(2048, 0, 256, 256), Rect2(2304, 0, 256, 256), Rect2(2560, 0, 256, 256), Rect2(2816, 0, 256, 256), Rect2(3072, 0, 256, 256), Rect2(3328, 0, 256, 256), Rect2(3584, 0, 256, 256)]
+}
+
+[sub_resource type="Animation" id="Animation_8uqoj"]
+resource_name = "animation_2"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 256, 256), Rect2(256, 0, 256, 256), Rect2(512, 0, 256, 256), Rect2(768, 0, 256, 256), Rect2(1024, 0, 256, 256), Rect2(1280, 0, 256, 256), Rect2(1536, 0, 256, 256), Rect2(1792, 0, 256, 256)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8uqoj"]
+_data = {
+&"RESET": SubResource("Animation_3jptd"),
+&"animation": SubResource("Animation_qcol8"),
+&"animation_2": SubResource("Animation_8uqoj")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0q04k"]
+bg_color = Color(0.6, 0.10800001, 0.10800001, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5ynk"]
+bg_color = Color(0.22428018, 0.70422673, 0.40566593, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_buaen"]
+shader = ExtResource("16_bcvrs")
+shader_parameter/dark_power = 0.6
+shader_parameter/dark_scale = 1.5
+shader_parameter/noise_scale = 0.6
+shader_parameter/cursor_position = Vector2(0, 0)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_iu065"]
+
+[node name="TheBeginning" type="Node2D" node_paths=PackedStringArray("Labels")]
+script = ExtResource("1_yulke")
+Labels = [NodePath("CanvasLayer/Label"), NodePath("CanvasLayer/Label2"), NodePath("CanvasLayer/Label3"), NodePath("CanvasLayer/Label4"), NodePath("CanvasLayer/Label5")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Image1" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_7l4hd")
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Image1"]
+libraries = {
+&"": SubResource("AnimationLibrary_8uqoj")
+}
+speed_scale = 8.0
+
+[node name="Image2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_7l4hd")
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Image2"]
+libraries = {
+&"": SubResource("AnimationLibrary_8uqoj")
+}
+speed_scale = 8.0
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "В начале было ничто."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.35700002
+anchor_top = 0.505
+anchor_right = 0.609
+anchor_bottom = 0.545
+offset_left = -143.26404
+offset_top = -81.23999
+offset_right = -143.56805
+offset_bottom = -81.16
+theme_override_font_sizes/font_size = 26
+text = "Из ничего был рождён мир."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 392.0
+offset_top = 221.0
+offset_right = 606.0
+offset_bottom = 247.0
+theme_override_font_sizes/font_size = 26
+text = "Он был полон всего."
+
+[node name="Label4" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 324.0
+offset_top = 266.0
+offset_right = 440.0
+offset_bottom = 321.0
+theme_override_font_sizes/font_size = 26
+text = "Мир спал.
+"
+
+[node name="Label5" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 305.0
+offset_top = 344.0
+offset_right = 481.0
+offset_bottom = 395.0
+theme_override_font_sizes/font_size = 26
+text = "Но однажды он..."
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_p7gil")
+
+[node name="Interface" type="CanvasLayer" parent="." node_paths=PackedStringArray("Dark", "MenuDark")]
+unique_name_in_owner = true
+script = ExtResource("3_7l4hd")
+Dark = NodePath("Dark")
+MenuDark = NodePath("Dark")
+
+[node name="DialogPanel" parent="Interface" instance=ExtResource("4_qcol8")]
+
+[node name="HealthAndStaminaBar" type="TextureRect" parent="Interface"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.60300004
+anchor_right = 1.0
+anchor_bottom = 0.32200003
+offset_left = -6.1035156e-05
+offset_bottom = 0.17832947
+grow_horizontal = 0
+texture = ExtResource("5_3jptd")
+expand_mode = 5
+script = ExtResource("6_8uqoj")
+
+[node name="HealthProgressBar" type="ProgressBar" parent="Interface/HealthAndStaminaBar"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.034
+anchor_top = 0.12900001
+anchor_right = 0.633
+anchor_bottom = 0.30600002
+offset_left = -0.20570278
+offset_top = 0.060367584
+offset_right = -0.15475464
+offset_bottom = 0.0966835
+theme_override_styles/fill = SubResource("StyleBoxFlat_0q04k")
+fill_mode = 1
+show_percentage = false
+script = ExtResource("7_ssd0p")
+
+[node name="PowerProgressBar" type="ProgressBar" parent="Interface/HealthAndStaminaBar"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21900001
+anchor_top = 0.30600002
+anchor_right = 0.58000004
+anchor_bottom = 0.43100002
+offset_left = 0.18565369
+offset_top = 0.0966835
+offset_right = 0.084472656
+offset_bottom = -0.0076065063
+theme_override_styles/fill = SubResource("StyleBoxFlat_l5ynk")
+fill_mode = 1
+show_percentage = false
+script = ExtResource("8_ohaol")
+
+[node name="FirstShardAbilityBar" type="ProgressBar" parent="Interface"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -49.0
+offset_right = 127.0
+offset_bottom = -30.0
+grow_vertical = 0
+script = ExtResource("9_va203")
+
+[node name="Label" type="Label" parent="Interface/FirstShardAbilityBar"]
+layout_mode = 0
+offset_top = -17.0
+offset_right = 125.0
+offset_bottom = -2.0
+
+[node name="SecondShardAbilityBar" type="ProgressBar" parent="Interface"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -19.0
+offset_right = 129.0
+grow_vertical = 0
+script = ExtResource("10_ckv4t")
+
+[node name="Label" type="Label" parent="Interface/SecondShardAbilityBar"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -16.0
+offset_right = 126.0
+offset_bottom = -1.0
+
+[node name="FirstArmorAbilityBar" type="ProgressBar" parent="Interface"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -127.0
+offset_top = -49.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("11_0tmin")
+HidePosition = Vector2(80, 0)
+
+[node name="Label" type="Label" parent="Interface/FirstArmorAbilityBar"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -15.0
+offset_right = 124.0
+
+[node name="SecondArmorAbilityBar" type="ProgressBar" parent="Interface"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("12_2asgk")
+HidePosition = Vector2(80, 0)
+
+[node name="Label" type="Label" parent="Interface/SecondArmorAbilityBar"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 127.0
+
+[node name="Shards" type="Control" parent="Interface"]
+visible = false
+layout_mode = 3
+anchor_top = 0.68
+anchor_bottom = 1.0
+offset_top = -0.2800293
+offset_right = 442.0
+grow_vertical = 2
+script = ExtResource("13_lglmo")
+
+[node name="ShardCell" type="TextureRect" parent="Interface/Shards"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 1.0
+texture = ExtResource("14_721uw")
+stretch_mode = 5
+script = ExtResource("15_8gqw7")
+
+[node name="ShardCell2" type="TextureRect" parent="Interface/Shards"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 0.5
+anchor_bottom = 1.0
+texture = ExtResource("14_721uw")
+stretch_mode = 5
+script = ExtResource("15_8gqw7")
+
+[node name="ShardCell3" type="TextureRect" parent="Interface/Shards"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.75
+anchor_bottom = 1.0
+texture = ExtResource("14_721uw")
+stretch_mode = 5
+script = ExtResource("15_8gqw7")
+
+[node name="ShardCell4" type="TextureRect" parent="Interface/Shards"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("14_721uw")
+stretch_mode = 5
+script = ExtResource("15_8gqw7")
+
+[node name="Dark" type="TextureRect" parent="Interface"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_buaen")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CanvasTexture_iu065")
+script = ExtResource("17_7cymd")
+
+[node name="TradeMenu" parent="Interface" instance=ExtResource("18_yc10s")]
+visible = false
+
+[node name="InventoryMenu" parent="Interface" instance=ExtResource("19_d1pgq")]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+
+[node name="PauseMenu" parent="Interface" instance=ExtResource("20_v1bx2")]
+visible = false

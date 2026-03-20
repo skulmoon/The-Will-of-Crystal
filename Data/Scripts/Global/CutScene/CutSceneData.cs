@@ -40,11 +40,11 @@ public partial class CutSceneData
         npsPamses = GetNPCPAMS(NPCID, DialogueNumber);
     }
 
-    public NPCPAMS GetNPCPAMS(int NPCID, int DialogueNumber)
+    public NPCPAMS GetNPCPAMS(int NPCID, int dialogueNumber)
     {
         if(_npsPamses != null)
             foreach (NPCPAMS buffer in _npsPamses)
-                if (buffer.NPCID == NPCID && buffer.DialogueNumber == DialogueNumber)
+                if (buffer.NPCID == NPCID && buffer.DialogueNumber.Contains(dialogueNumber))
                     return buffer;
         return null;
     }

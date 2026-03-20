@@ -1,0 +1,205 @@
+[
+	{"NPCID" : 5, "DialogueNumber" : 1, "Speech" : [
+		{"Name" : "???", "Text" : "Commander,+ I have the guest I mentioned in my report.", "Image" : ""},
+		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Interesting look he’s got.++ Got here in no time.++ Especially considering you’re made of ore.++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Where do you even come from?++ You wouldn't happen to be some lab-grown scout,+ sent to check things out beyond the Barrier, would you?", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Though.++.++.++ given their precision,+ they wouldn't have sent you in such a mess.+ You're literally falling apart here.", "Image" : ""},
+		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "So that’s how it is.++.++.++ ... I can’t hear your words,+ but.++.++.++ ... even you aren’t entirely sure yourself.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Anyway,+ even with your current form,+ it doesn't matter anymore.++ It's not for us,+the dead folks,+  pass judgment by looks,+ heh.++.++.", "Image" : ""},
+		{"Name" : "???", "Text" : "Commander.++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Berlich,+ you understand it all yourself.++ We’ve discussed about this.++ He could be our only hope.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "We have nothing left to lose.", "Image" : ""},
+		{"Name" : "Berlich", "Text" : ".++.++.", "Image" : ""},
+		{"Name" : "Berlich", "Text" : "Got it.++ My apologies for distracting you.++ Please,+ carry on.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Ahem,+ so.++ See this crystal on my table?++ We need to find more like it.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "If you head northwest a bit,+ almost to the very center of the island,+ as far as the crossroads,+ you should find them there.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "In exchange for the crystals you find,+ we will give you further information regarding this location.", "Image" : ""},
+		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Do we have a deal?", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 2, "OptionText" : "Assist"},
+		{"NextDialogue" : 3, "OptionText" : "Refuse"}
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 2, "Speech" : [
+		{"Name" : "Commander", "Text" : "Interesting.++.++. And yet you accepted.", "Image" : ""},
+		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Thank you.", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 6, "OptionText" : "Leave"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 3, "Speech" : [
+		{"Name" : "Commander", "Text" : "Perhaps this was to be expected.++.++.", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 10, "OptionText" : "Leave"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 4, "Speech" : [
+		null,
+		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "What have you come for?", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 5, "OptionText" : "Questions"},
+		{"NextDialogue" : 11, "OptionText" : "Leave"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 5, "Speech" : [
+		{"Name" : "Commander", "Text" : "You know I won't give you the information for nothing.+ Though.++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "I can give you information who it is you are going to face.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Mostly,+ you'll face skeletons with shovels or even bare hands,+ however.++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "One of them has a grenade.++ That bastard right there is the reason we won't go near that spot.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "So be careful.++ I don’t think even you would make it out in one piece if it damages you.", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 23, "OptionText" : "Leave"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 6, "Speech" : [
+		{"Name" : "Commander", "Text" : "I wish you good luck.", "Image" : ""},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 23, "Speech" : [
+		{"Name" : "Commander", "Text" : "Good luck.", "Image" : ""},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 7, "Speech" : [
+		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "So, you changed your mind, huh?", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 9, "OptionText" : "Assist"},
+		{"NextDialogue" : 8, "OptionText" : "Questions"},
+		{"NextDialogue" : 12, "OptionText" : "Leave"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 8, "Speech" : [
+		{"Name" : "Commander", "Text" : "You didn't even accept this deal,+ and after coming here you dare to ASK ME QUESTIONS?!?", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Get out.", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 10, "OptionText" : "Leave"},
+		{"NextDialogue" : 230119, "OptionText" : "Attack"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 9, "Speech" : [
+		{"Name" : "Commander", "Text" : "Oh.++.++.++ Just wonderful.++ Let's get to the point.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Since you already know the main plan,+ then in this case you should obviously be sure in your decision.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "And if you’re really going there.++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : ".++.++.++", "Image" : ""},
+		{"Name" : "Commander", "Text" : "There will be a skeleton with a grenade at the end.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Don't thank me.", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 23, "OptionText" : "Leave"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 10, "Speech" : [
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 21, "Speech" : [
+		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "What?", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 13, "OptionText" : "Questions"},
+		{"NextDialogue" : 11, "OptionText" : "Leave"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 22, "Speech" : [
+		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 13, "OptionText" : "Questions"},
+		{"NextDialogue" : 17, "OptionText" : "Leave"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 11, "Speech" : [
+		{"Name" : "Commander", "Text" : "Very interesting specimen you are.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Came up,+ stood there,+ walked off.++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "DO YOU THINK THIS IS A WALK-THROUG YARD!?.", "Image" : ""},
+		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Get out.", "Image" : ""},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 12, "Speech" : [
+		{"Name" : "Commander", "Text" : "++O++H++H++H++H++H++H++H++H++H++H++H++H++H++H++H++H++H++H++.++++++.++++++.", "Image" : ""},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 13, "Speech" : [
+		{"Name" : "Commander", "Text" : "You know what's required. Now, get to your task.", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 10, "OptionText" : "Leave"},
+		{"NextDialogue" : 2151814, "OptionText" : "Attack"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 14, "Speech" : [
+		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "You don't understand any fucking language.++.++.", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 16, "OptionText" : "Assist"},
+		{"NextDialogue" : 15, "OptionText" : "Leave"},
+		{"NextDialogue" : 20, "OptionText" : "Attack"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 15, "Speech" : [
+		{"Name" : "Commander", "Text" : "+P+h+e+e+w+.++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "I'll need a pack of cigarettes.++.++.", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 10, "OptionText" : "Leave"},
+		{"NextDialogue" : 255011819, "OptionText" : "Attack"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 16, "Speech" : [
+		{"Name" : "Commander", "Text" : "It dawned on him.++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "I've gotta smoke.++.++.", "Image" : ""},
+		null,
+		{"Name" : "Berlich", "Text" : "Here is the penultimate one.", "Image" : ""},
+		null,
+		{"Name" : "Commander", "Text" : "Now++.++.++.++ Fair-Blue Ore,+ off on your mission and stop being a pain in my skull.", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 10, "OptionText" : "Leave"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 17, "Speech" : [
+		{"Name" : "Commander", "Text" : "+++O+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++.+++.+++.", "Image" : ""},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 18, "Speech" : [
+		{"Name" : "Commander", "Text" : "++++++O++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++.++++++.++++++.", "Image" : ""},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 19, "Speech" : [
+		{"Name" : "Commander", "Text" : "Did you know that coffee helps with dementia?.", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 18, "OptionText" : "Leave"},
+		{"NextDialogue" : 10715, "OptionText" : "Attack"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 230119, "Speech" : [
+		{"Name" : "The God of this world.", "Text" : "Well,+ I haven't made this option yet.++ So, look forward to the next ++++u++++p+++d+++a++t++e+s!!!))))", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 10, "OptionText" : "Leave"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 2151814, "Speech" : [
+		{"Name" : "The God of this world.", "Text" : "Yeah, I promise,+ I’ll be releasing an update soon and adding this dialogue option.+ Honestly!))))", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 10, "OptionText" : "Leave"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 20, "Speech" : [
+		{"Name" : "The God of this world.", "Text" : "Man,+ if I’d worked just a little harder,+ you’d have that option already.++ I’ll add it later)))).", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 16, "OptionText" : "Assist"},
+		{"NextDialogue" : 15, "OptionText" : "Leave"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 255011819, "Speech" : [
+		{"Name" : "The God of this world.", "Text" : "Maybe I'll get around to the code one day.+ But currently?+ I’m just lazy.)))))))", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 10, "OptionText" : "Leave"},
+	]},
+	
+	{"NPCID" : 5, "DialogueNumber" : 10715, "Speech" : [
+		{"Name" : "The God of this worl.", "Text" : "Well, nothing here for now)))). But you can check out this file if you want.", "Image" : ""},
+	], "Options" : [
+		{"NextDialogue" : 18, "OptionText" : "Leave"},
+	]},
+]

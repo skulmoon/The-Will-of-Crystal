@@ -1,0 +1,15 @@
+﻿id;en;ru
+BUTTON_NEW_GAME;New game;Новая игра
+BUTTON_LOAD_GAME;Load game;Загрузить игру
+BUTTON_SETTINGS;Settings;Настройки
+BUTTON_EXIT;Exit;Выход
+BUTTON_BACK;Back;Назад
+BUTTON_LOAD;Load;Загрузить
+BUTTON_DELETE;Delete;Удалить
+BUTTON_BEGINING;To begin;Начать
+BUTTON_GENERAL_SETTINGS;General;Общие
+BUTTON_GRAPHICS_SETTINGS;Graphics;Графика
+BUTTON_SOUND_SETTINGS;Sound;Звук
+BUTTON_CONTROL_SETTINGS;Control;Управление
+BUTTON_SAVE;Save;Сохранить
+BUTTON_RESET;Reset;Сбросить

@@ -18,7 +18,7 @@ public partial class MeleSkeleton : EnemyReload
         }
     }
 
-    public MeleSkeleton() : base(reloadTime: 1, speed: 80, damage: 30, health: 75, "Charapter1/MeleSkeleton.tscn")
+    public MeleSkeleton() : base(reloadTime: 1, speed: 80, damage: 30, health: 75, "Chapter1/MeleSkeleton.tscn")
     {
         State = new CalmMeleSkeletonState(this);
         MeleTrigger = new CustomTrigger(4,

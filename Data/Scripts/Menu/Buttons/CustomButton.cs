@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using static Godot.TextServer;
 
 public partial class CustomButton : TextureButton
 {
@@ -8,18 +9,28 @@ public partial class CustomButton : TextureButton
     private Texture2D _textureFocused;
     private Label _label = new();
     [Export] public string Text { get => _label.Text; set => _label.Text = value; }
+    [Export] public bool AutoCorrect { get; set; } = false;
+    [Export(PropertyHint.Range, "0,1")] public float RatioX { get; set; } = 0.5f;
 
     public override void _Ready()
     {
+        Text = Tr(Text);
         if (HasFocus())
             CreateTween().TweenProperty(_label, "modulate:a", 1f, 0.2f);
         _textureFocused = TextureFocused;
         _label.SetAnchorsPreset(LayoutPreset.FullRect);
         _label.HorizontalAlignment = HorizontalAlignment.Center;
         _label.VerticalAlignment = VerticalAlignment.Center;
+        if (AutoCorrect)
+        {
+            Vector2 textureSize = TextureNormal.GetSize();
+            float xSize = Size.Y * textureSize.X / textureSize.Y;
+            OffsetLeft = -(xSize * (1 - RatioX));
+            OffsetRight = (xSize * RatioX);
+        }
         _label.LabelSettings = new LabelSettings
         {
-            Font = GD.Load<Font>("res://Data/Textures/ComicoroRu_0.ttf"),
+            Font = GD.Load<Font>("res://Data/Textures/EpilepsySans.ttf"),
             FontSize = CalculateFontSize(),
         };
         _label.Modulate = new Color(1, 1, 1, 0.6f);
@@ -39,7 +50,7 @@ public partial class CustomButton : TextureButton
 
     private int CalculateFontSize()
     {
-        int fontSize = Mathf.RoundToInt(Size.Y / 1.2f) / 16 * 16;
+        int fontSize = Mathf.RoundToInt(Size.Y / 1.6f) / 16 * 16;
         return fontSize > 0 ? fontSize : 16;
     }
 

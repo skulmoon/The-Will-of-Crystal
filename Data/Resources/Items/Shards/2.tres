@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_hsb3m")
 ShardType = "BoneShard"
-Health = 35
+Health = 50
 Damage = 2.0
 Speed = 100
 TimeReload = 3.0

@@ -11,7 +11,7 @@ public partial class ButtonMenuTransition : CustomButton
         Pressed += OnPressed;
     }
 
-    public void OnPressed()
+    public virtual void OnPressed()
     {
         Tween tween = CreateTween();
         tween.TweenProperty(LastMenu, "modulate:a", 0, 0.5f);

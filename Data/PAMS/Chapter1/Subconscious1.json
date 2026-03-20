@@ -1,0 +1,70 @@
+[
+	{"NPCID" : 4, "DialogueNumber" : [1], "PAMSs" : [
+		{"Music" : null, "FinalCustomize" : null,  "FinalValues" : [
+			{"ID" : 4, "Position" : {"X" : 0, "Y" : 0}, "Animation" : "crawl"},
+		], "PAData" : [
+			{"NPCID" : 4, "Data" : [
+				{"Position" : {"X" : 0, "Y" : 0}, "Animation" : "fright", "Time" : 6.4, "Customize" : null},
+				{"Position" : {"X" : 0, "Y" : 0}, "Animation" : "fright", "Time" : 6.4, "Customize" : null},
+			]},
+			{"NPCID" : 0, "Data" : [
+				{"Position" : {"X" : 0, "Y" : 113}, "Animation" : "standing_up", "Time" : 6.4, "Customize" : null},
+				{"Position" : {"X" : 0, "Y" : 113}, "Animation" : "standing_up", "Time" : 6.4, "Customize" : null},
+			]},
+		]},
+		{"Music" : null, "FinalCustomize" : null,  "FinalValues" : [
+			{"ID" : 4, "Position" : {"X" : 0, "Y" : -40}, "Animation" : "sitting"},
+		], "PAData" : [
+			{"NPCID" : 4, "Data" : [
+				{"Position" : {"X" : 0, "Y" : 0}, "Animation" : "crawl", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 0, "Y" : -40}, "Animation" : "crawl", "Time" : null, "Customize" : 2},
+				{"Position" : {"X" : 0, "Y" : -40}, "Animation" : "sitting", "Time" : null, "Customize" : null},
+			]},
+		]},
+	]},
+	
+	{"NPCID" : 4, "DialogueNumber" : [2], "PAMSs" : [
+		{"Music" : null, "FinalCustomize" : null,  "FinalValues" : [
+			{"ID" : 4, "Position" : {"X" : 0, "Y" : -40}, "Animation" : "crawl"},
+		], "PAData" : [
+			{"NPCID" : 4, "Data" : [
+				{"Position" : {"X" : 0, "Y" : -40}, "Animation" : "opening_eyes", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 0, "Y" : -40}, "Animation" : "opening_eyes", "Time" : null, "Customize" : 3},
+			]},
+		]},
+		{"Music" : null, "FinalCustomize" : null,  "FinalValues" : [
+			{"ID" : 4, "Position" : {"X" : 0, "Y" : -40}, "Animation" : "crawl"},
+			{"ID" : 0, "Position" : {"X" : 0, "Y" : 113}, "Animation" : "disappearance"},
+		], "PAData" : [
+			{"NPCID" : 4, "Data" : [
+				{"Position" : {"X" : 0, "Y" : -40}, "Animation" : "please_stop", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 0, "Y" : -40}, "Animation" : "please_stop", "Time" : null, "Customize" : null},
+			]},
+			{"NPCID" : 0, "Data" : [
+				{"Position" : {"X" : 0, "Y" : 113}, "Animation" : "disappearance", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 0, "Y" : 113}, "Animation" : "disappearance", "Time" : null, "Customize" : null},
+			]},
+		]},
+		{"Music" : null, "FinalCustomize" : null,  "FinalValues" : [
+			{"ID" : 0, "Position" : {"X" : 0, "Y" : 113}, "Animation" : null},
+		], "PAData" : [
+			{"NPCID" : 0, "Data" : [
+				{"Position" : {"X" : 0, "Y" : 113}, "Animation" : null, "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 0, "Y" : 113}, "Animation" : null, "Time" : null, "Customize" : 4},
+			]},
+		]},
+	]},
+	
+	{"NPCID" : 4, "DialogueNumber" : [3], "PAMSs" : [
+		{"Music" : null, "FinalCustomize" : null,  "FinalValues" : [
+			{"ID" : 4, "Position" : {"X" : 0, "Y" : -40}, "Animation" : "crawl"},
+		], "PAData" : [
+			{"NPCID" : 4, "Data" : [
+				{"Position" : {"X" : 0, "Y" : -40}, "Animation" : "sitting", "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 0, "Y" : -40}, "Animation" : "sitting", "Time" : null, "Customize" : 1},
+				{"Position" : {"X" : 0, "Y" : -40}, "Animation" : "sitting", "Time" : 8, "Customize" : 4},
+			]},
+		]},
+		
+	]},
+]

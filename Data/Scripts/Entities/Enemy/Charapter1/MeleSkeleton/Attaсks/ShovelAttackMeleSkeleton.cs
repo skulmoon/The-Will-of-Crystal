@@ -13,7 +13,7 @@ public partial class ShovelAttackMeleSkeleton : EnemyAttack
         GlobalPosition = enemyPosition;
         Collision.Position += new Vector2(0, -50);
         Rotation = enemyPosition.AngleToPoint(targetPosition) + Mathf.DegToRad(150);
-        Sprite2D sprite = GD.Load<PackedScene>("res://Data/Textures/Entities/Enemys/Charapter1/ShovelAttack.tscn").Instantiate<Sprite2D>();
+        Sprite2D sprite = GD.Load<PackedScene>("res://Data/Textures/Entities/Enemys/Chapter1/ShovelAttack.tscn").Instantiate<Sprite2D>();
         Collision.AddChild(sprite);
     }
 

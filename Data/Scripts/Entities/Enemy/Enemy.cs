@@ -82,6 +82,7 @@ public abstract partial class Enemy : CharacterBody2D
         });
         Animation = (AnimatedSprite2D)(Node2D)GD.Load<PackedScene>($"res://Data/Textures/Entities/Enemys/{animation}").Instantiate();
         Animation.Play();
+        Animation.Position = new Vector2(0, -32);
         AddChild(Animation);
         AddChild(NavigationAgent);
         FloorBlockOnWall = false;

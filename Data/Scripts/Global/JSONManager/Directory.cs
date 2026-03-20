@@ -27,7 +27,7 @@ public class Directory
         SaveData saveData = new SaveData()
         {
             SaveNumber = saveNumber,
-            CurrentLocation = "Prologue/Prologue",
+            CurrentLocation = "Prologue/TheBeginning",
             Items = new List<Item>(new Item[33]),
             Shards = new List<Item>(new Item[21]),
             Armors = new List<Item>(new Item[21]),
@@ -40,7 +40,7 @@ public class Directory
         Global.Settings.CurrentSave = saveName;
         Global.Settings.Saves.Add(new Save() { Name = saveName, Number = saveNumber });
         Global.Settings.Saves.Sort();
-        CreateLocationData("Prologue/Prologue");
+        CreateLocationData("Prologue/TheBeginning");
     }
 
     public void DeleteSave(string saveName)

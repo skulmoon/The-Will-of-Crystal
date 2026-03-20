@@ -25,7 +25,7 @@ public partial class ConductivePath : Area2D, IInteractionArea
         var tree = GetTree();
         Global.Settings.SaveData.CurrentLocation = Path;
         Tween firstTween = CreateTween();
-        firstTween.TweenProperty(GetTree().CurrentScene.GetNode<Interface>("%Interface").MenuDark, "CurrentDarkPower", 0.9f, 0.5f);
+        firstTween.TweenProperty(GetTree().CurrentScene.GetNode<Interface>("%Interface").MenuDark, "CurrentDarkPower", 1.6f, 0.5f);
         IsActive = true;
         firstTween.TweenCallback(Callable.From(() => 
         {

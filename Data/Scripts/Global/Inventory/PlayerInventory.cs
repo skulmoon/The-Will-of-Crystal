@@ -7,13 +7,23 @@ public partial class PlayerInventory : Node
 {
     public List<Item> Items { get; set; } = new List<Item>(new Item[33]);
     public int ItemsCount { get; set; } = 16;
-    public List<Item> Armors { get; set; } = new List<Item>(new Item[18]);
-    public int ArmorsCount { get; set; } = 8;
     public List<Item> Shards { get; set; } = new List<Item>(new Item[21]);
     public int ShardsCount { get; set; } = 8;
+    public List<Item> Armors { get; set; } = new List<Item>(new Item[18]);
+    public int ArmorsCount { get; set; } = 8;
     public int Scruples { get; set; } = 180;
     public event Action<List<Shard>> ShardsChanged;
     public event Action<Armor> ArmorChanged;
+
+    public void LoadInventory(List<Item> items, List<Item> shards, List<Item> armors)
+    {
+        Items = items;
+        Shards = shards;
+        Armors = armors;
+        Items.UpdateItemsInfo();
+        Shards.UpdateItemsInfo();
+        Armors.UpdateItemsInfo();
+    }
 
     public bool TakeItem(Item item)
 	{
@@ -23,13 +33,13 @@ public partial class PlayerInventory : Node
         if (item is Armor)
         {
             list = Armors;
-            inventoryItems = Global.SceneObjects.InventoryMenu.GetNode<InventoryItems>("Armors");
+            inventoryItems = Global.SceneObjects.InventoryMenu.GetNode<InventoryItems>("InventoryBorder/Equipment/Armors");
             count = ArmorsCount;
         }
         else if (item is Shard)
         {
             list = Shards;
-            inventoryItems = Global.SceneObjects.InventoryMenu.GetNode<InventoryItems>("Shards");
+            inventoryItems = Global.SceneObjects.InventoryMenu.GetNode<InventoryItems>("InventoryBorder/Equipment/Shards");
             count = ShardsCount;
         }
         else

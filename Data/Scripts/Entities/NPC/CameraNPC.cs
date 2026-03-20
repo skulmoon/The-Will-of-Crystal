@@ -16,8 +16,10 @@ public partial class CameraNPC : NPC
     public override void _Ready()
     {
         base._Ready();
+        Camera.Enabled = false;
         Camera.Zoom = DefaultZoom;
         Camera.Offset = Offset;
+        Global.CutSceneManager.StartedCutScene += () => ChangeEnabled(true);
     }
 
     public void ChangeZoom(float zoom, float duration)
@@ -25,6 +27,11 @@ public partial class CameraNPC : NPC
         CreateTween().TweenProperty(Camera, "zoom", new Vector2(zoom, zoom), duration).SetTrans(Tween.TransitionType.Sine);
     }
 
-    public void ChangeEnabled (bool enabled) =>
-        Camera.Enabled = enabled;
+    public void ChangeEnabled (bool enabled)
+    {
+        if (IsInstanceValid(Global.SceneObjects.Player))
+            Global.SceneObjects.Player.Camera.Enabled = !enabled;
+        if (IsInstanceValid(Camera))
+            Camera.Enabled = enabled;
+    }
 }

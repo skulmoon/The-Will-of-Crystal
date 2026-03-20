@@ -23,9 +23,7 @@ public partial class SaveManager : Node
 
     public void SetPlayerSettings(Player player)
     {
-        Global.Inventory.Items = Global.Settings.SaveData.Items;
-        Global.Inventory.Shards = Global.Settings.SaveData.Shards;
-        Global.Inventory.Armors = Global.Settings.SaveData.Armors;
+        Global.Inventory.LoadInventory(Global.Settings.SaveData.Items, Global.Settings.SaveData.Shards, Global.Settings.SaveData.Armors);
         player.GlobalPosition = Global.Settings.SaveData.CurrentPosition;
         player.Stamina = Global.Settings.SaveData.Stamina;
         player.HitBox.Health = Global.Settings.SaveData.Health;
@@ -45,6 +43,7 @@ public partial class SaveManager : Node
         Global.Settings.SaveData.Armors = Global.Inventory?.Armors ?? Global.Settings.SaveData.Armors;
         Global.Settings.SaveData.Shards = Global.Inventory?.Shards ?? Global.Settings.SaveData.Shards;
         Global.JSON.SetLocationData(Global.SceneObjects?.Location?.LocationData ?? null);
+        Global.CutSceneData.SaveChoices();
         Global.JSON.SetSaveData(Global.Settings.SaveData);
     }
 
@@ -73,5 +72,5 @@ public partial class SaveManager : Node
         _directory.DeleteSave(saveName);
 
     public void CreateLocationData() =>
-        _directory.CreateLocationData(Global.Settings.SaveData.CurrentLocation);
+        _directory.CreateLocationData(Global.Settings?.SaveData?.CurrentLocation ?? null);
 }

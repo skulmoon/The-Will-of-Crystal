@@ -21,7 +21,7 @@ public partial class OptionsMenu : Control
 		{
 			Base = new ConfigBase
 			{
-
+				Language = TranslationServer.GetLocale(),
 			},
 			Graphics = new ConfigGraphics
 			{

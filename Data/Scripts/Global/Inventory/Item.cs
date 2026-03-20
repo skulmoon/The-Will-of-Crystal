@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 [GlobalClass]
 public partial class Item : Resource, ICloneable
@@ -37,6 +38,19 @@ public partial class Item : Resource, ICloneable
             Count += count;
             return 0;
         }
+    }
+
+    public virtual void UpdateInfo()
+    {
+        Item newItem = GD.Load<Item>($"res://Data/Resources/Items/Items/{ID}.tres");
+        UpdateInfo(newItem);
+    }
+
+    public void UpdateInfo(Item newItem)
+    {
+        MaxCount = newItem.MaxCount;
+        Name = newItem.Name;
+        Description = newItem.Description;
     }
 
     public virtual object Clone()

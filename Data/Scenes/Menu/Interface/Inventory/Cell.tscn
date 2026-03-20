@@ -1,16 +1,60 @@
-[gd_scene load_steps=2 format=3 uid="uid://csk5sf4l0bh1d"]
+[gd_scene load_steps=7 format=3 uid="uid://csk5sf4l0bh1d"]
 
-[ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/Inventory/Cell.cs" id="1_ldybi"]
+[ext_resource type="Script" uid="uid://buooddprvpgy2" path="res://Data/Scripts/Menu/Interface/Inventory/Cell.cs" id="1_ldybi"]
+[ext_resource type="Texture2D" uid="uid://bm2vxut2yyfjh" path="res://Data/Textures/Menu/Buttons/InventoryCell/CellSelected.png" id="1_rcbua"]
 
-[node name="Cell" type="Button"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -23.0
-offset_top = -23.0
-grow_horizontal = 0
-grow_vertical = 0
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdusq"]
+atlas = ExtResource("1_rcbua")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="Animation" id="Animation_5fe5y"]
+resource_name = "animation"
+length = 12.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 32), Rect2(32, 0, 32, 32), Rect2(64, 0, 32, 32), Rect2(96, 0, 32, 32), Rect2(128, 0, 32, 32), Rect2(160, 0, 32, 32), Rect2(192, 0, 32, 32), Rect2(224, 0, 32, 32), Rect2(256, 0, 32, 32), Rect2(288, 0, 32, 32), Rect2(320, 0, 32, 32), Rect2(352, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_ou5ai"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(64, 0, 32, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t8aqd"]
+_data = {
+&"RESET": SubResource("Animation_ou5ai"),
+&"animation": SubResource("Animation_5fe5y")
+}
+
+[node name="Cell" type="TextureButton"]
+offset_right = 78.0
+offset_bottom = 79.0
 button_mask = 3
+texture_normal = SubResource("AtlasTexture_kdusq")
+stretch_mode = 5
 script = ExtResource("1_ldybi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t8aqd")
+}
+speed_scale = 4.0

@@ -16,7 +16,7 @@ public partial class ExplosionSkeleton : EnemyReload
         }
     }
 
-    public ExplosionSkeleton() : base(reloadTime: 1, speed: 140, damage: 80, health: 50, "Charapter1/MeleSkeleton.tscn")
+    public ExplosionSkeleton() : base(reloadTime: 1, speed: 140, damage: 80, health: 50, "Chapter1/MeleSkeleton.tscn")
     {
         State = new CalmExplosionSkeletonState(this);
         Trigger = new CustomTrigger(4,

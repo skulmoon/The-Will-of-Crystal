@@ -1,10 +1,9 @@
-[gd_scene load_steps=77 format=4 uid="uid://jo8of7mxf8hu"]
+[gd_scene load_steps=76 format=4 uid="uid://jo8of7mxf8hu"]
 
 [ext_resource type="Script" uid="uid://brbaicg6brgsy" path="res://Data/Scripts/Locations/Chapter1/Chapter1Location.cs" id="1_tdrs2"]
 [ext_resource type="Texture2D" uid="uid://djc3krnjf1ow7" path="res://Data/Textures/Locations/Charapter1/Background.png" id="2_mwja2"]
 [ext_resource type="PackedScene" uid="uid://bf62x5p8yb5w" path="res://Data/Scenes/Location/border.tscn" id="3_yelep"]
 [ext_resource type="Script" uid="uid://chnf60m6l8suc" path="res://Data/Scripts/Entities/Interection/DroppedItem.cs" id="4_012bh"]
-[ext_resource type="Resource" uid="uid://wkw3vlj11v3m" path="res://Data/Resources/Items/Shards/2.tres" id="5_c6dcv"]
 [ext_resource type="PackedScene" uid="uid://dhgr62sao2gjo" path="res://Data/Scenes/Entities/Player/Player.tscn" id="6_4058k"]
 [ext_resource type="Script" uid="uid://3nqv7iw55r31" path="res://Data/Scripts/Locations/Chapter1/StartingTrail/LerningTakeItemTrigger.cs" id="7_2v2em"]
 [ext_resource type="Shader" uid="uid://cbbjpqg65vmim" path="res://Data/Shaders/AlphaMask/AlphaObjectShader.gdshader" id="8_lohwe"]
@@ -682,7 +681,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
 agent_radius = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kpnr1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vxobq"]
 texture = ExtResource("2_mwja2")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -1266,12 +1265,16 @@ texture_region_size = Vector2i(32, 32)
 12:13/0 = 0
 12:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:2/0 = 0
+1:2/0/y_sort_origin = -4
 1:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ypepv")
 0:2/0 = 0
+0:2/0/y_sort_origin = 12
 0:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ypepv")
 0:3/0 = 0
+0:3/0/y_sort_origin = 12
 0:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_vxobq")
 1:3/0 = 0
+1:3/0/y_sort_origin = -1
 1:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_vxobq")
 8:13/0 = 0
 9:13/0 = 0
@@ -1387,21 +1390,27 @@ texture_region_size = Vector2i(32, 32)
 3:2/0 = 0
 3:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ypepv")
 4:2/0 = 0
+4:2/0/y_sort_origin = 10
 4:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ypepv")
 5:2/0 = 0
+5:2/0/y_sort_origin = 4
 5:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ypepv")
 6:2/0 = 0
+6:2/0/y_sort_origin = -2
 6:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ypepv")
 7:2/0 = 0
 7:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ypepv")
 3:3/0 = 0
+3:3/0/y_sort_origin = 15
 3:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_vxobq")
 2:3/0 = 0
+2:3/0/y_sort_origin = -6
 2:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_vxobq")
 0:4/0 = 0
+0:4/0/y_sort_origin = -16
 0:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_dlcke")
 
-[sub_resource type="TileSet" id="TileSet_ir5ux"]
+[sub_resource type="TileSet" id="TileSet_2do7f"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 5
 physics_layer_0/collision_mask = 5
@@ -1411,7 +1420,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "Обрыв"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 navigation_layer_0/layers = 1
-sources/1 = SubResource("TileSetAtlasSource_kpnr1")
+sources/1 = SubResource("TileSetAtlasSource_vxobq")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxaut"]
 size = Vector2(30, 108)
@@ -1655,7 +1664,7 @@ tile_set = SubResource("TileSet_15a3v")
 z_index = -90
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAHAAYAAQACAAMAAAAFAAsAAQABAAMAAAALAAkAAQAAAAMAAAAUAAkAAQADAAMAAAAZAAsAAQABAAMAAAAcAAkAAQACAAMAAAAfAAsAAQAGAAIAAAAZAAkAAQAHAAIAAAATAAoAAQAGAAIAAAA=")
-tile_set = SubResource("TileSet_ir5ux")
+tile_set = SubResource("TileSet_2do7f")
 
 [node name="Border" parent="." instance=ExtResource("3_yelep")]
 z_index = -80
@@ -1666,7 +1675,7 @@ tile_map_data = PackedByteArray("AAABAAgAAAAAAAEAAAABAAcAAAAAAAEAAAABAAYAAAAAAAE
 unique_name_in_owner = true
 position = Vector2(748, 326)
 script = ExtResource("4_012bh")
-Item = ExtResource("5_c6dcv")
+Item = ExtResource("22_355rs")
 Count = 1
 ID = 1000
 
@@ -1843,12 +1852,5 @@ vertical_alignment = 1
 
 [node name="Interface" parent="." instance=ExtResource("21_gy13t")]
 unique_name_in_owner = true
-
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(585, 339)
-script = ExtResource("4_012bh")
-Item = ExtResource("22_355rs")
-Count = 1
-ID = 1001
 
 [connection signal="body_entered" from="LerningTakeItemTrigger" to="LerningTakeItemTrigger" method="OnBodyEntered"]

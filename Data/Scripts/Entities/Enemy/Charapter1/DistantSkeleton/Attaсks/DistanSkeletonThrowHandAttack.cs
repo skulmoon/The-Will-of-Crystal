@@ -13,7 +13,7 @@ public partial class DistanSkeletonThrowHandAttack : EnemyAttack
         };
         GlobalPosition = enemyPosition;
         _direction = GlobalPosition.DirectionTo(targetPosition);
-        Sprite2D sprite = GD.Load<PackedScene>("res://Data/Textures/Entities/Enemys/Charapter1/ShovelAttack.tscn").Instantiate<Sprite2D>();
+        Sprite2D sprite = GD.Load<PackedScene>("res://Data/Textures/Entities/Enemys/Chapter1/ShovelAttack.tscn").Instantiate<Sprite2D>();
         Collision.AddChild(sprite);
     }
 

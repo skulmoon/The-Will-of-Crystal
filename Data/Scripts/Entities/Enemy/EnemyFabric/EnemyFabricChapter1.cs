@@ -11,7 +11,7 @@ public partial class EnemyFabricChapter1 : EnemyFabric
     public override void Create()
     {
         foreach (var item in EnemyAreas)
-            for (int j = 0; j < item.Difficulty; j++)
+            for (int j = 0; j < (item?.Difficulty ?? 0); j++)
             {
                 Enemy enemy = null;
                 if (item.Type == EnemyType.Mele)

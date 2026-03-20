@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ds7edorou0j7f"]
+[gd_scene load_steps=45 format=3 uid="uid://ds7edorou0j7f"]
 
 [ext_resource type="Script" uid="uid://um20cmjanlia" path="res://Data/Scripts/Menu/MainMenu/MainMenu.cs" id="1_ayleb"]
 [ext_resource type="Texture2D" uid="uid://dkq8alaft5s5n" path="res://Data/Textures/Menu/BackgroundMenu.png" id="1_pj8jl"]
@@ -20,12 +20,14 @@
 [ext_resource type="Script" uid="uid://bkjem8vwm4hml" path="res://Data/Scripts/Menu/Buttons/CustomButton.cs" id="19_lw77n"]
 [ext_resource type="PackedScene" uid="uid://cnq77hy8oun7j" path="res://Data/Scenes/Menu/Buttons/ShortAnimationPlayer.tscn" id="20_x6ptu"]
 [ext_resource type="Script" uid="uid://burb6gaobmw7l" path="res://Data/Scripts/Menu/GameCreator.cs" id="21_871b1"]
+[ext_resource type="FontFile" uid="uid://bfx0vyyt2q53a" path="res://Data/Textures/EpilepsySans.ttf" id="22_ttfx3"]
 [ext_resource type="PackedScene" uid="uid://cnkm8jqokjmek" path="res://Data/Scenes/Menu/Buttons/TextEdit.tscn" id="22_vj4v1"]
 [ext_resource type="Texture2D" uid="uid://vb6du6ecseul" path="res://Data/Textures/Menu/Buttons/TextEdit/LongTextEdit/LongTextEdit.png" id="23_5gccl"]
 [ext_resource type="Texture2D" uid="uid://cgy3osvibs2hw" path="res://Data/Textures/Menu/Buttons/TextEdit/LongTextEdit/FocusLongTextEdit.png" id="24_hmjgn"]
 [ext_resource type="Script" uid="uid://c2w5jqawqpxi7" path="res://Data/Scripts/Menu/Options/OptionsMenu.cs" id="25_m3rq4"]
 [ext_resource type="Texture2D" uid="uid://ccre8h5weexcn" path="res://Data/Textures/Menu/Buttons/ShortButton/FocusedShortButton.png" id="26_sv5mf"]
 [ext_resource type="Script" uid="uid://g21wsggyj42f" path="res://Data/Scripts/Menu/Options/SwitchButton.cs" id="27_qykxt"]
+[ext_resource type="Script" uid="uid://bbrqti5yf3mki" path="res://Data/Scripts/Menu/Options/General/LanguageOptionButton.cs" id="28_dagyv"]
 [ext_resource type="Script" uid="uid://l1skylf244m2" path="res://Data/Scripts/Menu/Options/SaveConfigButton.cs" id="28_oc6gt"]
 [ext_resource type="PackedScene" uid="uid://bgx0isvqskmfw" path="res://Data/Scenes/Menu/Buttons/Slider.tscn" id="29_1mvlm"]
 [ext_resource type="Script" uid="uid://cyd8mg54oms1g" path="res://Data/Scripts/Menu/Options/SoundSlider.cs" id="30_rwn0e"]
@@ -101,6 +103,7 @@ texture = SubResource("NoiseTexture2D_c462d")
 script = ExtResource("3_votmb")
 
 [node name="MainMenu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,9 +116,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.02
+offset_left = -11.5199585
+offset_right = 11.52002
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_pj8jl")
+expand_mode = 3
 stretch_mode = 5
 script = ExtResource("3_jjxsc")
 
@@ -154,7 +160,7 @@ stretch_mode = 5
 script = ExtResource("7_4gbv0")
 LastMenu = NodePath("../..")
 NextMenu = NodePath("../../../GameCreator")
-Text = "Новая игра"
+Text = "BUTTON_NEW_GAME"
 
 [node name="AnimationPlayer" parent="MainMenu/MainButtons/ButtonNew" instance=ExtResource("10_euxes")]
 DefaultAnimation = "NormalButton"
@@ -176,7 +182,7 @@ stretch_mode = 5
 script = ExtResource("7_4gbv0")
 LastMenu = NodePath("../..")
 NextMenu = NodePath("../../../GameLoader")
-Text = "Загрузить игру"
+Text = "BUTTON_LOAD_GAME"
 
 [node name="AnimationPlayer" parent="MainMenu/MainButtons/ButtonLoad" instance=ExtResource("10_euxes")]
 DefaultAnimation = "NormalButton"
@@ -207,7 +213,7 @@ stretch_mode = 5
 script = ExtResource("7_4gbv0")
 LastMenu = NodePath("../..")
 NextMenu = NodePath("../../../Options")
-Text = "Настройки"
+Text = "BUTTON_SETTINGS"
 
 [node name="AnimationPlayer" parent="MainMenu/ServiceButtons/ButtonOptions" instance=ExtResource("10_euxes")]
 DefaultAnimation = "NormalButton"
@@ -225,7 +231,7 @@ texture_pressed = ExtResource("2_yfd55")
 texture_hover = ExtResource("3_vfoqc")
 stretch_mode = 5
 script = ExtResource("5_4l1fd")
-Text = "Выйти"
+Text = "BUTTON_EXIT"
 
 [node name="AnimationPlayer" parent="MainMenu/ServiceButtons/ButtonExit" instance=ExtResource("10_euxes")]
 DefaultAnimation = "NormalButton"
@@ -263,7 +269,7 @@ stretch_mode = 5
 script = ExtResource("7_4gbv0")
 LastMenu = NodePath("../..")
 NextMenu = NodePath("../../../MainMenu")
-Text = "Назад"
+Text = "BUTTON_BACK"
 
 [node name="AnimationPlayer" parent="GameLoader/Options/Exit" instance=ExtResource("20_x6ptu")]
 DefaultAnimation = "NormalButton"
@@ -281,7 +287,7 @@ texture_pressed = ExtResource("17_ttfx3")
 texture_hover = ExtResource("18_fk5n8")
 stretch_mode = 5
 script = ExtResource("19_lw77n")
-Text = "Загрузить"
+Text = "BUTTON_LOAD"
 
 [node name="AnimationPlayer" parent="GameLoader/Options/Load" instance=ExtResource("20_x6ptu")]
 DefaultAnimation = "NormalButton"
@@ -303,7 +309,7 @@ texture_pressed = ExtResource("17_ttfx3")
 texture_hover = ExtResource("18_fk5n8")
 stretch_mode = 5
 script = ExtResource("19_lw77n")
-Text = "Удалить"
+Text = "BUTTON_DELETE"
 
 [node name="AnimationPlayer" parent="GameLoader/Options/Delete" instance=ExtResource("20_x6ptu")]
 DefaultAnimation = "NormalButton"
@@ -326,7 +332,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="GameCreator" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -344,6 +349,7 @@ anchor_bottom = 0.47
 offset_left = -300.0
 offset_top = 0.799988
 offset_right = 300.0
+theme_override_fonts/font = ExtResource("22_ttfx3")
 theme_override_font_sizes/font_size = 32
 Normal = ExtResource("23_5gccl")
 Focused = ExtResource("24_hmjgn")
@@ -360,7 +366,7 @@ texture_pressed = ExtResource("17_ttfx3")
 texture_hover = ExtResource("18_fk5n8")
 stretch_mode = 5
 script = ExtResource("19_lw77n")
-Text = "В путь"
+Text = "BUTTON_BEGINING"
 
 [node name="AnimationPlayer" parent="GameCreator/ButtonNew" instance=ExtResource("20_x6ptu")]
 DefaultAnimation = "NormalButton"
@@ -379,7 +385,7 @@ stretch_mode = 5
 script = ExtResource("7_4gbv0")
 LastMenu = NodePath("..")
 NextMenu = NodePath("../../MainMenu")
-Text = "Назад"
+Text = "BUTTON_BACK"
 
 [node name="AnimationPlayer" parent="GameCreator/ButtonExit" instance=ExtResource("20_x6ptu")]
 DefaultAnimation = "NormalButton"
@@ -424,7 +430,7 @@ script = ExtResource("27_qykxt")
 Controls = [NodePath("../BaseOptions"), NodePath("../GraphicsOptions"), NodePath("../SoundOptions"), NodePath("../ControlOptions")]
 MainControl = NodePath("../BaseOptions")
 IsMain = true
-Text = "Общие"
+Text = "BUTTON_GENERAL_SETTINGS"
 
 [node name="AnimationPlayer" parent="Options/Control/BaseButton" instance=ExtResource("20_x6ptu")]
 DefaultAnimation = "NormalButton"
@@ -443,7 +449,7 @@ stretch_mode = 5
 script = ExtResource("27_qykxt")
 Controls = [NodePath("../BaseOptions"), NodePath("../GraphicsOptions"), NodePath("../SoundOptions"), NodePath("../ControlOptions")]
 MainControl = NodePath("../GraphicsOptions")
-Text = "Графика"
+Text = "BUTTON_GRAPHICS_SETTINGS"
 
 [node name="AnimationPlayer" parent="Options/Control/GraphicsButton" instance=ExtResource("20_x6ptu")]
 DefaultAnimation = "NormalButton"
@@ -462,7 +468,7 @@ stretch_mode = 5
 script = ExtResource("27_qykxt")
 Controls = [NodePath("../BaseOptions"), NodePath("../GraphicsOptions"), NodePath("../SoundOptions"), NodePath("../ControlOptions")]
 MainControl = NodePath("../SoundOptions")
-Text = "Звук"
+Text = "BUTTON_SOUND_SETTINGS"
 
 [node name="AnimationPlayer" parent="Options/Control/SoundButton" instance=ExtResource("20_x6ptu")]
 DefaultAnimation = "NormalButton"
@@ -480,72 +486,92 @@ stretch_mode = 5
 script = ExtResource("27_qykxt")
 Controls = [NodePath("../BaseOptions"), NodePath("../GraphicsOptions"), NodePath("../SoundOptions"), NodePath("../ControlOptions")]
 MainControl = NodePath("../ControlOptions")
-Text = "Управление"
+Text = "BUTTON_CONTROL_SETTINGS"
 
 [node name="AnimationPlayer" parent="Options/Control/ControlButton" instance=ExtResource("20_x6ptu")]
 DefaultAnimation = "NormalButton"
 
-[node name="ExitButton" type="TextureButton" parent="Options/Control" node_paths=PackedStringArray("LastMenu", "NextMenu")]
+[node name="ExitButton" type="TextureButton" parent="Options/Control" node_paths=PackedStringArray("Options", "LastMenu", "NextMenu")]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.9
-anchor_right = 0.3
+anchor_left = 0.33
+anchor_top = 0.90000004
+anchor_right = 0.33
 anchor_bottom = 1.0
+offset_left = -224.0
+offset_right = 110.0
 shortcut = SubResource("Shortcut_wcnfr")
-texture_normal = ExtResource("6_mq0j5")
-texture_pressed = ExtResource("2_yfd55")
-texture_hover = ExtResource("3_vfoqc")
-stretch_mode = 5
-script = ExtResource("7_4gbv0")
-LastMenu = NodePath("../..")
-NextMenu = NodePath("../../../MainMenu")
-Text = "Назад"
-
-[node name="AnimationPlayer" parent="Options/Control/ExitButton" instance=ExtResource("10_euxes")]
-DefaultAnimation = "NormalButton"
-
-[node name="SaveButton" type="TextureButton" parent="Options/Control" node_paths=PackedStringArray("Options")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.35
-anchor_top = 0.9
-anchor_right = 0.65
-anchor_bottom = 1.0
 texture_normal = ExtResource("6_mq0j5")
 texture_pressed = ExtResource("2_yfd55")
 texture_hover = ExtResource("3_vfoqc")
 stretch_mode = 5
 script = ExtResource("28_oc6gt")
 Options = NodePath("../..")
-Text = "Сохранить"
+LastMenu = NodePath("../..")
+NextMenu = NodePath("../../../MainMenu")
+Text = "BUTTON_BACK"
+AutoCorrect = true
+RatioX = 0.33
 
-[node name="AnimationPlayer" parent="Options/Control/SaveButton" instance=ExtResource("10_euxes")]
+[node name="AnimationPlayer" parent="Options/Control/ExitButton" instance=ExtResource("10_euxes")]
 DefaultAnimation = "NormalButton"
 
 [node name="ResetButton" type="TextureButton" parent="Options/Control"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.7
-anchor_top = 0.9
-anchor_right = 1.0
+anchor_left = 0.66
+anchor_top = 0.90000004
+anchor_right = 0.66
 anchor_bottom = 1.0
+offset_left = -110.0
+offset_right = 224.0
 texture_normal = ExtResource("6_mq0j5")
 texture_pressed = ExtResource("2_yfd55")
 texture_hover = ExtResource("3_vfoqc")
 stretch_mode = 5
 script = ExtResource("19_lw77n")
-Text = "Сбросить"
+Text = "BUTTON_RESET"
+AutoCorrect = true
+RatioX = 0.66
 
 [node name="AnimationPlayer" parent="Options/Control/ResetButton" instance=ExtResource("10_euxes")]
 DefaultAnimation = "NormalButton"
 
 [node name="BaseOptions" type="Control" parent="Options/Control"]
-visible = false
 layout_mode = 1
 anchor_left = 0.25
 anchor_right = 1.0
 anchor_bottom = 0.82
+
+[node name="Label4" type="Label" parent="Options/Control/BaseOptions"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 0.15
+text = "Язык:"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LanguageOptionButton" type="OptionButton" parent="Options/Control/BaseOptions"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24900001
+anchor_top = 0.028
+anchor_right = 0.47800002
+anchor_bottom = 0.11800001
+offset_left = 0.33398438
+offset_top = 1.0403194
+offset_right = 0.34799194
+offset_bottom = 0.16991806
+theme_override_font_sizes/font_size = 32
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Русский"
+popup/item_1/id = 1
+script = ExtResource("28_dagyv")
 
 [node name="GraphicsOptions" type="Control" parent="Options/Control"]
 visible = false
@@ -644,6 +670,7 @@ script = ExtResource("30_rwn0e")
 BusName = "Music"
 
 [node name="ControlOptions" type="ScrollContainer" parent="Options/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25
@@ -1442,5 +1469,6 @@ Text = "Очистить"
 
 [node name="Dark" parent="." instance=ExtResource("33_4gbv0")]
 unique_name_in_owner = true
+visible = false
 material = SubResource("ShaderMaterial_dagyv")
 layout_mode = 1

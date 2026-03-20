@@ -10,7 +10,7 @@ public partial class CharapterRoom : Location
         List<NPC> NPCs = Global.SceneObjects.Npcs;
         CutSceneCustomizes.Add((1, () => {
             Global.CutSceneManager.NextCutScenePart();
-            GetNode<ConductivePath>("%Bed").Interaction();
+            GetNode<ConductivePath>("%Bed")?.Interaction();
         }));
         CutSceneCustomizes.Add((2, () => {
             GetNode<Node2D>("%TileMapLayer").Visible = false;
