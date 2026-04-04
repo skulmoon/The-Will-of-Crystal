@@ -1,12 +1,17 @@
-[gd_scene load_steps=31 format=3 uid="uid://bverrpf03j36w"]
+[gd_scene load_steps=59 format=3 uid="uid://bverrpf03j36w"]
 
 [ext_resource type="Script" uid="uid://r8gma1kfcxkp" path="res://Data/Scripts/Locations/Prologue/TheBeginning.cs" id="1_yulke"]
 [ext_resource type="Script" uid="uid://cil72e51qklhw" path="res://Data/Scripts/Entities/NPC/NPC.cs" id="2_p7gil"]
-[ext_resource type="Texture2D" uid="uid://jhicjbsbsewh" path="res://Data/Textures/Locations/Prologue/cylinders.png" id="2_qcol8"]
+[ext_resource type="Texture2D" uid="uid://dc7t8pwxave3c" path="res://Data/Textures/Locations/Prologue/cylinderinfinity.png" id="2_qcol8"]
+[ext_resource type="Shader" uid="uid://cxx7dnprrfhqi" path="res://Data/Shaders/WhiteNoise.gdshader" id="3_3jptd"]
 [ext_resource type="Script" uid="uid://bow4lif362fs3" path="res://Data/Scripts/Menu/Interface/Interface.cs" id="3_7l4hd"]
+[ext_resource type="Script" uid="uid://bpptnefxuxx10" path="res://Data/Scripts/Tools/NoiseChanger.cs" id="4_8uqoj"]
 [ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/DialogPanel.tscn" id="4_qcol8"]
 [ext_resource type="Texture2D" uid="uid://dlmvagk55uwq0" path="res://Data/Textures/Menu/Interface/HealthAndStaminaBar.png" id="5_3jptd"]
+[ext_resource type="Script" uid="uid://bods1tbshd674" path="res://Data/Scripts/Menu/Textures/CustomTextureRect.cs" id="5_ohaol"]
+[ext_resource type="Script" uid="uid://nf13etkqhgck" path="res://Data/Scripts/Menu/Labels/CustomLabel.cs" id="5_ssd0p"]
 [ext_resource type="Script" uid="uid://ivrj55cuvd4m" path="res://Data/Scripts/Menu/Interface/ProgressBars/HealthAndStaminaBar.cs" id="6_8uqoj"]
+[ext_resource type="Texture2D" uid="uid://dw8fhc1nuwser" path="res://Data/Textures/Locations/Prologue/Yey.png" id="6_va203"]
 [ext_resource type="Script" uid="uid://ut3cllc1tsuu" path="res://Data/Scripts/Menu/Interface/ProgressBars/HealthProgressBar.cs" id="7_ssd0p"]
 [ext_resource type="Script" uid="uid://chhs0qx4rkapc" path="res://Data/Scripts/Menu/Interface/ProgressBars/PowerProgressBar.cs" id="8_ohaol"]
 [ext_resource type="Script" uid="uid://bqhqf4m7lqv0j" path="res://Data/Scripts/Menu/Interface/ProgressBars/FirstShardAbilityBar.cs" id="9_va203"]
@@ -22,7 +27,25 @@
 [ext_resource type="PackedScene" uid="uid://qejl5dn1sgf8" path="res://Data/Scenes/Menu/Interface/Inventory/InventoryMenu.tscn" id="19_d1pgq"]
 [ext_resource type="PackedScene" uid="uid://cfpu5icvlw782" path="res://Data/Scenes/Menu/Interface/PauseMenu/PauseMenu.tscn" id="20_v1bx2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7l4hd"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ohaol"]
+noise_type = 3
+frequency = 0.0321
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_va203"]
+width = 256
+height = 162
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_ohaol")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ohaol"]
+shader = ExtResource("3_3jptd")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_va203")
+shader_parameter/mask_offset = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jptd"]
 atlas = ExtResource("2_qcol8")
 region = Rect2(0, 0, 256, 256)
 
@@ -44,7 +67,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_qcol8"]
 resource_name = "animation"
 length = 15.0
-loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -75,12 +97,136 @@ tracks/0/keys = {
 "values": [Rect2(0, 0, 256, 256), Rect2(256, 0, 256, 256), Rect2(512, 0, 256, 256), Rect2(768, 0, 256, 256), Rect2(1024, 0, 256, 256), Rect2(1280, 0, 256, 256), Rect2(1536, 0, 256, 256), Rect2(1792, 0, 256, 256)]
 }
 
+[sub_resource type="Animation" id="Animation_ckv4t"]
+resource_name = "animation_3"
+length = 13.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 256, 256), Rect2(256, 0, 256, 256), Rect2(512, 0, 256, 256), Rect2(768, 0, 256, 256), Rect2(1024, 0, 256, 256), Rect2(1280, 0, 256, 256), Rect2(1536, 0, 256, 256), Rect2(1792, 0, 256, 256), Rect2(2048, 0, 256, 256), Rect2(2304, 0, 256, 256), Rect2(2560, 0, 256, 256), Rect2(2816, 0, 256, 256)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8uqoj"]
 _data = {
 &"RESET": SubResource("Animation_3jptd"),
 &"animation": SubResource("Animation_qcol8"),
-&"animation_2": SubResource("Animation_8uqoj")
+&"animation_2": SubResource("Animation_8uqoj"),
+&"animation_3": SubResource("Animation_ckv4t")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ckv4t"]
+shader = ExtResource("3_3jptd")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_va203")
+shader_parameter/mask_offset = Vector2(0, 0)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8uqoj"]
+load_path = "res://.godot/imported/cylinders.png-e83965cc700a4ca0cc1e683859dab7c0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssd0p"]
+atlas = SubResource("CompressedTexture2D_8uqoj")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bdytl"]
+noise_type = 3
+frequency = 0.0321
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0tmin"]
+width = 256
+height = 256
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_bdytl")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_va203"]
+shader = ExtResource("3_3jptd")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_0tmin")
+shader_parameter/mask_offset = Vector2(0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ssd0p"]
+noise_type = 3
+frequency = 0.0321
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ohaol"]
+width = 200
+height = 128
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_ssd0p")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8uqoj"]
+shader = ExtResource("3_3jptd")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ohaol")
+shader_parameter/mask_offset = Vector2(0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_va203"]
+noise_type = 3
+frequency = 0.0321
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ckv4t"]
+width = 320
+height = 64
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_va203")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0tmin"]
+shader = ExtResource("3_3jptd")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ckv4t")
+shader_parameter/mask_offset = Vector2(0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ckv4t"]
+noise_type = 3
+frequency = 0.0321
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2asgk"]
+width = 320
+height = 64
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_ckv4t")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lglmo"]
+shader = ExtResource("3_3jptd")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_2asgk")
+shader_parameter/mask_offset = Vector2(0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_721uw"]
+noise_type = 3
+frequency = 0.0321
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8gqw7"]
+width = 320
+height = 64
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_721uw")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bcvrs"]
+shader = ExtResource("3_3jptd")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_8gqw7")
+shader_parameter/mask_offset = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lglmo"]
+atlas = ExtResource("6_va203")
+region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0q04k"]
 bg_color = Color(0.6, 0.10800001, 0.10800001, 1)
@@ -97,42 +243,69 @@ shader_parameter/cursor_position = Vector2(0, 0)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_iu065"]
 
-[node name="TheBeginning" type="Node2D" node_paths=PackedStringArray("Labels")]
+[node name="TheBeginning" type="Node2D" node_paths=PackedStringArray("Labels", "TextureRects")]
 script = ExtResource("1_yulke")
 Labels = [NodePath("CanvasLayer/Label"), NodePath("CanvasLayer/Label2"), NodePath("CanvasLayer/Label3"), NodePath("CanvasLayer/Label4"), NodePath("CanvasLayer/Label5")]
+TextureRects = [NodePath("CanvasLayer/Image1"), NodePath("CanvasLayer/Image2"), NodePath("CanvasLayer/Image3")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Image1" type="TextureRect" parent="CanvasLayer"]
+unique_name_in_owner = true
 visible = false
-anchors_preset = 15
-anchor_right = 1.0
+material = SubResource("ShaderMaterial_ohaol")
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_right = -2.0
+offset_left = -575.69604
+offset_right = 576.30396
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_7l4hd")
+texture = SubResource("AtlasTexture_3jptd")
 stretch_mode = 5
+script = ExtResource("5_ohaol")
+AutoSetShaerParameters = true
+AutoCorrectSize = true
+TheoreticalXSize = 256.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Image1"]
+[node name="AnimationPlayer1" type="AnimationPlayer" parent="CanvasLayer/Image1"]
+unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_8uqoj")
 }
 speed_scale = 8.0
 
+[node name="Node" type="Node" parent="CanvasLayer/Image1"]
+script = ExtResource("4_8uqoj")
+multiplier = 16.0
+NoiseTexture = SubResource("NoiseTexture2D_va203")
+
 [node name="Image2" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_ckv4t")
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_right = -2.0
+offset_left = -576.0
+offset_right = 576.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_7l4hd")
+pivot_offset = Vector2(576, 324)
+texture = SubResource("AtlasTexture_ssd0p")
 stretch_mode = 5
+script = ExtResource("5_ohaol")
+AutoSetShaerParameters = true
+AutoCorrectSize = true
+TheoreticalXSize = 256.0
+AutoCorrectPivotOffset = true
+PivotOffsetAnchorX = 0.5
+PivotOffsetAnchorY = 0.5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Image2"]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="CanvasLayer/Image2"]
+unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_8uqoj")
 }
@@ -141,62 +314,177 @@ speed_scale = 8.0
 [node name="Label" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
-anchors_preset = 15
-anchor_right = 1.0
+material = SubResource("ShaderMaterial_va203")
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -576.0
+offset_right = 576.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 78
 text = "В начале было ничто."
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("5_ssd0p")
+AutoSetShaerParameters = true
+AutoCorrectSize = true
+TheoreticalXSize = 256.0
+
+[node name="Node" type="Node" parent="CanvasLayer/Label"]
+script = ExtResource("4_8uqoj")
+multiplier = 16.0
+NoiseTexture = SubResource("NoiseTexture2D_0tmin")
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_8uqoj")
 anchors_preset = -1
-anchor_left = 0.35700002
-anchor_top = 0.505
-anchor_right = 0.609
-anchor_bottom = 0.545
-offset_left = -143.26404
-offset_top = -81.23999
-offset_right = -143.56805
-offset_bottom = -81.16
-theme_override_font_sizes/font_size = 26
-text = "Из ничего был рождён мир."
+anchor_left = 0.38500002
+anchor_top = 0.25
+anchor_right = 0.38500002
+anchor_bottom = 0.75
+offset_left = -278.52002
+offset_top = 0.039993286
+offset_right = 278.47998
+offset_bottom = 0.10394287
+theme_override_font_sizes/font_size = 78
+text = "Из ничего был
+рождён мир."
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("5_ssd0p")
+AutoSetShaerParameters = true
+AutoCorrectSize = true
+TheoreticalXSize = 200.0
+
+[node name="Node" type="Node" parent="CanvasLayer/Label2"]
+script = ExtResource("4_8uqoj")
+multiplier = 16.0
+NoiseTexture = SubResource("NoiseTexture2D_ohaol")
 
 [node name="Label3" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
-offset_left = 392.0
-offset_top = 221.0
-offset_right = 606.0
-offset_bottom = 247.0
-theme_override_font_sizes/font_size = 26
+material = SubResource("ShaderMaterial_0tmin")
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.35
+offset_left = -350.0
+offset_right = 350.0
+pivot_offset = Vector2(350, 259.2)
+theme_override_font_sizes/font_size = 78
 text = "Он был полон всего."
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_ssd0p")
+AutoSetShaerParameters = true
+AutoCorrectSize = true
+TheoreticalXSize = 320.0
+AutoCorrectPivotOffset = true
+PivotOffsetAnchorX = 0.5
+PivotOffsetAnchorY = 1.6
+
+[node name="Node" type="Node" parent="CanvasLayer/Label3"]
+script = ExtResource("4_8uqoj")
+multiplier = 16.0
+NoiseTexture = SubResource("NoiseTexture2D_ckv4t")
 
 [node name="Label4" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
-offset_left = 324.0
-offset_top = 266.0
-offset_right = 440.0
-offset_bottom = 321.0
-theme_override_font_sizes/font_size = 26
-text = "Мир спал.
-"
+material = SubResource("ShaderMaterial_lglmo")
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = -350.0
+offset_right = 350.0
+theme_override_font_sizes/font_size = 78
+text = "Мир спал,"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_ssd0p")
+AutoSetShaerParameters = true
+AutoCorrectSize = true
+TheoreticalXSize = 320.0
+AutoCorrectPivotOffset = true
+PivotOffsetAnchorX = 0.5
+PivotOffsetAnchorY = 2.0
+
+[node name="Node" type="Node" parent="CanvasLayer/Label4"]
+script = ExtResource("4_8uqoj")
+multiplier = 16.0
+NoiseTexture = SubResource("NoiseTexture2D_2asgk")
 
 [node name="Label5" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
-offset_left = 305.0
-offset_top = 344.0
-offset_right = 481.0
-offset_bottom = 395.0
-theme_override_font_sizes/font_size = 26
-text = "Но однажды он..."
+material = SubResource("ShaderMaterial_bcvrs")
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.95
+offset_left = -350.0
+offset_right = 350.0
+theme_override_font_sizes/font_size = 78
+text = "но однажды он..."
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_ssd0p")
+AutoSetShaerParameters = true
+AutoCorrectSize = true
+TheoreticalXSize = 320.0
+PivotOffsetAnchorX = 0.5
+PivotOffsetAnchorY = -1.0
+
+[node name="Node" type="Node" parent="CanvasLayer/Label5"]
+script = ExtResource("4_8uqoj")
+multiplier = 16.0
+NoiseTexture = SubResource("NoiseTexture2D_8gqw7")
+
+[node name="Image3" type="TextureRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+top_level = true
+z_index = 100
+material = SubResource("ShaderMaterial_ckv4t")
+instance_shader_parameters/node_rect_size = Vector2(100, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 324)
+texture = SubResource("AtlasTexture_lglmo")
+stretch_mode = 5
+script = ExtResource("5_ohaol")
+AutoSetShaerParameters = true
+AutoCorrectSize = true
+TheoreticalXSize = 256.0
+AutoCorrectPivotOffset = true
+PivotOffsetAnchorX = 0.5
+PivotOffsetAnchorY = 0.5
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="CanvasLayer/Image3"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_8uqoj")
+}
+speed_scale = 8.0
+
+[node name="Node" type="Node" parent="CanvasLayer/Image3"]
+script = ExtResource("4_8uqoj")
+multiplier = 16.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("2_p7gil")

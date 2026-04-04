@@ -6,7 +6,7 @@ public partial class SkeletonBaseHeadquarters : Chapter1Location
     public override void _Ready()
     {
         base._Ready();
-        Global.Music.PlayMusic("Ending.ogg");
+        Global.Music.PlayMusic("Skeleton.ogg");
         CutSceneCustomizes.Add((1, () =>
         {
             Tween tween = CreateTween();
@@ -20,15 +20,42 @@ public partial class SkeletonBaseHeadquarters : Chapter1Location
                 switch (Global.CutSceneData.GetChoice(5, 4))
                 {
                     case 5:
-                        Global.CutSceneManager.OutputCutScene(5, 21);
+                        switch (Global.CutSceneData.GetChoice(5, 21))
+                        {
+                            case 11:
+                                switch (Global.CutSceneData.GetChoice(5, 22))
+                                {
+                                    case 17:
+                                        Global.CutSceneManager.OutputCutScene(5, 18);
+                                        break;
+                                    case -1:
+                                    case 13:
+                                        Global.CutSceneManager.OutputCutScene(5, 22);
+                                        break;
+                                }
+                                break;
+                            case -1:
+                            case 13:
+                                Global.CutSceneManager.OutputCutScene(5, 21);
+                                break;
+                        }
                         break;
                     case 11:
-                        Global.CutSceneManager.OutputCutScene(5, 22);
+                        switch (Global.CutSceneData.GetChoice(5, 22))
+                        {
+                            case 17:
+                                Global.CutSceneManager.OutputCutScene(5, 18);
+                                break;
+                            case -1:
+                            case 13:
+                                Global.CutSceneManager.OutputCutScene(5, 22);
+                                break;
+                        }
                         break;
                     case -1:
                         Global.CutSceneManager.OutputCutScene(5, 4);
                         break;
-                };
+                }
                 break;
             case 3:
                 switch (Global.CutSceneData.GetChoice(5, 7))
@@ -45,12 +72,12 @@ public partial class SkeletonBaseHeadquarters : Chapter1Location
                     case -1:
                         Global.CutSceneManager.OutputCutScene(5, 7);
                         break;
-                };
+                }
                 break;
             case -1:
                 Global.CutSceneManager.OutputCutScene(5, 1);
                 break;
-        };
+        }
     }
 
     public void OpenChangeLocation()

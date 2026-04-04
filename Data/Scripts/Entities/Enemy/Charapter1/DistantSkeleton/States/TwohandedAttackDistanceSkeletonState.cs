@@ -19,7 +19,7 @@ public partial class TwohandedAttackDistanceSkeletonState : Node, IDistantSkelet
 	public void OnEndTimeout()
 	{
         ((CircleShape2D)_enemy.Trigger.Shape).Radius = 200;
-        if (((CircleShape2D)_enemy.Trigger.Shape).Radius + 32 > _enemy.GlobalPosition.DistanceTo(Global.SceneObjects.Player?.GlobalPosition ?? _enemy.GlobalPosition))
+        if (((CircleShape2D)_enemy.Trigger.Shape).Radius + 64 > _enemy.GlobalPosition.DistanceTo(Global.SceneObjects.Player?.GlobalPosition ?? _enemy.GlobalPosition))
         {
             _enemy.State = new OnehandedAttackDistanceSkeletonState(_enemy);
         }

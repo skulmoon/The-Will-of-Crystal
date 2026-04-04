@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 uniform sampler2D mask_texture;
 uniform vec2 mask_offset = vec2(0.0);
-uniform vec2 node_rect_size = vec2(100.0, 100.0); // Значение по умолчанию, будет перезаписано из скрипта
+uniform vec2 node_rect_size = vec2(100.0, 100.0);
 uniform vec4 text_color : source_color = vec4(1.0);
 
 varying vec2 v_node_uv;

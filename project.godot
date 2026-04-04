@@ -10,11 +10,13 @@ config_version=5
 
 [application]
 
-config/name="WrathOfTheMind"
+config/name="The Will of Crystal"
+config/description="This is my first game."
+config/version="0.1.2"
 run/main_scene="res://Data/Scenes/Menu/MainMenu.tscn"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="res://icon.svg"
+config/icon="uid://76uaibnxt4c0"
 
 [autoload]
 

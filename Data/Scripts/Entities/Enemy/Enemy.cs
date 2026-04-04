@@ -10,7 +10,7 @@ public abstract partial class Enemy : CharacterBody2D
 
     public EnemyPositionsControlNode PositionControl { get; set; }
     public AnimatedSprite2D Animation { get; private set; }
-    public NavigationAgent2D NavigationAgent { get; private set; } = new NavigationAgent2D() { MaxNeighbors = 0 };
+    public NavigationAgent2D NavigationAgent { get; private set; } = new NavigationAgent2D() { MaxNeighbors = int.MaxValue };
     public CollisionShape2D Collision { get; set; }
     public float SpeedMultiplier 
     { 

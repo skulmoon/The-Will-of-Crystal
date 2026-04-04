@@ -1,6 +1,6 @@
 [gd_scene load_steps=76 format=4 uid="uid://jo8of7mxf8hu"]
 
-[ext_resource type="Script" uid="uid://brbaicg6brgsy" path="res://Data/Scripts/Locations/Chapter1/Chapter1Location.cs" id="1_tdrs2"]
+[ext_resource type="Script" uid="uid://uq6mru1dua7s" path="res://Data/Scripts/Locations/Chapter1/StartingTrail/StartingTrail.cs" id="1_luohl"]
 [ext_resource type="Texture2D" uid="uid://djc3krnjf1ow7" path="res://Data/Textures/Locations/Charapter1/Background.png" id="2_mwja2"]
 [ext_resource type="PackedScene" uid="uid://bf62x5p8yb5w" path="res://Data/Scenes/Location/border.tscn" id="3_yelep"]
 [ext_resource type="Script" uid="uid://chnf60m6l8suc" path="res://Data/Scripts/Entities/Interection/DroppedItem.cs" id="4_012bh"]
@@ -1593,7 +1593,7 @@ shader_parameter/node_rect_size = Vector2(64, 54)
 shader_parameter/text_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_72h3t"]
-font_size = 32
+font_size = 26
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
@@ -1653,7 +1653,7 @@ shader_parameter/node_rect_size = Vector2(100, 100)
 shader_parameter/text_color = Color(0, 0, 0, 1)
 
 [node name="StartingTrail" type="Node2D"]
-script = ExtResource("1_tdrs2")
+script = ExtResource("1_luohl")
 
 [node name="Background" type="TileMapLayer" parent="."]
 z_index = -100
@@ -1711,7 +1711,7 @@ offset_top = -8.0
 offset_right = -30.0
 offset_bottom = 52.0
 grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 13
 text = "Для подбирания предметов нажмите "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1753,7 +1753,7 @@ offset_left = 560.0
 offset_top = 160.0
 offset_right = 967.0
 offset_bottom = 231.0
-theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/normal_font_size = 26
 text = "Теперь, чтоб открыть инвентарь и экипировать шард, нажмите \"{0}\"."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1790,7 +1790,7 @@ offset_right = -128.0
 offset_bottom = 135.765
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/normal_font_size = 26
 text = "Дла передвижения используйте \"{0}\", \"{1}\", \"{2}\" и \"{3}\". Так же для спринта зажмите клавишу \"{4}\"."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1801,6 +1801,7 @@ offset_left = -84.0
 offset_top = -33.0
 offset_right = -52.0
 offset_bottom = -3.0
+theme_override_font_sizes/font_size = 13
 text = "w"
 label_settings = SubResource("LabelSettings_72h3t")
 horizontal_alignment = 1
@@ -1812,6 +1813,7 @@ offset_left = -118.0
 offset_top = -10.0
 offset_right = -86.0
 offset_bottom = 20.0
+theme_override_font_sizes/font_size = 13
 text = "a"
 label_settings = SubResource("LabelSettings_72h3t")
 horizontal_alignment = 1
@@ -1823,6 +1825,7 @@ offset_left = -84.0
 offset_top = -10.0
 offset_right = -52.0
 offset_bottom = 20.0
+theme_override_font_sizes/font_size = 13
 text = "s"
 label_settings = SubResource("LabelSettings_72h3t")
 horizontal_alignment = 1
@@ -1834,6 +1837,7 @@ offset_left = -50.0
 offset_top = -10.0
 offset_right = -18.0
 offset_bottom = 20.0
+theme_override_font_sizes/font_size = 13
 text = "d"
 label_settings = SubResource("LabelSettings_72h3t")
 horizontal_alignment = 1
@@ -1845,6 +1849,7 @@ offset_left = 32.0
 offset_top = -20.0
 offset_right = 96.0
 offset_bottom = 10.0
+theme_override_font_sizes/font_size = 13
 text = "Shift"
 label_settings = SubResource("LabelSettings_72h3t")
 horizontal_alignment = 1

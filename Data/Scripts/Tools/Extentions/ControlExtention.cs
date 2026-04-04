@@ -9,4 +9,10 @@ public static class ControlExtention
         modulate.A = a;
         node.Modulate = modulate;
     }
+
+    public static int CalculateFontSize(this Control node, float ySize)
+    {
+        int fontSize = Mathf.RoundToInt(ySize / 1.6f) / 13 * 13;
+        return fontSize > 0 ? fontSize : 13;
+    }
 }

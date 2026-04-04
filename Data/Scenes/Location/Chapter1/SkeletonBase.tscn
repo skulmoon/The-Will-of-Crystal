@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=4 uid="uid://cm872ci12w23l"]
+[gd_scene load_steps=107 format=4 uid="uid://cm872ci12w23l"]
 
 [ext_resource type="Texture2D" uid="uid://djc3krnjf1ow7" path="res://Data/Textures/Locations/Charapter1/Background.png" id="1_4lb0g"]
 [ext_resource type="Script" uid="uid://y465megtjfit" path="res://Data/Scripts/Locations/Chapter1/SkeletonBase/SkeletonBase.cs" id="1_yhmj6"]
@@ -2176,134 +2176,6 @@ shader_parameter/cursor_position = Vector2(0, 0)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_btvnv"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_trkh7"]
-noise_type = 3
-frequency = 0.0266
-fractal_octaves = 4
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x61gi"]
-width = 160
-height = 70
-generate_mipmaps = false
-noise = SubResource("FastNoiseLite_trkh7")
-in_3d_space = true
-seamless_blend_skirt = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6n5s"]
-shader = ExtResource("14_tt4s6")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_x61gi")
-shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
-shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
-shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
-shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8b8mw"]
-bg_color = Color(0.6, 0.10800001, 0.10800001, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgfk6"]
-bg_color = Color(0.22428018, 0.70422673, 0.40566593, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8i0xj"]
-shader = ExtResource("14_tt4s6")
-shader_parameter/color1 = Color(0, 0, 0, 1)
-shader_parameter/color2 = Color(0, 0, 0, 1)
-shader_parameter/color3 = Color(0, 0, 0, 1)
-shader_parameter/color4 = Color(0, 0, 0, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_8i0xj"]
-noise_type = 3
-seed = 1
-frequency = 0.0266
-fractal_octaves = 4
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3rfk5"]
-width = 32
-height = 64
-generate_mipmaps = false
-noise = SubResource("FastNoiseLite_8i0xj")
-in_3d_space = true
-seamless_blend_skirt = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gel4w"]
-shader = ExtResource("14_tt4s6")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_3rfk5")
-shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
-shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
-shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
-shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x61gi"]
-bg_color = Color(1, 1, 1, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ufri"]
-bg_color = Color(0, 0, 0, 0.6901961)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_fodx7"]
-noise_type = 3
-seed = 2
-frequency = 0.0266
-fractal_octaves = 4
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ehu2i"]
-width = 32
-height = 64
-generate_mipmaps = false
-noise = SubResource("FastNoiseLite_fodx7")
-in_3d_space = true
-seamless_blend_skirt = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_52p4q"]
-shader = ExtResource("14_tt4s6")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_ehu2i")
-shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
-shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
-shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
-shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_a2c6y"]
-noise_type = 3
-seed = 3
-frequency = 0.0266
-fractal_octaves = 4
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eciwt"]
-width = 32
-height = 64
-generate_mipmaps = false
-noise = SubResource("FastNoiseLite_a2c6y")
-in_3d_space = true
-seamless_blend_skirt = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6a6d1"]
-shader = ExtResource("14_tt4s6")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_eciwt")
-shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
-shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
-shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
-shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_jxcrk"]
-noise_type = 3
-seed = 4
-frequency = 0.0266
-fractal_octaves = 4
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dt7rc"]
-width = 32
-height = 64
-generate_mipmaps = false
-noise = SubResource("FastNoiseLite_jxcrk")
-in_3d_space = true
-seamless_blend_skirt = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kfyv8"]
-shader = ExtResource("14_tt4s6")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_dt7rc")
-shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
-shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
-shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
-shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
-
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1ufri"]
 noise_type = 3
 frequency = 0.0223
@@ -2333,6 +2205,176 @@ shader_parameter/dark_power = -0.2
 shader_parameter/dark_scale = 2.0
 shader_parameter/noise_scale = 0.0
 shader_parameter/cursor_position = Vector2(0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w8lny"]
+noise_type = 3
+frequency = 0.0266
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x61gi"]
+width = 160
+height = 70
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_w8lny")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n5cq2"]
+shader = ExtResource("14_tt4s6")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_x61gi")
+shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
+shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
+shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
+shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsham"]
+bg_color = Color(0.6, 0.10800001, 0.10800001, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1xhb"]
+bg_color = Color(0.22428018, 0.70422673, 0.40566593, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_htyog"]
+shader = ExtResource("14_tt4s6")
+shader_parameter/color1 = Color(0, 0, 0, 1)
+shader_parameter/color2 = Color(0, 0, 0, 1)
+shader_parameter/color3 = Color(0, 0, 0, 1)
+shader_parameter/color4 = Color(0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_40lqp"]
+noise_type = 3
+seed = 1
+frequency = 0.0266
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3rfk5"]
+width = 32
+height = 64
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_40lqp")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qrqrk"]
+shader = ExtResource("14_tt4s6")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_3rfk5")
+shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
+shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
+shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
+shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_886i6"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_187ik"]
+bg_color = Color(0, 0, 0, 0.6901961)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kw641"]
+noise_type = 3
+seed = 2
+frequency = 0.0266
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ehu2i"]
+width = 32
+height = 64
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_kw641")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o75tq"]
+shader = ExtResource("14_tt4s6")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ehu2i")
+shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
+shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
+shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
+shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fodx7"]
+noise_type = 3
+seed = 2
+frequency = 0.0266
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8e6kp"]
+width = 32
+height = 64
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_fodx7")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3xc2r"]
+noise_type = 3
+seed = 3
+frequency = 0.0266
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eciwt"]
+width = 32
+height = 64
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_3xc2r")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s48o8"]
+shader = ExtResource("14_tt4s6")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_eciwt")
+shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
+shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
+shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
+shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_a2c6y"]
+noise_type = 3
+seed = 3
+frequency = 0.0266
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ovje8"]
+width = 32
+height = 64
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_a2c6y")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0lc2o"]
+noise_type = 3
+seed = 4
+frequency = 0.0266
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dt7rc"]
+width = 32
+height = 64
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_0lc2o")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2lnva"]
+shader = ExtResource("14_tt4s6")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_dt7rc")
+shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
+shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
+shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
+shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jxcrk"]
+noise_type = 3
+seed = 4
+frequency = 0.0266
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fn2m6"]
+width = 32
+height = 64
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_jxcrk")
+in_3d_space = true
+seamless_blend_skirt = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5cq2"]
 size = Vector2(60, 161)
@@ -2371,6 +2413,7 @@ tile_set = SubResource("TileSet_n5cq2")
 position = Vector2(832, -272)
 
 [node name="Camera" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(647, 568)
 collision_layer = 4
 collision_mask = 4
@@ -2437,359 +2480,6 @@ script = ExtResource("12_5hemw")
 [node name="DialogPanel" parent="Interface" instance=ExtResource("13_g20k6")]
 visible = false
 
-[node name="HealthAndStaminaBar" type="TextureRect" parent="Interface"]
-material = SubResource("ShaderMaterial_g6n5s")
-clip_contents = true
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 0.008
-anchor_right = 1.0
-anchor_bottom = 0.281
-offset_left = -481.0
-offset_bottom = 0.17832947
-grow_horizontal = 0
-texture = ExtResource("15_gcstb")
-stretch_mode = 5
-script = ExtResource("16_2em2j")
-
-[node name="BackgroundNoise" type="TextureRect" parent="Interface/HealthAndStaminaBar"]
-z_index = -1
-material = SubResource("ShaderMaterial_g6n5s")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -0.000579834
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("17_2bqg8")
-stretch_mode = 5
-script = ExtResource("18_3m4j3")
-
-[node name="HealthProgressBar" type="ProgressBar" parent="Interface/HealthAndStaminaBar"]
-z_index = -1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.017
-anchor_top = 0.12900001
-anchor_right = 0.633
-anchor_bottom = 0.307
-offset_left = -0.17701912
-offset_top = 0.060367584
-offset_right = -0.15475464
-offset_bottom = -0.5482712
-theme_override_styles/fill = SubResource("StyleBoxFlat_8b8mw")
-fill_mode = 1
-show_percentage = false
-script = ExtResource("19_rhcma")
-
-[node name="PowerProgressBar" type="ProgressBar" parent="Interface/HealthAndStaminaBar"]
-z_index = -1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.20400001
-anchor_top = 0.30600002
-anchor_right = 0.58000004
-anchor_bottom = 0.43100002
-offset_left = -0.12400818
-offset_top = 0.0966835
-offset_right = 0.084472656
-offset_bottom = -0.0076065063
-theme_override_styles/fill = SubResource("StyleBoxFlat_vgfk6")
-fill_mode = 1
-show_percentage = false
-script = ExtResource("20_37wqu")
-
-[node name="Node" type="Node" parent="Interface/HealthAndStaminaBar"]
-script = ExtResource("21_4cyha")
-Noise = SubResource("NoiseTexture2D_x61gi")
-
-[node name="Shards" type="Control" parent="Interface"]
-material = SubResource("ShaderMaterial_8i0xj")
-layout_mode = 3
-anchor_top = 0.742
-anchor_bottom = 0.992
-offset_top = -0.27999878
-offset_right = 334.0
-grow_vertical = 2
-script = ExtResource("22_wtt1c")
-
-[node name="ShardCell" type="TextureRect" parent="Interface/Shards"]
-material = SubResource("ShaderMaterial_gel4w")
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.244
-anchor_bottom = 1.0
-texture = ExtResource("23_ufugf")
-stretch_mode = 5
-
-[node name="Node" type="Node" parent="Interface/Shards/ShardCell"]
-script = ExtResource("21_4cyha")
-Noise = SubResource("NoiseTexture2D_3rfk5")
-
-[node name="Ability" type="TextureRect" parent="Interface/Shards/ShardCell"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch_mode = 5
-
-[node name="Shard" type="TextureRect" parent="Interface/Shards/ShardCell"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="FirstShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell" node_paths=PackedStringArray("AbilityTexture", "Texture")]
-z_index = -1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.313
-anchor_top = 0.078
-anchor_right = 0.688
-anchor_bottom = 0.266
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
-theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
-value = 100.0
-fill_mode = 3
-show_percentage = false
-script = ExtResource("24_ixmi1")
-AbilityTexture = NodePath("../Ability")
-Texture = NodePath("../Shard")
-
-[node name="SecondShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell"]
-z_index = -1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.313
-anchor_top = 0.297
-anchor_right = 0.688
-anchor_bottom = 0.484
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
-theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
-value = 100.0
-fill_mode = 3
-show_percentage = false
-script = ExtResource("25_p7r4q")
-
-[node name="ShardCell2" type="TextureRect" parent="Interface/Shards"]
-material = SubResource("ShaderMaterial_52p4q")
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.252
-anchor_right = 0.496
-anchor_bottom = 1.0
-texture = ExtResource("23_ufugf")
-stretch_mode = 5
-
-[node name="Node" type="Node" parent="Interface/Shards/ShardCell2"]
-script = ExtResource("21_4cyha")
-Noise = SubResource("NoiseTexture2D_ehu2i")
-
-[node name="Ability" type="TextureRect" parent="Interface/Shards/ShardCell2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch_mode = 5
-
-[node name="Shard" type="TextureRect" parent="Interface/Shards/ShardCell2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -1.5258789e-05
-offset_bottom = -1.5258789e-05
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="FirstShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell2" node_paths=PackedStringArray("AbilityTexture", "Texture")]
-z_index = -1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.313
-anchor_top = 0.078
-anchor_right = 0.688
-anchor_bottom = 0.266
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
-theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
-value = 100.0
-fill_mode = 3
-show_percentage = false
-script = ExtResource("24_ixmi1")
-ShardNumber = 1
-AbilityTexture = NodePath("../Ability")
-Texture = NodePath("../Shard")
-
-[node name="SecondShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell2"]
-z_index = -1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.313
-anchor_top = 0.297
-anchor_right = 0.688
-anchor_bottom = 0.484
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
-theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
-value = 100.0
-fill_mode = 3
-show_percentage = false
-script = ExtResource("25_p7r4q")
-ShardNumber = 1
-
-[node name="ShardCell3" type="TextureRect" parent="Interface/Shards"]
-material = SubResource("ShaderMaterial_6a6d1")
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.504
-anchor_right = 0.748
-anchor_bottom = 1.0
-texture = ExtResource("23_ufugf")
-stretch_mode = 5
-
-[node name="Node" type="Node" parent="Interface/Shards/ShardCell3"]
-script = ExtResource("21_4cyha")
-Noise = SubResource("NoiseTexture2D_eciwt")
-
-[node name="Ability" type="TextureRect" parent="Interface/Shards/ShardCell3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch_mode = 5
-
-[node name="Shard" type="TextureRect" parent="Interface/Shards/ShardCell3"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -1.5258789e-05
-offset_bottom = -1.5258789e-05
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="FirstShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell3" node_paths=PackedStringArray("AbilityTexture", "Texture")]
-z_index = -1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.313
-anchor_top = 0.078
-anchor_right = 0.688
-anchor_bottom = 0.266
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
-theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
-value = 100.0
-fill_mode = 3
-show_percentage = false
-script = ExtResource("24_ixmi1")
-ShardNumber = 2
-AbilityTexture = NodePath("../Ability")
-Texture = NodePath("../Shard")
-
-[node name="SecondShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell3"]
-z_index = -1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.313
-anchor_top = 0.297
-anchor_right = 0.688
-anchor_bottom = 0.484
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
-theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
-value = 100.0
-fill_mode = 3
-show_percentage = false
-script = ExtResource("25_p7r4q")
-ShardNumber = 2
-
-[node name="ShardCell4" type="TextureRect" parent="Interface/Shards"]
-material = SubResource("ShaderMaterial_kfyv8")
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.756
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource("23_ufugf")
-stretch_mode = 5
-
-[node name="Node" type="Node" parent="Interface/Shards/ShardCell4"]
-script = ExtResource("21_4cyha")
-Noise = SubResource("NoiseTexture2D_dt7rc")
-
-[node name="Ability" type="TextureRect" parent="Interface/Shards/ShardCell4"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch_mode = 5
-
-[node name="Shard" type="TextureRect" parent="Interface/Shards/ShardCell4"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -1.5258789e-05
-offset_bottom = -1.5258789e-05
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="FirstShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell4" node_paths=PackedStringArray("AbilityTexture", "Texture")]
-z_index = -1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.313
-anchor_top = 0.078
-anchor_right = 0.688
-anchor_bottom = 0.266
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
-theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
-value = 100.0
-fill_mode = 3
-show_percentage = false
-script = ExtResource("24_ixmi1")
-ShardNumber = 3
-AbilityTexture = NodePath("../Ability")
-Texture = NodePath("../Shard")
-
-[node name="SecondShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell4"]
-z_index = -1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.313
-anchor_top = 0.297
-anchor_right = 0.688
-anchor_bottom = 0.484
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
-theme_override_styles/fill = SubResource("StyleBoxFlat_1ufri")
-value = 100.0
-fill_mode = 3
-show_percentage = false
-script = ExtResource("25_p7r4q")
-ShardNumber = 3
-
 [node name="MenuDark" type="TextureRect" parent="Interface"]
 unique_name_in_owner = true
 modulate = Color(0, 0, 0, 1)
@@ -2805,12 +2495,13 @@ script = ExtResource("12_5hemw")
 
 [node name="Titles" type="RichTextLabel" parent="Interface"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 10
 anchor_right = 1.0
 offset_right = 0.45996094
-offset_bottom = 4684.0
+offset_bottom = 4116.0
 grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/normal_font_size = 52
 text = "
 
 
@@ -2889,6 +2580,7 @@ Coulneff
 
 
 
+
 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -2917,6 +2609,364 @@ visible = false
 
 [node name="PauseMenu" parent="Interface" instance=ExtResource("28_abtov")]
 visible = false
+
+[node name="HealthAndStaminaBar" type="TextureRect" parent="Interface"]
+material = SubResource("ShaderMaterial_n5cq2")
+clip_contents = true
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.008
+anchor_right = 1.0
+anchor_bottom = 0.281
+offset_left = -481.0
+offset_bottom = 0.17832947
+grow_horizontal = 0
+texture = ExtResource("15_gcstb")
+stretch_mode = 5
+script = ExtResource("16_2em2j")
+
+[node name="BackgroundNoise" type="TextureRect" parent="Interface/HealthAndStaminaBar"]
+z_index = -1
+material = SubResource("ShaderMaterial_n5cq2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.000579834
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_2bqg8")
+stretch_mode = 5
+script = ExtResource("18_3m4j3")
+
+[node name="HealthProgressBar" type="ProgressBar" parent="Interface/HealthAndStaminaBar"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.12900001
+anchor_right = 0.633
+anchor_bottom = 0.307
+offset_left = -0.17701912
+offset_top = 0.060367584
+offset_right = -0.15475464
+offset_bottom = -0.5482712
+theme_override_styles/fill = SubResource("StyleBoxFlat_wsham")
+fill_mode = 1
+show_percentage = false
+script = ExtResource("19_rhcma")
+
+[node name="PowerProgressBar" type="ProgressBar" parent="Interface/HealthAndStaminaBar"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.20400001
+anchor_top = 0.30600002
+anchor_right = 0.58000004
+anchor_bottom = 0.43100002
+offset_left = -0.12400818
+offset_top = 0.0966835
+offset_right = 0.084472656
+offset_bottom = -0.0076065063
+theme_override_styles/fill = SubResource("StyleBoxFlat_s1xhb")
+fill_mode = 1
+show_percentage = false
+script = ExtResource("20_37wqu")
+
+[node name="Node" type="Node" parent="Interface/HealthAndStaminaBar"]
+script = ExtResource("21_4cyha")
+multiplier = 8.0
+NoiseTexture = SubResource("NoiseTexture2D_x61gi")
+
+[node name="Shards" type="Control" parent="Interface"]
+material = SubResource("ShaderMaterial_htyog")
+layout_mode = 3
+anchor_top = 0.742
+anchor_bottom = 0.992
+offset_top = -0.27999878
+offset_right = 334.0
+grow_vertical = 2
+script = ExtResource("22_wtt1c")
+
+[node name="ShardCell" type="TextureRect" parent="Interface/Shards"]
+material = SubResource("ShaderMaterial_qrqrk")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.244
+anchor_bottom = 1.0
+texture = ExtResource("23_ufugf")
+stretch_mode = 5
+
+[node name="Node" type="Node" parent="Interface/Shards/ShardCell"]
+script = ExtResource("21_4cyha")
+multiplier = 8.0
+NoiseTexture = SubResource("NoiseTexture2D_3rfk5")
+
+[node name="Ability" type="TextureRect" parent="Interface/Shards/ShardCell"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Shard" type="TextureRect" parent="Interface/Shards/ShardCell"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell" node_paths=PackedStringArray("AbilityTexture", "Texture")]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.078
+anchor_right = 0.688
+anchor_bottom = 0.266
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_886i6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_187ik")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("24_ixmi1")
+AbilityTexture = NodePath("../Ability")
+Texture = NodePath("../Shard")
+
+[node name="SecondShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.297
+anchor_right = 0.688
+anchor_bottom = 0.484
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_886i6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_187ik")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("25_p7r4q")
+
+[node name="ShardCell2" type="TextureRect" parent="Interface/Shards"]
+material = SubResource("ShaderMaterial_o75tq")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.252
+anchor_right = 0.496
+anchor_bottom = 1.0
+texture = ExtResource("23_ufugf")
+stretch_mode = 5
+
+[node name="Node" type="Node" parent="Interface/Shards/ShardCell2"]
+script = ExtResource("21_4cyha")
+multiplier = 8.0
+NoiseTexture = SubResource("NoiseTexture2D_8e6kp")
+
+[node name="Ability" type="TextureRect" parent="Interface/Shards/ShardCell2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Shard" type="TextureRect" parent="Interface/Shards/ShardCell2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.5258789e-05
+offset_bottom = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell2" node_paths=PackedStringArray("AbilityTexture", "Texture")]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.078
+anchor_right = 0.688
+anchor_bottom = 0.266
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_886i6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_187ik")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("24_ixmi1")
+ShardNumber = 1
+AbilityTexture = NodePath("../Ability")
+Texture = NodePath("../Shard")
+
+[node name="SecondShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell2"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.297
+anchor_right = 0.688
+anchor_bottom = 0.484
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_886i6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_187ik")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("25_p7r4q")
+ShardNumber = 1
+
+[node name="ShardCell3" type="TextureRect" parent="Interface/Shards"]
+material = SubResource("ShaderMaterial_s48o8")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.504
+anchor_right = 0.748
+anchor_bottom = 1.0
+texture = ExtResource("23_ufugf")
+stretch_mode = 5
+
+[node name="Node" type="Node" parent="Interface/Shards/ShardCell3"]
+script = ExtResource("21_4cyha")
+multiplier = 8.0
+NoiseTexture = SubResource("NoiseTexture2D_ovje8")
+
+[node name="Ability" type="TextureRect" parent="Interface/Shards/ShardCell3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Shard" type="TextureRect" parent="Interface/Shards/ShardCell3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.5258789e-05
+offset_bottom = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell3" node_paths=PackedStringArray("AbilityTexture", "Texture")]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.078
+anchor_right = 0.688
+anchor_bottom = 0.266
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_886i6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_187ik")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("24_ixmi1")
+ShardNumber = 2
+AbilityTexture = NodePath("../Ability")
+Texture = NodePath("../Shard")
+
+[node name="SecondShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell3"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.297
+anchor_right = 0.688
+anchor_bottom = 0.484
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_886i6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_187ik")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("25_p7r4q")
+ShardNumber = 2
+
+[node name="ShardCell4" type="TextureRect" parent="Interface/Shards"]
+material = SubResource("ShaderMaterial_2lnva")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.756
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("23_ufugf")
+stretch_mode = 5
+
+[node name="Node" type="Node" parent="Interface/Shards/ShardCell4"]
+script = ExtResource("21_4cyha")
+multiplier = 8.0
+NoiseTexture = SubResource("NoiseTexture2D_fn2m6")
+
+[node name="Ability" type="TextureRect" parent="Interface/Shards/ShardCell4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Shard" type="TextureRect" parent="Interface/Shards/ShardCell4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.5258789e-05
+offset_bottom = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell4" node_paths=PackedStringArray("AbilityTexture", "Texture")]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.078
+anchor_right = 0.688
+anchor_bottom = 0.266
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_886i6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_187ik")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("24_ixmi1")
+ShardNumber = 3
+AbilityTexture = NodePath("../Ability")
+Texture = NodePath("../Shard")
+
+[node name="SecondShardAbilityBar" type="ProgressBar" parent="Interface/Shards/ShardCell4"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313
+anchor_top = 0.297
+anchor_right = 0.688
+anchor_bottom = 0.484
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_886i6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_187ik")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("25_p7r4q")
+ShardNumber = 3
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(1784, -162)

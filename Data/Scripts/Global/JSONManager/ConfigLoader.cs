@@ -31,6 +31,8 @@ public partial class ConfigLoader : Node
                         InputMap.ActionAddEvent(action.Item1, new InputEventMouseButton { ButtonIndex = (MouseButton)(item.Item2 ?? 0) });
             }
         }
+        else
+            TranslationServer.SetLocale("ru");
     }
 
     public void SaveConfig(ConfigInfo config)
@@ -46,5 +48,22 @@ public partial class ConfigLoader : Node
         string json = file?.GetAsText() ?? "";
         file?.Close();
         return JsonConvert.DeserializeObject<ConfigInfo>(json);
+    }
+
+    public void LoadConfig()
+    {
+        TranslationServer.SetLocale(ConfigInfo.Base.Language); //Base
+        AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), ConfigInfo.Sound.Base); //Sound
+        AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Sound"), ConfigInfo.Sound.Environment);
+        AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), ConfigInfo.Sound.Music);
+        foreach (var action in ConfigInfo.Control.KeyActionList) //Control
+        {
+            InputMap.ActionEraseEvents(action.Item1);
+            foreach (var item in action.Item2 ?? new List<(long?, int?)>())
+                if (item.Item1 != null)
+                    InputMap.ActionAddEvent(action.Item1, new InputEventKey { Keycode = (Key)(item.Item1 ?? 0) });
+                else if (item.Item2 != null)
+                    InputMap.ActionAddEvent(action.Item1, new InputEventMouseButton { ButtonIndex = (MouseButton)(item.Item2 ?? 0) });
+        }
     }
 }

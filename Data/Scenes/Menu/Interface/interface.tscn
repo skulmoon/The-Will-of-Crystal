@@ -270,7 +270,8 @@ script = ExtResource("5_vw5ff")
 
 [node name="Node" type="Node" parent="HealthAndStaminaBar"]
 script = ExtResource("10_8i0xj")
-Noise = SubResource("NoiseTexture2D_x61gi")
+multiplier = 8.0
+NoiseTexture = SubResource("NoiseTexture2D_x61gi")
 
 [node name="Shards" type="Control" parent="."]
 material = SubResource("ShaderMaterial_8i0xj")
@@ -293,7 +294,8 @@ stretch_mode = 5
 
 [node name="Node" type="Node" parent="Shards/ShardCell"]
 script = ExtResource("10_8i0xj")
-Noise = SubResource("NoiseTexture2D_3rfk5")
+multiplier = 8.0
+NoiseTexture = SubResource("NoiseTexture2D_3rfk5")
 
 [node name="Ability" type="TextureRect" parent="Shards/ShardCell"]
 z_index = -1
@@ -360,7 +362,8 @@ stretch_mode = 5
 
 [node name="Node" type="Node" parent="Shards/ShardCell2"]
 script = ExtResource("10_8i0xj")
-Noise = SubResource("NoiseTexture2D_ehu2i")
+multiplier = 8.0
+NoiseTexture = SubResource("NoiseTexture2D_ehu2i")
 
 [node name="Ability" type="TextureRect" parent="Shards/ShardCell2"]
 layout_mode = 1
@@ -430,7 +433,8 @@ stretch_mode = 5
 
 [node name="Node" type="Node" parent="Shards/ShardCell3"]
 script = ExtResource("10_8i0xj")
-Noise = SubResource("NoiseTexture2D_eciwt")
+multiplier = 8.0
+NoiseTexture = SubResource("NoiseTexture2D_eciwt")
 
 [node name="Ability" type="TextureRect" parent="Shards/ShardCell3"]
 layout_mode = 1
@@ -500,7 +504,8 @@ stretch_mode = 5
 
 [node name="Node" type="Node" parent="Shards/ShardCell4"]
 script = ExtResource("10_8i0xj")
-Noise = SubResource("NoiseTexture2D_dt7rc")
+multiplier = 8.0
+NoiseTexture = SubResource("NoiseTexture2D_dt7rc")
 
 [node name="Ability" type="TextureRect" parent="Shards/ShardCell4"]
 layout_mode = 1

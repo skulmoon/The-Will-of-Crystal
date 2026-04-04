@@ -17,7 +17,7 @@ public partial class DistantSkeleton : Enemy
         }
     }
 
-    public DistantSkeleton() : base(speed: 200, damage: 20, health: 40, "Chapter1/DistantSkeleton.tscn")
+    public DistantSkeleton() : base(speed: 100, damage: 20, health: 40, "Chapter1/DistantSkeleton.tscn")
     {
         State = new СalmDistantSkeletonState(this);
         Trigger = new CustomTrigger(4,

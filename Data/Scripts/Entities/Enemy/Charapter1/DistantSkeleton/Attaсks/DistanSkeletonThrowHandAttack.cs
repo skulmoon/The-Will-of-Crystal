@@ -11,15 +11,16 @@ public partial class DistanSkeletonThrowHandAttack : EnemyAttack
         {
             Size = new Vector2(4, 30)
         };
+        AnimatedSprite2D sprite = GD.Load<PackedScene>("res://Data/Textures/Entities/Enemys/Chapter1/FlyingHand.tscn").Instantiate<AnimatedSprite2D>();
+        AddChild(sprite);
+        sprite.Play("default");
         GlobalPosition = enemyPosition;
         _direction = GlobalPosition.DirectionTo(targetPosition);
-        Sprite2D sprite = GD.Load<PackedScene>("res://Data/Textures/Entities/Enemys/Chapter1/ShovelAttack.tscn").Instantiate<Sprite2D>();
-        Collision.AddChild(sprite);
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        GlobalPosition += _direction * 600 * (float)delta;
-        Rotate(Mathf.DegToRad(-300) * (float)delta);
+        GlobalPosition += _direction * 500 * (float)delta;
+        Collision.Rotate(Mathf.DegToRad(225) * (float)delta);
     }
 }

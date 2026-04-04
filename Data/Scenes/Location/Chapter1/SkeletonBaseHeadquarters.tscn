@@ -2780,6 +2780,7 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource("3_twyqr")
 DefaultZoom = Vector2(2, 2)
+AutoEnable = true
 ID = 3
 AnimatedSprite2D = NodePath("AnimatedSprite2D")
 

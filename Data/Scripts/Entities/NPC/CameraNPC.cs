@@ -7,6 +7,7 @@ public partial class CameraNPC : NPC
 
     [Export] public Vector2 Offset { get; set; }
     [Export] public Vector2 DefaultZoom { get; set; }
+    [Export] public bool AutoEnable { get; set; } = false;
 
     public CameraNPC()
     {
@@ -19,7 +20,8 @@ public partial class CameraNPC : NPC
         Camera.Enabled = false;
         Camera.Zoom = DefaultZoom;
         Camera.Offset = Offset;
-        Global.CutSceneManager.StartedCutScene += () => ChangeEnabled(true);
+        if (AutoEnable)
+            Global.CutSceneManager.StartedCutScene += () => ChangeEnabled(true);
     }
 
     public void ChangeZoom(float zoom, float duration)

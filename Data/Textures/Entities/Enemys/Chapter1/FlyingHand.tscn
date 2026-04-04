@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4dtyaqac3iml"]
+
+[ext_resource type="Texture2D" uid="uid://dafgplpdmmb61" path="res://Data/Textures/Entities/Enemys/Chapter1/FlyingHand.png" id="1_mps2a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5gnt"]
+atlas = ExtResource("1_mps2a")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wuqo"]
+atlas = ExtResource("1_mps2a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2e7t"]
+atlas = ExtResource("1_mps2a")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3sf2"]
+atlas = ExtResource("1_mps2a")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_213md"]
+atlas = ExtResource("1_mps2a")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2jl0"]
+atlas = ExtResource("1_mps2a")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhwq4"]
+atlas = ExtResource("1_mps2a")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0nk2"]
+atlas = ExtResource("1_mps2a")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1kri"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5gnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wuqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2e7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3sf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_213md")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2jl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhwq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0nk2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_h1kri")

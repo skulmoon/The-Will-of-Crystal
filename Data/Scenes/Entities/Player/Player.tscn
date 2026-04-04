@@ -1,10 +1,13 @@
-[gd_scene load_steps=85 format=3 uid="uid://dhgr62sao2gjo"]
+[gd_scene load_steps=91 format=3 uid="uid://dhgr62sao2gjo"]
 
 [ext_resource type="Script" uid="uid://db5a1hw7r2dqa" path="res://Data/Scripts/Entities/Player/Player.cs" id="1_ounf2"]
 [ext_resource type="Texture2D" uid="uid://c3n4lwmt34dt1" path="res://Data/Textures/Entities/Player/Golem/GolemMovement.png" id="2_wqcy0"]
 [ext_resource type="Script" uid="uid://c3howdnij3d1u" path="res://Data/Scripts/Entities/Player/PlayerInteractionArea.cs" id="3_bpate"]
 [ext_resource type="Script" uid="uid://p68c6l174xxi" path="res://Data/Scripts/Entities/Player/PlayerSprite.cs" id="3_yahgx"]
 [ext_resource type="Script" uid="uid://bvy2g118w8vy6" path="res://Data/Scripts/Entities/Player/Armor2D/HitBox.cs" id="4_6vsg5"]
+[ext_resource type="Texture2D" uid="uid://po03cr5rvpyk" path="res://icon.svg" id="6_2dmwf"]
+[ext_resource type="Texture2D" uid="uid://3767o7n353vp" path="res://Data/Textures/Entities/Player/Golem/FootParticleTexture.png" id="6_m5k4t"]
+[ext_resource type="Script" uid="uid://shd5fs6oiy6l" path="res://Data/Scripts/Entities/Player/FootParticleControl.cs" id="6_n8444"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qfa5h"]
 radius = 15.0
@@ -598,8 +601,21 @@ size = Vector2(12, 12)
 [sub_resource type="CircleShape2D" id="CircleShape2D_crk6a"]
 radius = 14.0
 
+[sub_resource type="Curve" id="Curve_n8444"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.49714288, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2dmwf"]
+curve = SubResource("Curve_n8444")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n8444"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_2dmwf")
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("AnimatedSprite2D")]
-y_sort_enabled = true
 collision_layer = 4
 collision_mask = 4
 floor_stop_on_slope = false
@@ -642,6 +658,41 @@ shape = SubResource("CircleShape2D_crk6a")
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(9, -13)
+texture = ExtResource("6_2dmwf")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="FootParticleControl" type="Node2D" parent="Node2D" node_paths=PackedStringArray("Particles")]
+z_index = -1
+y_sort_enabled = true
+script = ExtResource("6_n8444")
+Particles = [NodePath("GPUParticlesFoot1"), NodePath("GPUParticlesFoot2")]
+
+[node name="GPUParticlesFoot1" type="GPUParticles2D" parent="Node2D/FootParticleControl"]
+self_modulate = Color(0, 0, 0, 0.63529414)
+z_index = -90
+y_sort_enabled = true
+position = Vector2(5, 0)
+emitting = false
+amount = 6
+texture = ExtResource("6_m5k4t")
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_n8444")
+
+[node name="GPUParticlesFoot2" type="GPUParticles2D" parent="Node2D/FootParticleControl"]
+self_modulate = Color(0, 0, 0, 0.63529414)
+z_index = -90
+y_sort_enabled = true
+position = Vector2(-4, 0)
+emitting = false
+amount = 6
+texture = ExtResource("6_m5k4t")
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_n8444")
 
 [connection signal="area_entered" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaEntered"]
 [connection signal="area_exited" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaExited"]

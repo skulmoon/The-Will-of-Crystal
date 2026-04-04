@@ -1,6 +1,7 @@
 
 using Godot;
 using System;
+using static Godot.TextServer;
 
 public partial class Player : NPC
 {
@@ -8,6 +9,7 @@ public partial class Player : NPC
     private float _stamina = 0;
     private Vector2 _currentDirection;
     private float _currentSpeedMultiper;
+    private Timer _walkTimer;
 
     public AnimatedSprite2D Sprite { get; private set; }
     public ShardManager Shard { get; private set; }
@@ -32,6 +34,17 @@ public partial class Player : NPC
 
     public override void _Ready()
     {
+        _walkTimer = new Timer()
+        {
+            Autostart = false,
+            OneShot = false,
+            WaitTime = 0.5f
+        };
+        AddChild(_walkTimer);
+        _walkTimer.Timeout += () => Global.Music.PlaySound("GolemRottenGrassWalk.ogg", 0.2f);
+        ChangedDirection += OnChangedDirection;
+        ChangedSpeedMultiper += OnChangedSpeedMultiper;
+        Global.CutSceneManager.StartedCutScene += OnStartedCutScene;
         Sprite = GetNode<AnimatedSprite2D>("Sprite2D");
         _interactionArea = GetNode<PlayerInteractionArea>("PlayerInteractionArea");
         HitBox = GetNode<HitBox>("HitBox");
@@ -73,4 +86,32 @@ public partial class Player : NPC
             _currentSpeedMultiper = speedMultiper;
         }
     }  
+
+    public void OnStartedCutScene() =>
+        ChangedDirection.Invoke(Vector2.Zero);
+
+    public void OnChangedSpeedMultiper(float speedMultiper) =>
+        _walkTimer.WaitTime = 0.5f / speedMultiper;
+
+    public void OnChangedDirection(Vector2 direction)
+    {
+        if (direction != Vector2.Zero)
+        {
+            if (_walkTimer.TimeLeft == 0)
+            {
+                Global.Music.PlaySound("GolemRottenGrassWalk.ogg", 0.2f);
+                _walkTimer.Start();
+            }
+        }
+        else
+            _walkTimer.Stop();
+    }
+
+    public override void _ExitTree()
+    {
+        ChangedSpeedMultiper -= OnChangedSpeedMultiper;
+        Global.CutSceneManager.StartedCutScene -= OnStartedCutScene;
+        ChangedDirection -= OnChangedDirection;
+        base._ExitTree();
+    }
 }

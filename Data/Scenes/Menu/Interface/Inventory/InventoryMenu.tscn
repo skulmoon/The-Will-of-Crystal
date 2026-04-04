@@ -62,7 +62,8 @@ script = ExtResource("4_kaaoj")
 
 [node name="Node" type="Node" parent="InventoryBorder"]
 script = ExtResource("5_3f3m0")
-Noise = SubResource("NoiseTexture2D_kaaoj")
+multiplier = 8.0
+NoiseTexture = SubResource("NoiseTexture2D_kaaoj")
 
 [node name="Items" type="Control" parent="InventoryBorder"]
 layout_mode = 1
@@ -128,7 +129,7 @@ MainControl = NodePath("../Items")
 IsMain = true
 Text = "Предметы"
 AutoCorrect = true
-Direction = 2
+RatioX = 1.0
 
 [node name="EquipmentButton" type="TextureButton" parent="InventoryBorder" node_paths=PackedStringArray("Controls", "MainControl")]
 layout_mode = 1
@@ -173,4 +174,4 @@ Controls = [NodePath("../Items"), NodePath("../Equipment")]
 MainControl = NodePath("../Equipment")
 Text = "?"
 AutoCorrect = true
-Direction = 0
+RatioX = 0.0

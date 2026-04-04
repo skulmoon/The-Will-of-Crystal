@@ -7,7 +7,7 @@ public partial class SkeletonBase : Location
     public override void _Ready()
     {
         base._Ready();
-        Global.Music.PlayMusic("Ending.ogg");
+        Global.Music.PlayMusic("Skeleton.ogg");
         CutSceneCustomizes.Add((1, () =>
         {
             Tween tween = CreateTween();
@@ -28,7 +28,7 @@ public partial class SkeletonBase : Location
         ));
         CutSceneCustomizes.Add((3, () =>
         {
-            OpenMenu();
+            GetNode<CameraNPC>("%Camera").ChangeEnabled(true);
         }
         ));
         GD.Print(Global.CutSceneData.GetChoice(6, 1));

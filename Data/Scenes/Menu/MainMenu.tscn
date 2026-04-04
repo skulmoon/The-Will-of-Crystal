@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://ds7edorou0j7f"]
+[gd_scene load_steps=44 format=3 uid="uid://ds7edorou0j7f"]
 
 [ext_resource type="Script" uid="uid://um20cmjanlia" path="res://Data/Scripts/Menu/MainMenu/MainMenu.cs" id="1_ayleb"]
 [ext_resource type="Texture2D" uid="uid://dkq8alaft5s5n" path="res://Data/Textures/Menu/BackgroundMenu.png" id="1_pj8jl"]
@@ -20,7 +20,6 @@
 [ext_resource type="Script" uid="uid://bkjem8vwm4hml" path="res://Data/Scripts/Menu/Buttons/CustomButton.cs" id="19_lw77n"]
 [ext_resource type="PackedScene" uid="uid://cnq77hy8oun7j" path="res://Data/Scenes/Menu/Buttons/ShortAnimationPlayer.tscn" id="20_x6ptu"]
 [ext_resource type="Script" uid="uid://burb6gaobmw7l" path="res://Data/Scripts/Menu/GameCreator.cs" id="21_871b1"]
-[ext_resource type="FontFile" uid="uid://bfx0vyyt2q53a" path="res://Data/Textures/EpilepsySans.ttf" id="22_ttfx3"]
 [ext_resource type="PackedScene" uid="uid://cnkm8jqokjmek" path="res://Data/Scenes/Menu/Buttons/TextEdit.tscn" id="22_vj4v1"]
 [ext_resource type="Texture2D" uid="uid://vb6du6ecseul" path="res://Data/Textures/Menu/Buttons/TextEdit/LongTextEdit/LongTextEdit.png" id="23_5gccl"]
 [ext_resource type="Texture2D" uid="uid://cgy3osvibs2hw" path="res://Data/Textures/Menu/Buttons/TextEdit/LongTextEdit/FocusLongTextEdit.png" id="24_hmjgn"]
@@ -42,7 +41,7 @@ shader = ExtResource("2_votmb")
 shader_parameter/noise_scale = 1.0
 shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
 shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
-shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
+shader_parameter/color3 = Color(0.1254902, 0.1882353, 0.3882353, 1)
 shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
 shader_parameter/cursor_position = Vector4(0, 0, 0, 0)
 
@@ -103,7 +102,6 @@ texture = SubResource("NoiseTexture2D_c462d")
 script = ExtResource("3_votmb")
 
 [node name="MainMenu" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -332,6 +330,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="GameCreator" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -349,7 +348,6 @@ anchor_bottom = 0.47
 offset_left = -300.0
 offset_top = 0.799988
 offset_right = 300.0
-theme_override_fonts/font = ExtResource("22_ttfx3")
 theme_override_font_sizes/font_size = 32
 Normal = ExtResource("23_5gccl")
 Focused = ExtResource("24_hmjgn")
@@ -567,7 +565,7 @@ offset_bottom = 0.16991806
 theme_override_font_sizes/font_size = 32
 selected = 0
 item_count = 2
-popup/item_0/text = "English"
+popup/item_0/text = "English (alpha beta preview super pre demo)"
 popup/item_0/id = 0
 popup/item_1/text = "Русский"
 popup/item_1/id = 1
@@ -1469,6 +1467,5 @@ Text = "Очистить"
 
 [node name="Dark" parent="." instance=ExtResource("33_4gbv0")]
 unique_name_in_owner = true
-visible = false
 material = SubResource("ShaderMaterial_dagyv")
 layout_mode = 1

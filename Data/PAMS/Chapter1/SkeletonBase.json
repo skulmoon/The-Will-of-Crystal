@@ -1,6 +1,6 @@
 [
 	{"NPCID" : 6, "DialogueNumber" : [1], "PAMSs" : [
-		{"Music" : null, "FinalCustomize" : null,  "FinalValues" : [
+		{"Music" : "AnotherSkeleton.ogg", "FinalCustomize" : null,  "FinalValues" : [
 			{"ID" : 0, "Position" : {"X" : 642, "Y" : 907}, "Animation" : "standing_up"},
 			{"ID" : 3, "Position" : {"X" : 642, "Y" : 907}, "Animation" : null},
 			{"ID" : 6, "Position" : {"X" : 642, "Y" : 0}, "Animation" : null},
@@ -11,7 +11,7 @@
 				{"Position" : {"X" : 642, "Y" : 907}, "Animation" : "standing_up", "Time" : null, "Customize" : null},
 			]},
 			{"NPCID" : 3, "Data" : [
-				{"Position" : {"X" : 642, "Y" : 1064}, "Animation" : null, "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 642, "Y" : 1064}, "Animation" : null, "Time" : null, "Customize" : 3},
 				{"Position" : {"X" : 642, "Y" : 907}, "Animation" : null, "Time" : null, "Customize" : null},
 			]},
 			{"NPCID" : 6, "Data" : [
@@ -58,15 +58,15 @@
 		], "PAData" : [
 			{"NPCID" : 6, "Data" : [
 				{"Position" : {"X" : 3000, "Y" : 3000}, "Animation" : null, "Time" : null, "Customize" : 2},
-				{"Position" : {"X" : 3000, "Y" : 3000}, "Animation" : null, "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 3000, "Y" : 3000}, "Animation" : null, "Time" : 32, "Customize" : null},
 			]},
 		]},	
 		{"Music" : null, "FinalCustomize" : null,  "FinalValues" : [
 			{"ID" : 6, "Position" : {"X" : 3000, "Y" : 3000}, "Animation" : "movement_up"},
 		], "PAData" : [
 			{"NPCID" : 6, "Data" : [
-				{"Position" : {"X" : 3000, "Y" : 3000}, "Animation" : null, "Time" : null, "Customize" : 3},
 				{"Position" : {"X" : 3000, "Y" : 3000}, "Animation" : null, "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 3000, "Y" : 3000}, "Animation" : null, "Time" : 32, "Customize" : null},
 			]},
 		]},	
 	]},

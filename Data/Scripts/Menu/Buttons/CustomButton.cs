@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using static Godot.TextServer;
 
 public partial class CustomButton : TextureButton
 {
@@ -31,7 +30,7 @@ public partial class CustomButton : TextureButton
         _label.LabelSettings = new LabelSettings
         {
             Font = GD.Load<Font>("res://Data/Textures/EpilepsySans.ttf"),
-            FontSize = CalculateFontSize(),
+            FontSize = this.CalculateFontSize(Size.Y),
         };
         _label.Modulate = new Color(1, 1, 1, 0.6f);
         AddChild(_label);
@@ -45,13 +44,8 @@ public partial class CustomButton : TextureButton
         MouseEntered += OnMouseEntered;
         MouseExited += OnMouseExited;
         FocusExited += () => CreateTween().TweenProperty(_label, "modulate:a", 0.6f, 0.2f);
+        Pressed += () => Global.Music.PlaySound("ButtonPressed.ogg");
         base._Ready();
-    }
-
-    private int CalculateFontSize()
-    {
-        int fontSize = Mathf.RoundToInt(Size.Y / 1.6f) / 16 * 16;
-        return fontSize > 0 ? fontSize : 16;
     }
 
     public void OnButtonDown()
@@ -73,6 +67,7 @@ public partial class CustomButton : TextureButton
 
     public void OnMouseEntered()
     {
+        Global.Music.PlaySound("ButtonSelected.ogg", 0.2f);
         _isMouseEntered = true;
         CreateTween().TweenProperty(_label, "modulate:a", 1, 0.2f);
         if (_isButtonDown)
