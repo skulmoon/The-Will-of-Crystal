@@ -4,13 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-public abstract partial class PlayerAttack : Area2D
+public abstract partial class PlayerAttack : CharacterBody2D
 {
     private int _health = 30;
     private Location _location;
+    private bool _isSecond = false;
 
     public List<GpuParticles2D> Particles = new List<GpuParticles2D>();
     public List<DirectedParticle> EndParticles = new List<DirectedParticle>();
+    public List<DirectedParticle> EndParticles2;
     public float Damage { get; set; } = 20;
     public float CritChance { get; set; } = 0.2f;
     public int Health
@@ -37,6 +39,12 @@ public abstract partial class PlayerAttack : Area2D
         Global.SceneObjects.LocationChanged += OnLocationChaged;
     }
 
+    public override void _Ready()
+    {
+        EndParticles2 = EndParticles.Duplicate();
+        base._Ready();
+    }
+
     public void OnLocationChaged(Location location) =>
         _location = location;
 
@@ -44,7 +52,9 @@ public abstract partial class PlayerAttack : Area2D
 
     public virtual float Attack (Enemy enemy)
     {
-        CreateEndParticles(-GlobalPosition.DirectionTo(enemy.GlobalPosition));
+        Vector2 enemyCenter = enemy.GlobalPosition;
+        enemyCenter.Y -= 32;
+        CreateEndParticles(-GlobalPosition.DirectionTo(enemyCenter));
         return Attack();
     }
 
@@ -53,9 +63,9 @@ public abstract partial class PlayerAttack : Area2D
 
     public virtual void TakeDamage(int damage, EnemyAttack attack)
     {
-        TakeDamage(damage);
-        if (Health <= 0)
+        if (Health - damage <= 0)
             CreateEndParticles(-GlobalPosition.DirectionTo(attack.GlobalPosition));
+        TakeDamage(damage);
     }
 
     public virtual double Disable()
@@ -95,14 +105,22 @@ public abstract partial class PlayerAttack : Area2D
         AddChild(particle);
     }
 
-    public void CreateEndParticles(Vector2 Direction)
+    public void CreateEndParticles(Vector2 direction)
     {
-        foreach (DirectedParticle particle in EndParticles)
+        if (EndParticles.Count <= 0)
+            return;
+        List<DirectedParticle> endParticles = null;
+        if (_isSecond)
+            endParticles = EndParticles2;
+        else
+            endParticles = EndParticles;
+        _isSecond = !_isSecond;
+        foreach (DirectedParticle particle in endParticles)
         {
-            if (_location.GetParent() == null)
+            if (particle.GetParent() == null)
                 _location.AddChild(particle);
-            particle.GlobalPosition = GlobalPosition;
-            particle.Direction = Direction;
+            particle.GlobalPosition = GlobalPosition - (direction * 8);
+            particle.Direction = direction;
             particle.Emitting = true;
         }
     }

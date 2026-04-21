@@ -127,7 +127,7 @@ script = ExtResource("9_ld1eg")
 Controls = [NodePath("../Items"), NodePath("../Equipment")]
 MainControl = NodePath("../Items")
 IsMain = true
-Text = "Предметы"
+Text = "BUTTON_INVENTORY_ITEMS"
 AutoCorrect = true
 RatioX = 1.0
 
@@ -148,7 +148,7 @@ stretch_mode = 5
 script = ExtResource("9_ld1eg")
 Controls = [NodePath("../Items"), NodePath("../Equipment")]
 MainControl = NodePath("../Equipment")
-Text = "Снаряжение"
+Text = "BUTTON_INVENTORY_EQUIPMENT"
 AutoCorrect = true
 
 [node name="SkillButton" type="TextureButton" parent="InventoryBorder" node_paths=PackedStringArray("Controls", "MainControl")]

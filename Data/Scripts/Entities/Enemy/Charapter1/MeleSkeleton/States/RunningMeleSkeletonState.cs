@@ -9,7 +9,7 @@ public partial class RunningMeleSkeletonState : Node2D, IMeleSkeletonState
     {
         _enemy = enemy;
         _enemy.SpeedMultiplier = 2;
-        ((CircleShape2D)_enemy.MeleTrigger.Shape).Radius = 60;
+        ((CircleShape2D)_enemy.MeleTrigger.Shape).Radius = 32;
     }
 
     public override void _PhysicsProcess(double delta)

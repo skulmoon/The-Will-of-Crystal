@@ -31,6 +31,18 @@ window/size/mode=3
 
 project/assembly_name="WrathOfTheMind"
 
+[file_customization]
+
+folder_colors={
+"res://Data/Dialogs/": "orange",
+"res://Data/PAMS/": "orange",
+"res://Data/Resources/": "yellow",
+"res://Data/Scenes/": "gray",
+"res://Data/Sounds/": "teal",
+"res://Data/Textures/": "purple",
+"res://Data/Translations/": "red"
+}
+
 [gui]
 
 theme/custom_font="uid://bfx0vyyt2q53a"
@@ -123,7 +135,7 @@ open_inventory={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://Data/Translations/Translations.en.translation", "res://Data/Translations/Translations.ru.translation")
+locale/translations=PackedStringArray("res://Data/Translations/TranslationsInterface.en.translation", "res://Data/Translations/TranslationsInterface.ru.translation", "res://Data/Translations/TranslationsCutscene.en.translation", "res://Data/Translations/TranslationsCutscene.ru.translation")
 
 [rendering]
 

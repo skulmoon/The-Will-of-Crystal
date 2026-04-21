@@ -10,6 +10,7 @@ public partial class OnehandedAttackDistanceSkeletonState : Node, IDistantSkelet
     public OnehandedAttackDistanceSkeletonState(DistantSkeleton enemy)
     {
         _enemy = enemy;
+        _enemy.Move(_enemy.GlobalPosition, 1);
         AddChild(_attackTimer);
         AddChild(_endTimer);
         _attackTimer.Timeout += () => _enemy.Attack(new DistanSkeletonThrowHandAttack(_enemy.Damage, 2, _enemy.GlobalPosition, Global.SceneObjects.Player?.GlobalPosition ?? Vector2.Zero));

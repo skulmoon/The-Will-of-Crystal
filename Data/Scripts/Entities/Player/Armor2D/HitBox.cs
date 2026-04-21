@@ -38,9 +38,27 @@ public partial class HitBox : Area2D
                     Armor2D.AdditionalHealth = 0;
             }
             ChangeHealth?.Invoke(Health);
-            if (value < 0)
+            if (value <= 0)
             {
-                Global.SceneObjects.ChangeScene("res://Data/Scenes/Menu/MainMenu.tscn");
+                Global.Settings.CutScene = true;
+                Global.Music.PlaySound("DeathSound.ogg");
+                _player.ZIndex = 1;
+                _player.Sprite.Play("death");
+                _player.TopLevel = true;
+                _player.Modulate = Global.SceneObjects.Location.Modulate;
+                _player.Shard.Visible = false;
+                Tween tween = CreateTween();
+                Interface Interface = _player.GetNode<Interface>("%Interface");
+                Interface.HideBars();
+                tween.TweenProperty(Global.SceneObjects.Location, "modulate:a", 0, 0.5f);
+                tween.Parallel().TweenProperty(_player.Camera, "zoom", _player.Camera.Zoom + new Vector2(2, 2), 0.5f).SetTrans(Tween.TransitionType.Sine);
+                tween.TweenInterval(4);
+                tween.TweenProperty(_player, "modulate:a", 0, 0.5f);
+                tween.TweenCallback(Callable.From(() =>
+                {
+                    Global.Inventory.Clear();
+                    Global.SceneObjects.ChangeScene("res://Data/Scenes/Location/death_room.tscn");
+                }));
             }
         }
     }

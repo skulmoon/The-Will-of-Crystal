@@ -2,15 +2,15 @@
 	{"NPCID" : 5, "DialogueNumber" : 1, "Speech" : [
 		{"Name" : "???", "Text" : "Commander,+ I have the guest I mentioned in my report.", "Image" : ""},
 		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
-		{"Name" : "Commander", "Text" : "Interesting look he’s got.++ Got here in no time.++ Especially considering you’re made of ore.++.++.", "Image" : ""},
-		{"Name" : "Commander", "Text" : "Where do you even come from?++ You wouldn't happen to be some lab-grown scout,+ sent to check things out beyond the Barrier, would you?", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Got here in no time.++ Especially considering you’re made of ore.++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "You wouldn't happen to be some lab-grown scout,+ sent to check things out beyond the Barrier, would you?", "Image" : ""},
 		{"Name" : "Commander", "Text" : "Though.++.++.++ given their precision,+ they wouldn't have sent you in such a mess.+ You're literally falling apart here.", "Image" : ""},
 		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
 		{"Name" : "Commander", "Text" : "So that’s how it is.++.++.++ ... I can’t hear your words,+ but.++.++.++ ... even you aren’t entirely sure yourself.", "Image" : ""},
-		{"Name" : "Commander", "Text" : "Anyway,+ even with your current form,+ it doesn't matter anymore.++ It's not for us,+the dead folks,+  pass judgment by looks,+ heh.++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Anyway,+ even with your current form,+ it doesn't matter anymore.++ It's not for us,+ the dead folks,+  pass judgment by looks,+ heh.++.++.", "Image" : ""},
 		{"Name" : "???", "Text" : "Commander.++.++.", "Image" : ""},
-		{"Name" : "Commander", "Text" : "Berlich,+ you understand it all yourself.++ We’ve discussed about this.++ He could be our only hope.", "Image" : ""},
-		{"Name" : "Commander", "Text" : "We have nothing left to lose.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Berlich,+ Berlich,+ you understand it all yourself.++ We’ve discussed about this.++ He could be our only hope.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "After the tragedy that happened 10 years ago,+ we have nothing left to lose.", "Image" : ""},
 		{"Name" : "Berlich", "Text" : ".++.++.", "Image" : ""},
 		{"Name" : "Berlich", "Text" : "Got it.++ My apologies for distracting you.++ Please,+ carry on.", "Image" : ""},
 		{"Name" : "Commander", "Text" : "Ahem,+ so.++ See this crystal on my table?++ We need to find more like it.", "Image" : ""},
@@ -24,7 +24,7 @@
 	]},
 	
 	{"NPCID" : 5, "DialogueNumber" : 2, "Speech" : [
-		{"Name" : "Commander", "Text" : "Interesting.++.++. And yet you accepted.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "And yet you accepted.", "Image" : ""},
 		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
 		{"Name" : "Commander", "Text" : "Thank you.", "Image" : ""},
 	], "Options" : [
@@ -65,8 +65,9 @@
 	]},
 	
 	{"NPCID" : 5, "DialogueNumber" : 7, "Speech" : [
+		null,
 		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
-		{"Name" : "Commander", "Text" : "So, you changed your mind, huh?", "Image" : ""},
+		{"Name" : "Commander", "Text" : "So, you changed your mind?", "Image" : ""},
 	], "Options" : [
 		{"NextDialogue" : 9, "OptionText" : "Assist"},
 		{"NextDialogue" : 8, "OptionText" : "Questions"},
@@ -74,8 +75,12 @@
 	]},
 	
 	{"NPCID" : 5, "DialogueNumber" : 8, "Speech" : [
-		{"Name" : "Commander", "Text" : "You didn't even accept this deal,+ and after coming here you dare to ASK ME QUESTIONS?!?", "Image" : ""},
-		{"Name" : "Commander", "Text" : "Get out.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "You didn't even accept the offer,+ so why should I answer your questions?", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Don't get me wrong,+ I'm ready to answer them,+ but only if you help us.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Believe me,+ we need this,+ as you do.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Think you can find information on your own?++ Think again.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Not many sentient left to talk to,+ and all the records have long since rotted away.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "I’ll give you some time to chew on that.++ Choose wisely.", "Image" : ""},
 	], "Options" : [
 		{"NextDialogue" : 10, "OptionText" : "Leave"},
 		{"NextDialogue" : 230119, "OptionText" : "Attack"},
@@ -87,15 +92,17 @@
 		{"Name" : "Commander", "Text" : "And if you’re really going there.++.++.", "Image" : ""},
 		{"Name" : "Commander", "Text" : ".++.++.++", "Image" : ""},
 		{"Name" : "Commander", "Text" : "There will be a skeleton with a grenade at the end.", "Image" : ""},
-		{"Name" : "Commander", "Text" : "Don't thank me.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Stay safe.", "Image" : ""},
 	], "Options" : [
 		{"NextDialogue" : 23, "OptionText" : "Leave"},
 	]},
 	
 	{"NPCID" : 5, "DialogueNumber" : 10, "Speech" : [
+		null,
 	]},
 	
 	{"NPCID" : 5, "DialogueNumber" : 21, "Speech" : [
+		null,
 		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
 		{"Name" : "Commander", "Text" : "What?", "Image" : ""},
 	], "Options" : [
@@ -104,6 +111,7 @@
 	]},
 	
 	{"NPCID" : 5, "DialogueNumber" : 22, "Speech" : [
+		null,
 		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
 	], "Options" : [
 		{"NextDialogue" : 13, "OptionText" : "Questions"},
@@ -111,27 +119,30 @@
 	]},
 	
 	{"NPCID" : 5, "DialogueNumber" : 11, "Speech" : [
-		{"Name" : "Commander", "Text" : "Very interesting specimen you are.", "Image" : ""},
-		{"Name" : "Commander", "Text" : "Came up,+ stood there,+ walked off.++.++.", "Image" : ""},
-		{"Name" : "Commander", "Text" : "DO YOU THINK THIS IS A WALK-THROUG YARD!?.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Curious.++.++.++ Came up,+ stood there,+ walked off.++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Believe me,+ there’s nothing here worth your while.", "Image" : ""},
 		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
-		{"Name" : "Commander", "Text" : "Get out.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Good luck.", "Image" : ""},
 	]},
 	
 	{"NPCID" : 5, "DialogueNumber" : 12, "Speech" : [
-		{"Name" : "Commander", "Text" : "++O++H++H++H++H++H++H++H++H++H++H++H++H++H++H++H++H++H++H++.++++++.++++++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "So, you still haven’t made up your mind.++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Please,+ think it over.++ You've seen the state of most skeletons in this pit.++ We’re your only hope of making sense of any of this.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "So go on.++ Make up your mind.", "Image" : ""},
 	]},
 	
 	{"NPCID" : 5, "DialogueNumber" : 13, "Speech" : [
-		{"Name" : "Commander", "Text" : "You know what's required. Now, get to your task.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "You already know what you need.++ I'll have more to say once the mission is complete.", "Image" : ""},
 	], "Options" : [
 		{"NextDialogue" : 10, "OptionText" : "Leave"},
 		{"NextDialogue" : 2151814, "OptionText" : "Attack"},
 	]},
 	
 	{"NPCID" : 5, "DialogueNumber" : 14, "Speech" : [
+		null,
 		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
-		{"Name" : "Commander", "Text" : "You don't understand any fucking language.++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "So.++.++.++ what've you decided,+ golem?", "Image" : ""},
 	], "Options" : [
 		{"NextDialogue" : 16, "OptionText" : "Assist"},
 		{"NextDialogue" : 15, "OptionText" : "Leave"},
@@ -139,36 +150,35 @@
 	]},
 	
 	{"NPCID" : 5, "DialogueNumber" : 15, "Speech" : [
-		{"Name" : "Commander", "Text" : "+P+h+e+e+w+.++.++.", "Image" : ""},
-		{"Name" : "Commander", "Text" : "I'll need a pack of cigarettes.++.++.", "Image" : ""},
-	], "Options" : [
-		{"NextDialogue" : 10, "OptionText" : "Leave"},
-		{"NextDialogue" : 255011819, "OptionText" : "Attack"},
+		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "It's odd.++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "I know you got through those skeleton hordes just fine, so why are you so uncertain now?", "Image" : ""},
+		{"Name" : "Commander", "Text" : "You know.++.++.++ Sometimes life gives us tough choices,+ and we have to choose.++ Trying to avoid those choices only delays the inevitable.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Maybe you don't really get what's going on around here,+ and I get that.++ Not knowing what's next is terrifying.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Just think it over.++ You've got plenty of time to think in this place.", "Image" : ""},
 	]},
 	
 	{"NPCID" : 5, "DialogueNumber" : 16, "Speech" : [
-		{"Name" : "Commander", "Text" : "It dawned on him.++.++.", "Image" : ""},
-		{"Name" : "Commander", "Text" : "I've gotta smoke.++.++.", "Image" : ""},
-		null,
-		{"Name" : "Berlich", "Text" : "Here is the penultimate one.", "Image" : ""},
-		null,
-		{"Name" : "Commander", "Text" : "Now++.++.++.++ Fair-Blue Ore,+ off on your mission and stop being a pain in my skull.", "Image" : ""},
+		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Even though you hesitated, I am grateful.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "Thank you.", "Image" : ""},
 	], "Options" : [
 		{"NextDialogue" : 10, "OptionText" : "Leave"},
 	]},
 	
 	{"NPCID" : 5, "DialogueNumber" : 17, "Speech" : [
-		{"Name" : "Commander", "Text" : "+++O+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++H+++.+++.+++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : ".++.++.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "I see.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "You just want to see how I'll react if you keep doing that.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "I used to know a guy like you.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "He’d fidget around,+ start running around or talk nonsense —+ all just to see how others would react.", "Image" : ""},
+		{"Name" : "Commander", "Text" : "He never made any sense to me.", "Image" : ""},
 	]},
 	
 	{"NPCID" : 5, "DialogueNumber" : 18, "Speech" : [
-		{"Name" : "Commander", "Text" : "++++++O++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++H++++++.++++++.++++++.", "Image" : ""},
-	]},
-	
-	{"NPCID" : 5, "DialogueNumber" : 19, "Speech" : [
-		{"Name" : "Commander", "Text" : "Did you know that coffee helps with dementia?.", "Image" : ""},
+		{"Name" : "Commander", "Text" : ".++.++.++", "Image" : ""},
 	], "Options" : [
-		{"NextDialogue" : 18, "OptionText" : "Leave"},
+		{"NextDialogue" : 10, "OptionText" : "Leave"},
 		{"NextDialogue" : 10715, "OptionText" : "Attack"},
 	]},
 	
@@ -198,7 +208,7 @@
 	]},
 	
 	{"NPCID" : 5, "DialogueNumber" : 10715, "Speech" : [
-		{"Name" : "The God of this worl.", "Text" : "Well, nothing here for now)))). But you can check out this file if you want.", "Image" : ""},
+		{"Name" : "The God of this world.", "Text" : "Well, nothing here for now)))).+ But you can check out this file if you want.", "Image" : ""},
 	], "Options" : [
 		{"NextDialogue" : 18, "OptionText" : "Leave"},
 	]},

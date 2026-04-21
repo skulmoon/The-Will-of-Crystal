@@ -92,6 +92,7 @@ public partial class NPC : CharacterBody2D
 
     public void StopPAData(FinalValues finalValues)
     {
+        _timer.Stop();
         Position = finalValues.Position ?? Vector2.Zero;
         if (finalValues.Animation != null)
         {

@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public abstract partial class EnemyFabric : Node
+public abstract partial class EnemyFabric : Node2D
 {
     public List<Enemy> Enemies { get; set; } = new List<Enemy>();
     [Export] public EnemyArea[] EnemyAreas { get; set; }
@@ -29,6 +29,7 @@ public abstract partial class EnemyFabric : Node
         {
             enemy.EnemyDeaded += CheckEnemyCount;
         }
+        Global.SceneObjects.Player.HitBox.ChangeHealth += OnChangeHealth;
     }
 
     public void CheckEnemyCount(Enemy enemy)
@@ -40,6 +41,12 @@ public abstract partial class EnemyFabric : Node
             Global.SceneObjects.Location.SetData(999, true);
             EnemiesDestroyed?.Invoke();
         }
+    }
+
+    public void OnChangeHealth(int health)
+    {
+        if (health <= 0 && GetParent() != null)
+            GetParent().RemoveChild(this);
     }
 
     public override void _ExitTree()

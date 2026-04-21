@@ -13,13 +13,19 @@ public partial class CustomLabel : Label
     [Export] public bool AutoCorrectPivotOffset { get; set; } = false;
     [Export(PropertyHint.Range, "0,1,or_greater,or_less")] public float PivotOffsetAnchorX { get; set; } = 0;
     [Export(PropertyHint.Range, "0,1,or_greater,or_less")] public float PivotOffsetAnchorY { get; set; } = 0;
+    [Export] public bool CustomYSize { get; set; } = false;
+    [Export] public float TheoreticalYSize { get; set; }
 
     public override void _Ready()
     {
         Text = Tr(Text);
         if (AutoCorrectSize)
         {
-            float xSize = (Size.Y / ((AnchorBottom - AnchorTop) * INTERFACE_TEORETICAL_Y_SIZE)) * TheoreticalXSize;
+            float xSize;
+            if (!CustomYSize)
+                xSize = (Size.Y / ((AnchorBottom - AnchorTop) * INTERFACE_TEORETICAL_Y_SIZE)) * TheoreticalXSize;
+            else
+                xSize = (Size.Y / TheoreticalYSize) * TheoreticalXSize;
             OffsetLeft = -(xSize * (1 - RatioX));
             OffsetRight = (xSize * RatioX);
         }

@@ -11,7 +11,7 @@ public class JSON
     private const string PATH_PAMS = "res://Data/PAMS/";
     private const string PATH_SAVES = "user://Saves/";
 
-    private ConfigLoader _config = new ConfigLoader();
+    private ConfigManager _config = new ConfigManager();
     private JsonSerializerSettings _settingsAllSave = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Objects };
 
     public ConfigInfo ConfigInfo { get => _config.ConfigInfo; }
@@ -56,6 +56,6 @@ public class JSON
     public void SetSaveData(SaveData settings) =>
         SetJsonData(settings, $"{PATH_SAVES}{Global.Settings.CurrentSave}/SaveData.json", true);
 
-    public void SaveConfig(ConfigInfo config) =>
-        _config.SaveConfig(config);
+    public void SaveConfig() =>
+        _config.SaveConfig();
 }

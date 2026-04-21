@@ -1,0 +1,35 @@
+﻿id;en;ru
+BUTTON_NEW_GAME;New game;Новая игра
+BUTTON_LOAD_GAME;Load game;Загрузить игру
+BUTTON_SETTINGS;Settings;Настройки
+BUTTON_EXIT;Exit;Выход
+BUTTON_BACK;Back;Назад
+BUTTON_LOAD;Load;Загрузить
+BUTTON_DELETE;Delete;Удалить
+BUTTON_BEGINING;Beginin;В путь
+BUTTON_GENERAL_SETTINGS;General;Общие
+BUTTON_GRAPHICS_SETTINGS;Graphics;Граффика
+BUTTON_SOUND_SETTINGS;Sound;Звук
+BUTTON_CONTROL_SETTINGS;Control;Управление
+BUTTON_RESET;Reset;Сброс
+BASE_SETTINGS_LANGUAGE;Language:;Язык:
+SOUND_SETTINGS_MASTER;Master;Общая
+SOUND_SETTINGS_ENVIROMENT;Enviroment;Окружение
+SOUND_SETTINGS_MUSIC;Music;Музыка
+CONTROL_SETTINGS_MOVEMENT_UP;Up;Вверх
+CONTROL_SETTINGS_MOVEMENT_DOWN;Down;Вниз
+CONTROL_SETTINGS_MOVEMENT_LEFT;Left;Влево
+CONTROL_SETTINGS_MOVEMENT_RIGHT;Right;Вправо
+CONTROL_SETTINGS_RUNING;Sprint;Бег
+CONTROL_SETTINGS_INTERACT;Interact;Взаимодействие
+CONTROL_SETTINGS_CONFIRMATION;Confirmation;Подтверждение
+CONTROL_SETTINGS_PAUSE/BACK;Pause/Back;Пауза/Назад
+CONTROL_SETTINGS_SHARD_SKILL_1;Shard skill 1;Способность шарда 1
+CONTROL_SETTINGS_SHARD_SKILL_2;Shard skill 2;Способность шарда 2
+CONTROL_SETTINGS_ARMOR_SKILL_1;Armor skill 1;Способность брони 1
+CONTROL_SETTINGS_ARMOR_SKILL_2;Armor skill 2;Способность брони 2
+CONTROL_SETTINGS_INVENTORY_OPENNING;Inventory openning;Открытие инвенторя
+CONTROL_SETTINGS_DIALOGUE_WINDOW;Press the key you want to assign the action to.;Нажмите клавишу, на которую хотите назначить действие.
+CONTROL_SETTINGS_BUTTON_CLEAR;Clear;Очистить
+BUTTON_INVENTORY_ITEMS;Items;Предметы
+BUTTON_INVENTORY_EQUIPMENT;Equipment;Снаряжение

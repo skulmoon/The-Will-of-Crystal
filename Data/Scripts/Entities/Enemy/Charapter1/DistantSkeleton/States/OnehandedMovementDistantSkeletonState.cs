@@ -16,6 +16,8 @@ public partial class OnehandedMovementDistantSkeletonState : Node2D, IDistantSke
 
     public void Attack()
     {
+        ProcessMode = ProcessModeEnum.Disabled;
+        _enemy.Move(_enemy.GlobalPosition, 1);
         _enemy.State = new OnehandedAttackDistanceSkeletonState(_enemy);
     }
 

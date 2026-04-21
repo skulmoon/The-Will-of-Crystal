@@ -20,11 +20,11 @@ public partial class ExplosionSkeletonExplosionAttack : EnemyAttack
         ((CircleShape2D)Shape).Radius += ((CircleShape2D)Shape).Radius + (END_RADIUS / LIFE_TIME * (float)delta) < END_RADIUS ? END_RADIUS / LIFE_TIME * (float)delta : END_RADIUS;
     }
 
-    public override void OnPlayerAttackEntered(Area2D area)
+    public override void OnPlayerAttackEntered(Node2D node)
     {
-        if (area is Shard2D shard)
+        if (node is Shard2D shard)
             shard.TakeDamage(Damage);
-        else if (area is HitBox hitBox)
+        else if (node is HitBox hitBox)
             hitBox.TakeDamage(Damage);
     }
 }

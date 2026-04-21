@@ -26,6 +26,7 @@ public partial class CutSceneManager : Node
         _PAMSController = new PAMSController(this);
         Global.SceneObjects.DialoguePanelChanged += TakePanel;
         Global.SceneObjects.StorageReady += (storage) => storage.GetTree().Root.CallDeferred("add_child", this);
+        Global.SceneObjects.LocationChanged += (location) => _currentCutScene = 0;
         AddChild(_chargeTimer);
     }
 

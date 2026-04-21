@@ -1,12 +1,14 @@
 using Godot;
 using System;
 using System.Text;
+using System.Collections.Generic;
 
-public abstract partial class Enemy : CharacterBody2D
+public abstract partial class Enemy : CharacterBody2D, IWalker
 {
     private float _health = 1200;
     private float _speed = 200;
     private float _speedMultiplier = 1;
+    private List<AudioStreamPlayer2D> _audioStreamPlayers = new List<AudioStreamPlayer2D>();
 
     public EnemyPositionsControlNode PositionControl { get; set; }
     public AnimatedSprite2D Animation { get; private set; }
@@ -49,15 +51,18 @@ public abstract partial class Enemy : CharacterBody2D
     public event Action<Enemy> NoticedPlayer;
     public event Action<Enemy> EnemyDeaded;
     public event Action<Vector2> ChangedDirection;
+    public event Action<float> ChangedSpeedMultiper;
     public event Action<IEnemyState> ChangedState;
 
     public Enemy(float speed, int damage, int health, string animation)
     {
+        AddChild(GD.Load<PackedScene>("res://Data/Scenes/Entities/Enemys/skeleton_sound_walk_player.tscn").Instantiate<SoundWalkPlayer>());
         _health = health;
         Speed = speed;
         Damage = damage;
         CollisionLayer = 4;
         CollisionMask = 4;
+        AddChild(new Sprite2D() { Texture = GD.Load<Texture2D>("res://Data/Textures/Entities/Shadow.png"), ZIndex = -1 });
         Collision = new CollisionShape2D()
         {
             Shape = new CircleShape2D()
@@ -72,21 +77,23 @@ public abstract partial class Enemy : CharacterBody2D
             CollisionMask = 16,
         };
         AddChild(hitbox);
-        hitbox.AreaEntered += OnPLayerAttackEntered;
+        hitbox.BodyEntered += OnPLayerAttackEntered;
         hitbox.AddChild(new CollisionShape2D()
         {
-            Shape = new CircleShape2D()
+            Shape = new CapsuleShape2D()
             {
-                Radius = 17
+                Height = 48,
+                Radius = 12
             }
         });
         Animation = (AnimatedSprite2D)(Node2D)GD.Load<PackedScene>($"res://Data/Textures/Entities/Enemys/{animation}").Instantiate();
         Animation.Play();
-        Animation.Position = new Vector2(0, -32);
         AddChild(Animation);
         AddChild(NavigationAgent);
         FloorBlockOnWall = false;
         FloorStopOnSlope = false;
+        YSortEnabled = true;
+        ZIndex = -90;
     }
 
     public virtual void Attack(EnemyAttack attack) =>
@@ -97,15 +104,16 @@ public abstract partial class Enemy : CharacterBody2D
         NavigationAgent.TargetPosition = point;
         Velocity = (NavigationAgent.GetNextPathPosition() - GlobalPosition).Normalized() * _speed * _speedMultiplier * (float)delta * 100;
         ChangedDirection?.Invoke(Velocity.Normalized());
+        GD.Print(Velocity);
         MoveAndSlide();
     }
 
     public virtual void TakeDamage(float damage) =>
         Health -= damage;
 
-    public void OnPLayerAttackEntered(Area2D area)
+    public void OnPLayerAttackEntered(Node2D node)
     {
-        if (area is PlayerAttack playerAttack)
+        if (node is PlayerAttack playerAttack)
             TakeDamage(playerAttack.Attack(this));
     }
 

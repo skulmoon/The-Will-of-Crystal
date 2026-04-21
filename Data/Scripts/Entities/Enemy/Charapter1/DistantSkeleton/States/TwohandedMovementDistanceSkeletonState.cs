@@ -20,6 +20,8 @@ public partial class TwohandedMovementDistanceSkeletonState : Node2D, IDistantSk
 
     public void Attack()
     {
+        ProcessMode = ProcessModeEnum.Disabled;
+        _enemy.Move(_enemy.GlobalPosition, 1);
         _enemy.State = new TwohandedAttackDistanceSkeletonState(_enemy);
     }
 

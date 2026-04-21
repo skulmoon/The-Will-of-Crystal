@@ -51,6 +51,5 @@ public partial class FootParticleControl : Node2D
         }
         else
             Disabling();
-        GD.Print(Particles[0].Emitting);
     }
 }

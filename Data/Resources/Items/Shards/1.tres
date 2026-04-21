@@ -5,12 +5,12 @@
 [resource]
 script = ExtResource("1_1mpl3")
 ShardType = "StartShard"
-Health = 40
-Damage = 10.0
-Speed = 200
+Health = 15
+Damage = 1.0
+Speed = 220
 TimeReload = 1.0
 CritChance = 0.1
-MaxRange = 100
+MaxRange = 200
 ID = 1
 MaxCount = 1
 Name = "Start Shard"

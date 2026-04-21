@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://dhgr62sao2gjo"]
+[gd_scene load_steps=95 format=3 uid="uid://dhgr62sao2gjo"]
 
 [ext_resource type="Script" uid="uid://db5a1hw7r2dqa" path="res://Data/Scripts/Entities/Player/Player.cs" id="1_ounf2"]
 [ext_resource type="Texture2D" uid="uid://c3n4lwmt34dt1" path="res://Data/Textures/Entities/Player/Golem/GolemMovement.png" id="2_wqcy0"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://po03cr5rvpyk" path="res://icon.svg" id="6_2dmwf"]
 [ext_resource type="Texture2D" uid="uid://3767o7n353vp" path="res://Data/Textures/Entities/Player/Golem/FootParticleTexture.png" id="6_m5k4t"]
 [ext_resource type="Script" uid="uid://shd5fs6oiy6l" path="res://Data/Scripts/Entities/Player/FootParticleControl.cs" id="6_n8444"]
+[ext_resource type="Texture2D" uid="uid://c42ebafnxaata" path="res://Data/Textures/Entities/Shadow.png" id="9_r6wyt"]
+[ext_resource type="Texture2D" uid="uid://c32wjbl1tsdaw" path="res://Data/Textures/Light.png" id="10_vl83n"]
+[ext_resource type="Script" uid="uid://bjw6djdmvp5ca" path="res://Data/Scripts/Tools/AnimatedLight.cs" id="11_a0ihn"]
+[ext_resource type="Script" uid="uid://dljmdkqky7vud" path="res://Data/Scripts/SoundWalkPlayer.cs" id="12_fhsvf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qfa5h"]
 radius = 15.0
@@ -56,13 +60,13 @@ region = Rect2(288, 512, 32, 64)
 atlas = ExtResource("2_wqcy0")
 region = Rect2(320, 512, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_evk16"]
-atlas = ExtResource("2_wqcy0")
-region = Rect2(352, 512, 32, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxcew"]
 atlas = ExtResource("2_wqcy0")
 region = Rect2(384, 512, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evk16"]
+atlas = ExtResource("2_wqcy0")
+region = Rect2(352, 512, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t5yip"]
 atlas = ExtResource("2_wqcy0")
@@ -345,16 +349,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h1u10")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_nipfc")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_evk16")
-}, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_qxcew")
 }, {
-"duration": 1.0,
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_evk16")
+}, {
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_t5yip")
 }, {
 "duration": 1.0,
@@ -598,8 +602,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ir66"]
 size = Vector2(12, 12)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_crk6a"]
-radius = 14.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a0ihn"]
+radius = 6.0
 
 [sub_resource type="Curve" id="Curve_n8444"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.49714288, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -632,6 +636,8 @@ z_index = -90
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_yahgx")
 animation = &"death"
+frame = 32
+frame_progress = 1.0
 offset = Vector2(0, -32)
 script = ExtResource("3_yahgx")
 
@@ -650,13 +656,14 @@ collision_mask = 16
 script = ExtResource("4_6vsg5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("CircleShape2D_crk6a")
+shape = SubResource("CapsuleShape2D_a0ihn")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Camera" type="Camera2D" parent="."]
+position = Vector2(0, -32)
 zoom = Vector2(2, 2)
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -693,6 +700,33 @@ amount = 6
 texture = ExtResource("6_m5k4t")
 lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_n8444")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -91
+y_sort_enabled = true
+texture = ExtResource("9_r6wyt")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -40)
+color = Color(0.45999998, 0.88299996, 1, 1)
+range_z_min = -2048
+range_z_max = 2048
+texture = ExtResource("10_vl83n")
+texture_scale = 2.0
+script = ExtResource("11_a0ihn")
+MinEnergy = 2.0
+MaxEnergy = 2.5
+Time = 2.0
+
+[node name="Node" type="Node2D" parent="."]
+script = ExtResource("12_fhsvf")
+IsFromGlobalAudio = true
+Sound = "GolemRottenGrassWalk.ogg"
+Diffusion = 0.2
+Interval = 0.5
+
+[node name="AudioListener2D2" type="AudioListener2D" parent="."]
+current = true
 
 [connection signal="area_entered" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaEntered"]
 [connection signal="area_exited" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaExited"]

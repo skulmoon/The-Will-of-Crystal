@@ -297,4 +297,5 @@ animations = [{
 [node name="MeleSkeleton" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_f1a1f")
 animation = &"shovel_attack_down"
+offset = Vector2(0, -32)
 script = ExtResource("2_7ka3u")

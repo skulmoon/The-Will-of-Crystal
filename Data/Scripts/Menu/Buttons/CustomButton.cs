@@ -9,7 +9,14 @@ public partial class CustomButton : TextureButton
     private Label _label = new();
     [Export] public string Text { get => _label.Text; set => _label.Text = value; }
     [Export] public bool AutoCorrect { get; set; } = false;
+    [Export] public float TheoreticalXSize { get; set; }
     [Export(PropertyHint.Range, "0,1")] public float RatioX { get; set; } = 0.5f;
+    [Export] public bool AutoCorrectPivotOffset { get; set; } = false;
+    [Export(PropertyHint.Range, "0,1,or_greater,or_less")] public float PivotOffsetAnchorX { get; set; } = 0;
+    [Export(PropertyHint.Range, "0,1,or_greater,or_less")] public float PivotOffsetAnchorY { get; set; } = 0;
+    [Export] public bool CustomYSize { get; set; } = false;
+    [Export] public float TheoreticalYSize { get; set; }
+
 
     public override void _Ready()
     {
@@ -26,6 +33,10 @@ public partial class CustomButton : TextureButton
             float xSize = Size.Y * textureSize.X / textureSize.Y;
             OffsetLeft = -(xSize * (1 - RatioX));
             OffsetRight = (xSize * RatioX);
+        }
+        if (AutoCorrectPivotOffset)
+        {
+            PivotOffset = new Vector2(Size.X * PivotOffsetAnchorX, Size.Y * PivotOffsetAnchorY);
         }
         _label.LabelSettings = new LabelSettings
         {
@@ -65,7 +76,7 @@ public partial class CustomButton : TextureButton
         TextureFocused = _textureFocused;
     }
 
-    public void OnMouseEntered()
+    public virtual void OnMouseEntered()
     {
         Global.Music.PlaySound("ButtonSelected.ogg", 0.2f);
         _isMouseEntered = true;
@@ -77,7 +88,7 @@ public partial class CustomButton : TextureButton
         }
     }
 
-    public void OnMouseExited()
+    public virtual void OnMouseExited()
     {
         if (!HasFocus())
             CreateTween().TweenProperty(_label, "modulate:a", 0.6f, 0.2f);

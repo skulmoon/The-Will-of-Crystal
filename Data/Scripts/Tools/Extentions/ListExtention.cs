@@ -10,4 +10,15 @@ public static class ListExtention
             if (item != null)
                 item.UpdateInfo();
     }
+
+    public static List<T> Duplicate<T>(this List<T> list)
+    {
+        if (!typeof(T).IsAssignableTo(typeof(Node)))
+            return null;
+        List<T> newList = new List<T>();
+        foreach (T element in list)
+            if (element is Node node)
+                newList.Add((T)Convert.ChangeType(node.Duplicate(), typeof(T)));
+        return newList;
+    }
 }

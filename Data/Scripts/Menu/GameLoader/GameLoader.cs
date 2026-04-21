@@ -41,10 +41,7 @@ public partial class GameLoader : Control
     public void OnPressedLoad()
     {
         if (_currentSave != null)
-        {
-            UIDark dark = GetNode<UIDark>("%Dark");
-            dark.ShowDark(LoadSave);
-        }
+            GetNode<UIDark>("%Dark").ShowDark(LoadSave);
     }
 
     public void LoadSave()

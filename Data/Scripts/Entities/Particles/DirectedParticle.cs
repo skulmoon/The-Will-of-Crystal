@@ -7,11 +7,5 @@ public partial class DirectedParticle : DefaultParticle
     public override void _Ready()
     {
         Emitting = true;
-        Finished += OnFifnfshed;
-    }
-
-    public void OnFifnfshed()
-    {
-        Free();
     }
 }

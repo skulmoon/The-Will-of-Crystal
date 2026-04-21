@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class SkeletonBase : Location
+public partial class SkeletonBase : Chapter1Location
 {
     public override void _Ready()
     {
@@ -31,7 +31,6 @@ public partial class SkeletonBase : Location
             GetNode<CameraNPC>("%Camera").ChangeEnabled(true);
         }
         ));
-        GD.Print(Global.CutSceneData.GetChoice(6, 1));
         if (Global.CutSceneData.GetChoice(6, 1) != 2)
         {
             Global.CutSceneManager.OutputCutScene(6, 1);

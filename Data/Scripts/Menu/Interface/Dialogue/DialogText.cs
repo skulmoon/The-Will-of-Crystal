@@ -1,37 +1,27 @@
 using Godot;
 using System;
-using System.Collections.Specialized;
-using System.Runtime.CompilerServices;
-using System.Xml.Linq;
+using System.Collections.Generic;
 
 public partial class DialogText : RichTextLabel
 {
-    const int MAX_OPTIONS = 5;
-	private Panel[] _panels = new Panel[MAX_OPTIONS];
     private string _text;
     private string _name;
     private int _counter = 0;
     private double _delta = 0.0;
 
     public Control Control { get; set; }
-    public Label[] OptionsText { get; set; } = new Label[MAX_OPTIONS];
-    public int CountOfOptions { get; set; } 
     public int CurrentPosition { get; set; } = 0;
     public bool IsPrinting { get; private set; } = false;
+    public bool IsAnimate { get; private set; } = false; 
+    public List<string> Options { get; private set; }
+    [Export] public CustomLabel[] OptionsText { get; set; }
     [Export] public double PrintingSpeed { get; set; } = 0.02;
+    [Export] public TextureRect CharapterName { get; set; }
+    [Export] public float Duration { get; set; } = 0.5f;
 
     public override void _Ready()
 	{
-        Control = GetNode<Control>("Options");
-        try
-        {
-            for (int i = 1; i <= MAX_OPTIONS; i++)
-            {
-                OptionsText[i-1] = GetNode<Label>("Options/OptionText" + i);
-                _panels[i-1] = GetNode<Panel>("Options/Option" + i);
-            }
-        }
-        catch { }
+        Control = GetNode<Control>("%Options");
     }
 
     public override void _Process(double delta)
@@ -58,43 +48,130 @@ public partial class DialogText : RichTextLabel
         }
     }
 
-	public void UpOption()
-	{
-        _panels[CurrentPosition].Visible = false;
+    public void StartOptions(List<string> options)
+    {
+        Text = "";
+        Control.Visible = true;
+        foreach (var option in OptionsText)
+            option.Text = string.Empty;
+        Options = options;
+        CurrentPosition = 0;
+        for (int i = 0; i < options.Count && i < 3; i++)
+            OptionsText[i+2].Text = options[i];
+        GetNode<DialogueButton>("%DialogButtonUp").Visible = true;
+        GetNode<DialogueButton>("%DialogButtonDown").Visible = true;
+    }
 
-        if (CurrentPosition == 0)
-            CurrentPosition = CountOfOptions - 1;
-        else
+    public void EndOptions()
+    {
+        Control.Visible = false;
+        GetNode<DialogueButton>("%DialogButtonUp").Visible = false;
+        GetNode<DialogueButton>("%DialogButtonDown").Visible = false;
+    }
+
+
+    public void UpOption()
+	{
+        if (CurrentPosition != 0)
+        {
+            IsAnimate = true;
             CurrentPosition--;
-        _panels[CurrentPosition].Visible = true;
+            Tween tween = CreateTween();
+            (float, float, Vector2, Color) startParams = (OptionsText[0].AnchorBottom, OptionsText[0].AnchorTop, OptionsText[0].Scale, OptionsText[0].Modulate);
+            for (int i = 0; i < OptionsText.Length - 1; i++)
+            {
+                tween.Parallel().TweenProperty(OptionsText[i], "anchor_top", OptionsText[i + 1].AnchorTop, Duration);
+                tween.Parallel().TweenProperty(OptionsText[i], "anchor_bottom", OptionsText[i + 1].AnchorBottom, Duration);
+                tween.Parallel().TweenProperty(OptionsText[i], "scale", OptionsText[i + 1].Scale, Duration);
+                tween.Parallel().TweenProperty(OptionsText[i], "modulate:a", OptionsText[i + 1].Modulate.A, Duration);
+            }
+            tween.TweenCallback(Callable.From(() =>
+            {
+                for (int i = OptionsText.Length - 1; i > 0; i--)
+                {
+                    OptionsText[i].AnchorTop = OptionsText[i - 1].AnchorTop;
+                    OptionsText[i].AnchorBottom = OptionsText[i - 1].AnchorBottom;
+                    OptionsText[i].Scale = OptionsText[i - 1].Scale;
+                    OptionsText[i].Modulate = OptionsText[i - 1].Modulate;
+                }
+                (OptionsText[0].AnchorBottom, OptionsText[0].AnchorTop, OptionsText[0].Scale, OptionsText[0].Modulate) = startParams;
+                for (int i = 0; i < OptionsText.Length; i++)
+                {
+                    try
+                    {
+                        OptionsText[i].Text = Options[i + (CurrentPosition - 2)];
+                    }
+                    catch
+                    {
+                        OptionsText[i].Text = string.Empty;
+                    }
+                }
+                IsAnimate = false;
+            }));
+
+        }
     }
 
 	public void DownOption()
 	{
-        _panels[CurrentPosition].Visible = false;
-
-        if (CurrentPosition == CountOfOptions - 1)
-            CurrentPosition = 0;
-        else
+        if (CurrentPosition != Options.Count - 1)
+        {
+            IsAnimate = true;
             CurrentPosition++;
-        _panels[CurrentPosition].Visible = true;
+            Tween tween = CreateTween();
+            (float, float, Vector2, Color) startParams = (OptionsText[4].AnchorBottom, OptionsText[4].AnchorTop, OptionsText[4].Scale, OptionsText[4].Modulate);
+            for (int i = 1; i < OptionsText.Length; i++)
+            {
+                tween.Parallel().TweenProperty(OptionsText[i], "anchor_top", OptionsText[i - 1].AnchorTop, Duration);
+                tween.Parallel().TweenProperty(OptionsText[i], "anchor_bottom", OptionsText[i - 1].AnchorBottom, Duration);
+                tween.Parallel().TweenProperty(OptionsText[i], "scale", OptionsText[i - 1].Scale, Duration);
+                tween.Parallel().TweenProperty(OptionsText[i], "modulate:a", OptionsText[i - 1].Modulate.A, Duration);
+            }
+            tween.TweenCallback(Callable.From(() =>
+            {
+                for (int i = 0; i < OptionsText.Length - 1; i++)
+                {
+                    OptionsText[i].AnchorTop = OptionsText[i + 1].AnchorTop;
+                    OptionsText[i].AnchorBottom = OptionsText[i + 1].AnchorBottom;
+                    OptionsText[i].Scale = OptionsText[i + 1].Scale;
+                    OptionsText[i].Modulate = OptionsText[i + 1].Modulate;
+                }
+                (OptionsText[4].AnchorBottom, OptionsText[4].AnchorTop, OptionsText[4].Scale, OptionsText[4].Modulate) = startParams;
+                for (int i = 0; i < OptionsText.Length; i++)
+                {
+                    try
+                    {
+                        OptionsText[i].Text = Options[i + (CurrentPosition - 2)];
+                    }
+                    catch
+                    {
+                        OptionsText[i].Text = string.Empty;
+                    }
+                }
+                IsAnimate = false;
+            }));
+        }
+    }
+
+    public void ChangeOption(int option)
+    {
+        CurrentPosition = option;
     }
 
     public void ClearText()
     {
-        for (int i = 0;i < MAX_OPTIONS; i++)
+        for (int i = 0; i < 5; i++)
         {
-            _panels[i].Visible = false;
             OptionsText[i].Text = "";
         }
         IsPrinting = false;
-        _panels[0].Visible = true;
         CurrentPosition = 0;
     }
 
     public void PrintText(string text, string name)
     {
-        Text = $"\t{name}\n";
+        SetCharacterName(name);
+        Text = string.Empty;
         _name = name;
         _text = text;
         IsPrinting = true;
@@ -102,9 +179,19 @@ public partial class DialogText : RichTextLabel
 
     public void StopPrinting()
     {
-        Text = $"\t{_name}\n{_text.Replace("+", "")}";
+        SetCharacterName(_name);
+        Text = $"{_text.Replace("+", "")}";
         _counter = 0;
         IsPrinting = false;
+    }
+
+    public void SetCharacterName(string name)
+    {
+        if (name != string.Empty && name != null)
+            CharapterName.Visible = true;
+        else
+            CharapterName.Visible = false;
+        CharapterName.GetNode<Label>("Name").Text = name;
     }
 }
  

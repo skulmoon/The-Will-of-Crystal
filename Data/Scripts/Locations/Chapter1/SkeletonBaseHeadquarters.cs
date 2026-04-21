@@ -61,13 +61,85 @@ public partial class SkeletonBaseHeadquarters : Chapter1Location
                 switch (Global.CutSceneData.GetChoice(5, 7))
                 {
                     case 9:
-                        Global.CutSceneManager.OutputCutScene(5, 21);
+                        switch (Global.CutSceneData.GetChoice(5, 21))
+                        {
+                            case 11:
+                                switch (Global.CutSceneData.GetChoice(5, 22))
+                                {
+                                    case 17:
+                                        Global.CutSceneManager.OutputCutScene(5, 18);
+                                        break;
+                                    case -1:
+                                    case 13:
+                                        Global.CutSceneManager.OutputCutScene(5, 22);
+                                        break;
+                                }
+                                break;
+                            case 13:
+                            case -1:
+                                Global.CutSceneManager.OutputCutScene(5, 21);
+                                break;
+                        }
                         break;
                     case 8:
-                        Global.CutSceneManager.OutputCutScene(5, 14);
-                        break;
                     case 12:
-                        Global.CutSceneManager.OutputCutScene(5, 14);
+                        switch (Global.CutSceneData.GetChoice(5, 14))
+                        {
+                            case 20:
+                                switch (Global.CutSceneData.GetChoice(5, 21))
+                                {
+                                    case 16:
+                                        switch (Global.CutSceneData.GetChoice(5, 21))
+                                        {
+                                            case 11:
+                                                switch (Global.CutSceneData.GetChoice(5, 22))
+                                                {
+                                                    case 17:
+                                                        Global.CutSceneManager.OutputCutScene(5, 18);
+                                                        break;
+                                                    case -1:
+                                                    case 13:
+                                                        Global.CutSceneManager.OutputCutScene(5, 22);
+                                                        break;
+                                                }
+                                                break;
+                                            case 13:
+                                            case -1:
+                                                Global.CutSceneManager.OutputCutScene(5, 21);
+                                                break;
+                                        }
+                                        break;
+                                    case 15:
+                                        Global.CutSceneManager.OutputCutScene(5, 14);
+                                        break;
+                                }
+                                break;
+                            case 16:
+                                switch (Global.CutSceneData.GetChoice(5, 21))
+                                {
+                                    case 11:
+                                        switch (Global.CutSceneData.GetChoice(5, 22))
+                                        {
+                                            case 17:
+                                                Global.CutSceneManager.OutputCutScene(5, 18);
+                                                break;
+                                            case -1:
+                                            case 13:
+                                                Global.CutSceneManager.OutputCutScene(5, 22);
+                                                break;
+                                        }
+                                        break;
+                                    case 13:
+                                    case -1:
+                                        Global.CutSceneManager.OutputCutScene(5, 21);
+                                        break;
+                                }
+                                break;
+                            case 15:
+                            case -1:
+                                Global.CutSceneManager.OutputCutScene(5, 14);
+                                break;
+                        }
                         break;
                     case -1:
                         Global.CutSceneManager.OutputCutScene(5, 7);

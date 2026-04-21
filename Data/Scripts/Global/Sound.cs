@@ -26,6 +26,20 @@ public class Sound
         };
     }
 
+    public void PlaySound(List<AudioStreamPlayer2D> streamPlayers, string sound, float diffusion = 0)
+    {
+        AudioStreamPlayer2D streamPlayer = null;
+        if (streamPlayers != null)
+            streamPlayer = streamPlayers.Find(x => !x.Playing);
+        if (streamPlayer != null)
+        {
+            streamPlayer.Bus = "Sound";
+            streamPlayer.PitchScale = 1 + _random.RandfRange(-diffusion, diffusion);
+            streamPlayer.Stream = ResourceLoader.Load<AudioStream>(_soundPath + sound);
+            streamPlayer.Play();
+        }
+    }
+
     public void PlaySound(AudioStreamPlayer streamPlayer, string sound, float diffusion = 0)
     {
         if (streamPlayer != null)

@@ -16,7 +16,7 @@ public partial class BoneShard : ShardAbility
     {
         for (int i = 0; i < 3; i++)
         {
-            BoneShardProjectile2 projectile = new BoneShardProjectile2(Health / 2, Damage / 2, CritChance, Mathf.DegToRad(10), Vector2.FromAngle(Sprite.Rotation + Mathf.DegToRad(-45)), GlobalPosition);
+            BoneShardProjectile2 projectile = new BoneShardProjectile2(MaxHealth / 2, Damage / 2, CritChance, Mathf.DegToRad(10), Vector2.FromAngle(Sprite.Rotation + Mathf.DegToRad(-45)), GlobalPosition);
             GetTree().CurrentScene.AddChild(projectile);
         }
         TakeDamage(10);
@@ -28,7 +28,7 @@ public partial class BoneShard : ShardAbility
         AddChild(container);
         for (int i = 0; i < 6; i++)
         {
-            BoneShardProjectile1 projectile = new BoneShardProjectile1(Health / 2, Damage / 2, CritChance, i * MathF.PI / 3);
+            BoneShardProjectile1 projectile = new BoneShardProjectile1(MaxHealth / 2, Damage / 2, CritChance, i * MathF.PI / 3);
             container.AddChild(projectile);
         }
         TakeDamage(20);

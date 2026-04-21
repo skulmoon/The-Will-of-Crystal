@@ -22,9 +22,9 @@ public partial class ExplosionSkeletonAttack : EnemyAttack
         Rotate(Mathf.DegToRad(-480) * (float)delta);
     }
 
-    public override void OnPlayerAttackEntered(Area2D area)
+    public override void OnPlayerAttackEntered(Node2D node)
     {
-        if (area is HitBox or Shard2D)
+        if (node is HitBox or Shard2D)
         {
             _enemy.TakeDamage(_enemy.Damage);
             GetTree()?.CurrentScene?.CallDeferred("add_child", new ExplosionSkeletonExplosionAttack(Collision.GlobalPosition, _enemy.Damage));

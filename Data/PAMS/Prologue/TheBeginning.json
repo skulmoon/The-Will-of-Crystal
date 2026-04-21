@@ -1,6 +1,6 @@
 [
 	{"NPCID" : 0, "DialogueNumber" : [1], "PAMSs" : [
-		{"Music" : null, "FinalCustomize" : 6,  "FinalValues" : [
+		{"Music" : null, "FinalCustomize" : 5,  "FinalValues" : [
 			{"ID" : 0, "Position" : {"X" : 0, "Y" : 0}, "Animation" : null},
 		], "PAData" : [
 			{"NPCID" : 0, "Data" : [

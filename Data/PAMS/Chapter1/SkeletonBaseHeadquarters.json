@@ -22,13 +22,14 @@
 				{"Position" : {"X" : 580, "Y" : 490}, "Animation" : "standing_up", "Time" : null, "Customize" : null},
 			]},
 		]},
+		null,
 	]},
 	
-	{"NPCID" : 5, "DialogueNumber" : [6], "PAMSs" : [
+	{"NPCID" : 5, "DialogueNumber" : [6, 23], "PAMSs" : [
 		null,
 		null,
 		null,
-		{"Music" : null, "FinalCustomize" : null,  "FinalValues" : [
+		{"Music" : null, "FinalCustomize" : 1,  "FinalValues" : [
 			{"ID" : 0, "Position" : {"X" : 640, "Y" : 600}, "Animation" : "movement_down"},
 			{"ID" : 5, "Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_left"},
 			{"ID" : 6, "Position" : {"X" : 580, "Y" : 405}, "Animation" : "shovel_attack_right"},
@@ -81,7 +82,7 @@
 		null,
 		null,
 		{"Music" : null, "FinalCustomize" : 1,  "FinalValues" : [
-			{"ID" : 0, "Position" : {"X" : 640, "Y" : 522}, "Animation" : "standing_up"},
+			{"ID" : 0, "Position" : {"X" : 640, "Y" : 600}, "Animation" : "standing_up"},
 			{"ID" : 5, "Position" : {"X" : 640, "Y" : 405}, "Animation" : "standing_left"},
 			{"ID" : 6, "Position" : {"X" : 580, "Y" : 405}, "Animation" : "shovel_attack_right"},
 		], "PAData" : [

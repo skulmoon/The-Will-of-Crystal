@@ -8,10 +8,10 @@ public partial class DialogPanel : TextureRect
 {
     private DialogText _dialogText;
     private NPCDialogue _dialogue;
-    private AudioStreamPlayer _player; 
+    private AudioStreamPlayer _player;
     private Timer _delayTimer = new Timer { OneShot = true };
     private bool _startDialog = false;
-    private int[] _numberOptions = new int[5];
+    private List<int> _numberOptions = new List<int>();
 
     public bool IsSelected { get => (_dialogText?.Control?.Visible ?? false) || _delayTimer.TimeLeft != 0; }
     public bool IsPrinting { get => _dialogText?.IsPrinting ?? false; }
@@ -21,7 +21,6 @@ public partial class DialogPanel : TextureRect
 
     public override void _Ready()
     {
-        Position = new Vector2(Position.X, GetParentAreaSize().Y + 100);
         _dialogText = GetNode<DialogText>("DialogText");
         _player = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
         AddChild(_delayTimer);
@@ -34,7 +33,7 @@ public partial class DialogPanel : TextureRect
 
     public override void _Process(double delta)
     {
-        if (IsSelected && Global.CutSceneManager.IsChargeComplete)
+        if (IsSelected && Global.CutSceneManager.IsChargeComplete && !_dialogText.IsAnimate)
         {
             if (Input.IsActionJustPressed("up"))
                 _dialogText.UpOption();
@@ -43,8 +42,9 @@ public partial class DialogPanel : TextureRect
             else if (Input.IsActionJustPressed("interact"))
             {
                 _delayTimer.Start(0.1);
-                _dialogText.Control.Visible = false;
-                Global.CutSceneManager.OutputCutScene(_numberOptions[_dialogText.CurrentPosition]);
+                int option = _dialogText.CurrentPosition;
+                _dialogText.EndOptions();
+                Global.CutSceneManager.OutputCutScene(_numberOptions[option]);
             }
         }
     }
@@ -77,16 +77,13 @@ public partial class DialogPanel : TextureRect
     {
         if (_dialogue.Options != null)
         {
-            _dialogText.Text = "";
-            _dialogText.Control.Visible = true;
-            foreach (var option in _dialogText.OptionsText)
-                option.Text = string.Empty;
-            _dialogText.CountOfOptions = _dialogue.Options.Count;
-            for (int i = 0; i < _dialogText.CountOfOptions; i++)
+            List<string> options = new List<string>();
+            foreach (Option option in _dialogue.Options)
             {
-                _dialogText.OptionsText[i].Text = _dialogue.Options[i].OptionText;
-                _numberOptions[i] = _dialogue.Options[i].NextDialogue;
+                _numberOptions.Add(option.NextDialogue);
+                options.Add(option.OptionText);
             }
+            _dialogText.StartOptions(options);
         }
     }
 
@@ -95,7 +92,9 @@ public partial class DialogPanel : TextureRect
         if (!Visible)
         {
             Visible = true;
-            CreateTween().TweenProperty(this, "position:y", 1180 - 455, 0.4f).SetTrans(Tween.TransitionType.Sine);
+            Tween tween = CreateTween();
+            tween.TweenProperty(this, "anchor_bottom", 1f, 0.4f).SetTrans(Tween.TransitionType.Sine);
+            tween.Parallel().TweenProperty(this, "anchor_top", 0.625f, 0.4f).SetTrans(Tween.TransitionType.Sine);
         }
     }
 
@@ -104,8 +103,9 @@ public partial class DialogPanel : TextureRect
         if (Visible)
         {
             Tween tween = CreateTween();
-            tween.TweenProperty(this, "position:y", 1180, 0.4f).SetTrans(Tween.TransitionType.Sine);
-            tween.TweenCallback(new Callable(this, "SetVisible"));
+            tween.TweenProperty(this, "anchor_bottom", 1.5f, 0.4f).SetTrans(Tween.TransitionType.Sine);
+            tween.Parallel().TweenProperty(this, "anchor_top", 1.125f, 0.4f).SetTrans(Tween.TransitionType.Sine);
+            tween.TweenCallback(new Callable(this, nameof(SetVisible)));
         }
     }
 

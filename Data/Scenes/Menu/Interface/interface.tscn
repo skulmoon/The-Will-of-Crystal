@@ -206,6 +206,7 @@ script = ExtResource("16_g6n5s")
 visible = false
 
 [node name="HealthAndStaminaBar" type="TextureRect" parent="."]
+z_index = 1
 material = SubResource("ShaderMaterial_g6n5s")
 clip_contents = true
 anchors_preset = -1
@@ -247,6 +248,7 @@ offset_top = 0.060367584
 offset_right = -0.15475464
 offset_bottom = -0.5482712
 theme_override_styles/fill = SubResource("StyleBoxFlat_8b8mw")
+value = 50.0
 fill_mode = 1
 show_percentage = false
 script = ExtResource("4_ayiv2")
@@ -264,6 +266,7 @@ offset_top = 0.0966835
 offset_right = 0.084472656
 offset_bottom = -0.0076065063
 theme_override_styles/fill = SubResource("StyleBoxFlat_vgfk6")
+value = 50.0
 fill_mode = 1
 show_percentage = false
 script = ExtResource("5_vw5ff")
@@ -566,6 +569,7 @@ ShardNumber = 3
 [node name="MenuDark" type="TextureRect" parent="."]
 unique_name_in_owner = true
 modulate = Color(0, 0, 0, 1)
+z_index = 2
 material = SubResource("ShaderMaterial_x61gi")
 anchors_preset = 15
 anchor_right = 1.0
@@ -578,11 +582,14 @@ script = ExtResource("16_g6n5s")
 
 [node name="TradeMenu" parent="." instance=ExtResource("3_ayiv2")]
 visible = false
+z_index = 2
 
 [node name="InventoryMenu" parent="." instance=ExtResource("2_1v5r0")]
 unique_name_in_owner = true
 process_mode = 3
 visible = false
+z_index = 2
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_btvnv")]
 visible = false
+z_index = 2

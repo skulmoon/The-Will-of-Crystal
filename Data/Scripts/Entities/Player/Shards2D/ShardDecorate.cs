@@ -18,7 +18,6 @@ public class ShardDecorate
 	{
         _delta += (float)delta * 10;
         float distanceToСursor = manager.GlobalPosition.DistanceTo(cursorPosition);
-        shard.Light.Energy = MathF.Sin(_delta) * 0.5f + 0.9f;
         Vector2 direction = manager.Position.DirectionTo(cursorPosition);
         if (manager.GlobalPosition.DistanceTo(cursorPosition) > (float)delta * shard.Speed)
             shard.Sprite.Rotation = Vector2.FromAngle(shard.Sprite.Rotation).Lerp(Vector2.FromAngle(shard.GlobalPosition.AngleToPoint(cursorPosition) + (45 * MathF.PI / 180) + (MathF.Sin(_delta) / 10)), 20 * (float)delta).Angle();

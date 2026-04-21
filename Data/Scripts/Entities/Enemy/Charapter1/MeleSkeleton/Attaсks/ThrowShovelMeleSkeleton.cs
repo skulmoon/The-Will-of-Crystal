@@ -12,7 +12,7 @@ public partial class ThrowShovelMeleSkeleton : EnemyAttack
         {
             Size = new Vector2(4, 30)
         };
-        AnimatedSprite2D sprite = GD.Load<PackedScene>("res://Data/Textures/Entities/Enemys/Chapter1/SkeletonShovel.tscn").Instantiate<AnimatedSprite2D>();
+        AnimatedSprite2D sprite = GD.Load<PackedScene>("res://Data/Textures/Entities/Enemys/Chapter1/SkeletonThrowShovel.tscn").Instantiate<AnimatedSprite2D>();
         AddChild(sprite);
         sprite.Play("default");
         GlobalPosition = enemyPosition;

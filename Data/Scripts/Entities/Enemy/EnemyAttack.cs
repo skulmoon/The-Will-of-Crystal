@@ -7,6 +7,9 @@ public abstract partial class EnemyAttack : CharacterBody2D
 	private CollisionShape2D _collision = new CollisionShape2D();
 
 	public int Damage { get; private set; } = 10;
+    public AnimatedSprite2D Sprite { get; private set; }
+
+    public Area2D AttackArea { get; set; }
 
     public CollisionShape2D Collision
     {
@@ -24,12 +27,15 @@ public abstract partial class EnemyAttack : CharacterBody2D
 	{
 
         Area2D area = new Area2D();
-		area.AddChild(_collision);
+        area.Position += new Vector2(0, 32);
+        area.AddChild(_collision);
+        area.BodyEntered += OnPlayerAttackEntered;
         area.AreaEntered += OnPlayerAttackEntered;
-		AddChild(area);
+        AddChild(area);
         area.CollisionLayer = 16;
         area.CollisionMask = 16;
-		Damage = damage;
+        AttackArea = area;
+        Damage = damage;
 		_lifeTime = new Timer()
 		{
 			WaitTime = lifeTime,
@@ -41,18 +47,23 @@ public abstract partial class EnemyAttack : CharacterBody2D
 		_lifeTime.Timeout += Destroy;
 		if (texture != string.Empty)
 		{
-			AddChild(new Sprite2D()
-			{
-				Texture = GD.Load<Texture2D>(texture)
-			});
-		}
+            Sprite = GD.Load<PackedScene>($"res://Data/Textures/Entities/Enemys/{texture}").Instantiate<AnimatedSprite2D>();
+            AddChild(Sprite);
+            Sprite.Play("default");
+        }
     }
 
-    public virtual void OnPlayerAttackEntered(Area2D area)
+    public override void _Ready()
+    {
+        Position += new Vector2(0, -32);
+        base._Ready();
+    }
+
+    public virtual void OnPlayerAttackEntered(Node2D node)
 	{
-		if (area is PlayerAttack playerAttack)
+		if (node is PlayerAttack playerAttack)
 			AttackPlayerAttack(playerAttack);
-		else if (area is HitBox hitBox)
+		else if (node is HitBox hitBox)
 			AttackPlayer(hitBox);
 	}
 

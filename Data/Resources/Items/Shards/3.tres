@@ -6,11 +6,10 @@
 script = ExtResource("1_bmcyq")
 ShardType = "BoneShard"
 Health = 35
-Damage = 5
 Speed = 150
 TimeReload = 3.0
 CritChance = 0.2
-MaxRange = 300.0
+MaxRange = 150
 ID = 3
 MaxCount = 1
 Name = "Barrier shard"

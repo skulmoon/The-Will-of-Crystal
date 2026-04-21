@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bverrpf03j36w"]
+[gd_scene load_steps=60 format=3 uid="uid://bverrpf03j36w"]
 
 [ext_resource type="Script" uid="uid://r8gma1kfcxkp" path="res://Data/Scripts/Locations/Prologue/TheBeginning.cs" id="1_yulke"]
 [ext_resource type="Script" uid="uid://cil72e51qklhw" path="res://Data/Scripts/Entities/NPC/NPC.cs" id="2_p7gil"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://ivrj55cuvd4m" path="res://Data/Scripts/Menu/Interface/ProgressBars/HealthAndStaminaBar.cs" id="6_8uqoj"]
 [ext_resource type="Texture2D" uid="uid://dw8fhc1nuwser" path="res://Data/Textures/Locations/Prologue/Yey.png" id="6_va203"]
 [ext_resource type="Script" uid="uid://ut3cllc1tsuu" path="res://Data/Scripts/Menu/Interface/ProgressBars/HealthProgressBar.cs" id="7_ssd0p"]
+[ext_resource type="Script" uid="uid://dqwtc1jcl115m" path="res://Data/Scripts/Locations/Prologue/SkipLabel.cs" id="8_ckv4t"]
 [ext_resource type="Script" uid="uid://chhs0qx4rkapc" path="res://Data/Scripts/Menu/Interface/ProgressBars/PowerProgressBar.cs" id="8_ohaol"]
 [ext_resource type="Script" uid="uid://bqhqf4m7lqv0j" path="res://Data/Scripts/Menu/Interface/ProgressBars/FirstShardAbilityBar.cs" id="9_va203"]
 [ext_resource type="Script" uid="uid://bv47fvd7qj5jy" path="res://Data/Scripts/Menu/Interface/ProgressBars/SecondShardAbilityBar.cs" id="10_ckv4t"]
@@ -324,7 +325,7 @@ offset_right = 576.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 78
-text = "В начале было ничто."
+text = "CUTSCENE1_1"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_ssd0p")
@@ -351,8 +352,7 @@ offset_top = 0.039993286
 offset_right = 278.47998
 offset_bottom = 0.10394287
 theme_override_font_sizes/font_size = 78
-text = "Из ничего был
-рождён мир."
+text = "CUTSCENE1_2"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -379,7 +379,7 @@ offset_left = -350.0
 offset_right = 350.0
 pivot_offset = Vector2(350, 259.2)
 theme_override_font_sizes/font_size = 78
-text = "Он был полон всего."
+text = "CUTSCENE1_3"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_ssd0p")
@@ -407,7 +407,7 @@ anchor_bottom = 0.3
 offset_left = -350.0
 offset_right = 350.0
 theme_override_font_sizes/font_size = 78
-text = "Мир спал,"
+text = "CUTSCENE1_4"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_ssd0p")
@@ -435,7 +435,7 @@ anchor_bottom = 0.95
 offset_left = -350.0
 offset_right = 350.0
 theme_override_font_sizes/font_size = 78
-text = "но однажды он..."
+text = "CUTSCENE1_5"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_ssd0p")
@@ -485,6 +485,16 @@ speed_scale = 8.0
 [node name="Node" type="Node" parent="CanvasLayer/Image3"]
 script = ExtResource("4_8uqoj")
 multiplier = 16.0
+
+[node name="Label6" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.060000002
+theme_override_font_sizes/font_size = 39
+text = "Нажмите \"{0}\" для пропуска."
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("8_ckv4t")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("2_p7gil")

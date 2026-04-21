@@ -33,7 +33,6 @@ public partial class Dialogue : Node
             DialogueNumber = lastDialogueNumber,
             Choice = DialogueNumber
         };
-
         for (int i = 0; i < _playerChoices.Count; i++)
             if (_playerChoices[i].NPCID == NPCID && _playerChoices[i].DialogueNumber == lastDialogueNumber)
             {

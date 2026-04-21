@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 
-public partial class ConfigLoader : Node
+public partial class ConfigManager : Node
 {
     private bool _isNew;
     private JsonSerializerSettings _settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
@@ -12,31 +12,50 @@ public partial class ConfigLoader : Node
 
     public ConfigInfo ConfigInfo { get; set; }
 
-    public ConfigLoader() 
+    public ConfigManager() 
 	{
         ConfigInfo = GetConfig();
         if (!_isNew)
-        {
-            TranslationServer.SetLocale(ConfigInfo.Base.Language); //Base
-            AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), ConfigInfo.Sound.Base); //Sound
-            AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Sound"), ConfigInfo.Sound.Environment);
-            AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), ConfigInfo.Sound.Music);
-            foreach (var action in ConfigInfo.Control.KeyActionList) //Control
-            {
-                InputMap.ActionEraseEvents(action.Item1);
-                foreach (var item in action.Item2 ?? new List<(long?, int?)>())
-                    if (item.Item1 != null)    
-                        InputMap.ActionAddEvent(action.Item1, new InputEventKey { Keycode = (Key)(item.Item1 ?? 0) });
-                    else if (item.Item2 != null)
-                        InputMap.ActionAddEvent(action.Item1, new InputEventMouseButton { ButtonIndex = (MouseButton)(item.Item2 ?? 0) });
-            }
-        }
+            LoadConfig();
         else
             TranslationServer.SetLocale("ru");
     }
 
-    public void SaveConfig(ConfigInfo config)
+    public void SaveConfig()
     {
+        List<(string, List<(long?, int?)>)> keyActionList = new List<(string, List<(long?, int?)>)>();
+        foreach (var action in GetCustomActions())
+        {
+            List<(long?, int?)> keys = new List<(long?, int?)>();
+            foreach (var key in InputMap.ActionGetEvents(action))
+                if (key is InputEventKey eventKey)
+                    keys.Add(((long)eventKey.Keycode, null));
+                else if (key is InputEventMouseButton eventMouse)
+                    keys.Add((null, (int)eventMouse.ButtonIndex));
+            keyActionList.Add((action, keys));
+        }
+        ConfigInfo config = new ConfigInfo
+        {
+            Base = new ConfigBase
+            {
+                Language = TranslationServer.GetLocale() ?? "ru",
+                FistCutSceneActivated = Global.Settings.FistCutSceneActivated,
+            },
+            Graphics = new ConfigGraphics
+            {
+
+            },
+            Sound = new ConfigSound
+            {
+                Base = AudioServer.GetBusVolumeDb(AudioServer.GetBusIndex("Master")),
+                Environment = AudioServer.GetBusVolumeDb(AudioServer.GetBusIndex("Sound")),
+                Music = AudioServer.GetBusVolumeDb(AudioServer.GetBusIndex("Music")),
+            },
+            Control = new ConfigControl
+            {
+                KeyActionList = keyActionList,
+            }
+        };
         string configJson = JsonConvert.SerializeObject(config, Formatting.Indented, _settings);
         _directory.SaveConfig(configJson);
     }
@@ -53,6 +72,7 @@ public partial class ConfigLoader : Node
     public void LoadConfig()
     {
         TranslationServer.SetLocale(ConfigInfo.Base.Language); //Base
+        Global.Settings.FistCutSceneActivated = ConfigInfo.Base.FistCutSceneActivated;
         AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), ConfigInfo.Sound.Base); //Sound
         AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Sound"), ConfigInfo.Sound.Environment);
         AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), ConfigInfo.Sound.Music);
@@ -65,5 +85,14 @@ public partial class ConfigLoader : Node
                 else if (item.Item2 != null)
                     InputMap.ActionAddEvent(action.Item1, new InputEventMouseButton { ButtonIndex = (MouseButton)(item.Item2 ?? 0) });
         }
+    }
+
+    public static List<string> GetCustomActions()
+    {
+        List<string> result = new List<string>();
+        foreach (var action in InputMap.GetActions())
+            if (!((string)action).StartsWith("ui_"))
+                result.Add(action);
+        return result;
     }
 }

@@ -551,4 +551,5 @@ animations = [{
 [node name="DistantSkeleton" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_avtpe")
 animation = &"twohanded_attack_down"
+offset = Vector2(0, -32)
 script = ExtResource("2_pfdi6")

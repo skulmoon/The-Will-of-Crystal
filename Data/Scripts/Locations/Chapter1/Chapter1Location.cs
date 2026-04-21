@@ -6,6 +6,7 @@ public partial class Chapter1Location : Location
 	public override void _Ready()
 	{
 		base._Ready();
-		Global.Music.PlayMusic("Sunsefering.ogg");
+        Modulate = Modulate.Darkened(0.7f);
+        Global.Music.PlayMusic("Sunsefering.ogg");
 	}
 }

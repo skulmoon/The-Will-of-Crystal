@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=4 uid="uid://cx6qwho3r5y2x"]
+[gd_scene load_steps=125 format=4 uid="uid://cx6qwho3r5y2x"]
 
 [ext_resource type="Script" uid="uid://c71ds2uok3dbb" path="res://Data/Scripts/Locations/Chapter1/SkeletonBaseHeadquarters.cs" id="1_wh0gu"]
 [ext_resource type="Texture2D" uid="uid://djc3krnjf1ow7" path="res://Data/Textures/Locations/Charapter1/Background.png" id="2_8h75k"]
@@ -14,6 +14,8 @@
 [ext_resource type="Shader" uid="uid://bbrj0hata7gby" path="res://Data/Shaders/MenuDark.gdshader" id="10_ja645"]
 [ext_resource type="Script" uid="uid://dwj6pd3ruyisr" path="res://Data/Scripts/Menu/Interface/UIDark.cs" id="11_vjhm0"]
 [ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/DialogPanel.tscn" id="12_5fu4f"]
+[ext_resource type="Texture2D" uid="uid://c32wjbl1tsdaw" path="res://Data/Textures/Light.png" id="18_ura28"]
+[ext_resource type="Script" uid="uid://bjw6djdmvp5ca" path="res://Data/Scripts/Tools/AnimatedLight.cs" id="19_jmnn7"]
 [ext_resource type="PackedScene" uid="uid://5p113gt2878n" path="res://Data/Scenes/Menu/Trade/TradeMenu.tscn" id="25_ykakp"]
 [ext_resource type="PackedScene" uid="uid://qejl5dn1sgf8" path="res://Data/Scenes/Menu/Interface/Inventory/InventoryMenu.tscn" id="26_lnedi"]
 [ext_resource type="PackedScene" uid="uid://cfpu5icvlw782" path="res://Data/Scenes/Menu/Interface/PauseMenu/PauseMenu.tscn" id="27_dwf8c"]
@@ -2860,6 +2862,18 @@ sprite_frames = SubResource("SpriteFrames_sret4")
 animation = &"standing_down"
 offset = Vector2(0, -28)
 
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+position = Vector2(0, -40)
+color = Color(0.45999998, 0.88299996, 1, 1)
+range_z_min = -2048
+range_z_max = 2048
+texture = ExtResource("18_ura28")
+texture_scale = 2.0
+script = ExtResource("19_jmnn7")
+MinEnergy = 2.0
+MaxEnergy = 2.5
+Time = 2.0
+
 [node name="Border" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 position = Vector2(16, 16)
@@ -2999,3 +3013,13 @@ visible = false
 
 [node name="PauseMenu" parent="Interface" instance=ExtResource("27_dwf8c")]
 visible = false
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(654, 416)
+color = Color(0.45882353, 0.88235295, 1, 1)
+texture = ExtResource("18_ura28")
+texture_scale = 1.5
+script = ExtResource("19_jmnn7")
+MinEnergy = 1.0
+MaxEnergy = 1.2
+Time = 3.1

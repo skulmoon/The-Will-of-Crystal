@@ -69,16 +69,22 @@ public partial class UIDark : TextureRect
             HideDark();
     }
 
-    public void ShowDark(Action darkShowed)
+    public void ShowDark(Action darkShowed) =>
+        ShowDark(DurationTranslate, darkShowed);
+
+    public void ShowDark(float duration, Action darkShowed)
     {
         DarkShowed += darkShowed;
-        ShowDark();
+        ShowDark(duration);
     }
 
-    public void ShowDark()
+    public void ShowDark() =>
+        ShowDark(DurationTranslate);
+
+    public void ShowDark(float duration)
     {
         Tween tween = CreateTween();
-        tween.TweenMethod(new Callable(this, "ChangeDarkPower"), MinlDarkPower, 1f, DurationTranslate);
+        tween.TweenMethod(new Callable(this, "ChangeDarkPower"), MinlDarkPower, 1f, duration);
         tween.TweenCallback(new Callable(this, "DarkShowNotify"));
     }
 

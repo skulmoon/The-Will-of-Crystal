@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxpksjd1yeuaj"]
+
+[ext_resource type="Script" uid="uid://dljmdkqky7vud" path="res://Data/Scripts/SoundWalkPlayer.cs" id="1_k5juj"]
+
+[node name="SkeletonSoundWalkPlayer" type="Node2D"]
+script = ExtResource("1_k5juj")
+AudioPlayersCount = 10
+Sound = "SkeletonWalk.ogg"
+Diffusion = 0.2
+Interval = 0.5

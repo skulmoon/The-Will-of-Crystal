@@ -3,8 +3,7 @@ using System;
 
 public abstract partial class Shard2D : PlayerAttack
 {
-    private int _maxHealth = 30;
-
+    public int MaxHealth { get; private set; } = 30;
     public bool IsMain { get; set; } = false;
     public Sprite2D Sprite { get; set; }
     public PointLight2D Light { get; private set; }
@@ -21,7 +20,7 @@ public abstract partial class Shard2D : PlayerAttack
         AddChild(Sprite);
         Light = (PointLight2D)GD.Load<PackedScene>("res://Data/Scenes/Entities/Player/Shard2D/PointLight2D.tscn").Instantiate();
         Sprite.AddChild(Light);
-        _maxHealth = health;
+        MaxHealth = health;
         Health = health;
         Damage = damage;
         Speed = speed;
@@ -38,7 +37,7 @@ public abstract partial class Shard2D : PlayerAttack
     }
 
     public void RecoveryHealth() =>
-        Health = _maxHealth;
+        Health = MaxHealth;
 
     public override void AddParticle(GpuParticles2D particle)
     {

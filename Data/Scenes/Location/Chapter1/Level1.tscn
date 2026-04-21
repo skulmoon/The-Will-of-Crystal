@@ -1545,7 +1545,7 @@ position = Vector2(16, 16)
 tile_map_data = PackedByteArray("AAAVAP3/AAAGAAAAAAAWAP3/AAABAAAAAAAXAP3/AAABAAAAAAAYAP3/AAABAAAAAAAZAP3/AAACAAAAAAATAP3/AAABAAAAAAAUAP3/AAABAAMAAAASAPz/AAACAAAAAAALAAUAAAAAAAAAAAAMAAUAAAABAAAAAAACAAgAAAAAAAAAAAADAAgAAAABAAAAAAD//wkAAAAAAAMAAAAVAP7/AAAAAAIAAAAWAP7/AAABAAIAAAAXAP7/AAABAAIAAAAYAP7/AAABAAIAAAAZAP7/AAACAAIAAAD+/woAAAADAAAAAAD+/wsAAAADAAEAAAD+/wwAAAADAAEAAAD+/w0AAAADAAEAAAD+/w4AAAADAAEAAAD+/w8AAAADAAEAAAD+/xAAAAADAAEAAAD+/xEAAAADAAEAAAD+/xIAAAADAAIAAAA=")
 
 [node name="Player" parent="." instance=ExtResource("4_anwcg")]
-position = Vector2(-10, 396)
+position = Vector2(78, 402)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-12, 400)
@@ -1568,9 +1568,8 @@ EndPosition = Vector2(480, 642)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource("RectangleShape2D_yrqta")
 
-[node name="EnemyFabric" type="Node" parent="." node_paths=PackedStringArray("Core", "EnemyAreas")]
+[node name="EnemyFabric" type="Node2D" parent="." node_paths=PackedStringArray("Core", "EnemyAreas")]
 script = ExtResource("7_g1wad")
-MeleSkeletonCount = 1
 DistantSkeletonCount = 1
 Core = NodePath("EnemyCore")
 EnemyAreas = [NodePath("EnemyArea")]
