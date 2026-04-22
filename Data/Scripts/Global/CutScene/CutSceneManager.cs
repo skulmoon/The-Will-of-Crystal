@@ -26,7 +26,6 @@ public partial class CutSceneManager : Node
         _PAMSController = new PAMSController(this);
         Global.SceneObjects.DialoguePanelChanged += TakePanel;
         Global.SceneObjects.StorageReady += (storage) => storage.GetTree().Root.CallDeferred("add_child", this);
-        Global.SceneObjects.LocationChanged += (location) => _currentCutScene = 0;
         AddChild(_chargeTimer);
     }
 
@@ -55,7 +54,10 @@ public partial class CutSceneManager : Node
             bool isNext = true;
             if (!(_PAMSController?.IsDone ?? true))
             {
+                int lastNumber = _currentCutScene;
                 _PAMSController?.EndPAMS();
+                if (_currentCutScene != lastNumber)
+                    isNext = false;
             }
             if (_panel?.IsPrinting ?? false)
             {
@@ -74,7 +76,7 @@ public partial class CutSceneManager : Node
         if (_currentCutScene < _CutSceneCount)
         {
             bool isNotEmpty = false;
-            while (!isNotEmpty)
+            while (!isNotEmpty && _currentCutScene < _CutSceneCount)
             {
                 isNotEmpty = true;
                 _PAMSController.NextPAMS();
